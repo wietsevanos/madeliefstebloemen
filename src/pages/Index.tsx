@@ -16,6 +16,7 @@ const services = [
     title: "Verse Bloemen", 
     icon: Flower2, 
     image: boeketGemengdImage,
+    description: "Dagelijks verse bloemen, met liefde samengesteld",
     prices: [
       { item: "Gemengd boeket klein", price: "€12,50" },
       { item: "Gemengd boeket medium", price: "€17,50" },
@@ -27,6 +28,7 @@ const services = [
     title: "Trouwboeketten", 
     icon: Heart, 
     image: trouwboeketImage,
+    description: "Maak je grote dag onvergetelijk",
     prices: [
       { item: "Bruidsboeket classic", price: "vanaf €75,00" },
       { item: "Bruidsboeket luxe", price: "vanaf €125,00" },
@@ -37,6 +39,7 @@ const services = [
     title: "Rouwstukken", 
     icon: TreeDeciduous, 
     image: rouwstukImage,
+    description: "Met zorg en aandacht samengesteld",
     prices: [
       { item: "Rouwboeket", price: "vanaf €25,00" },
       { item: "Kistbedekking", price: "vanaf €95,00" },
@@ -47,6 +50,7 @@ const services = [
     title: "Seizoensarrangementen", 
     icon: Gift, 
     image: bloemstukImage,
+    description: "Passend bij elk seizoen",
     prices: [
       { item: "Kerststukje", price: "vanaf €18,50" },
       { item: "Kerstkrans", price: "vanaf €35,00" },
@@ -54,6 +58,10 @@ const services = [
     ]
   },
 ];
+
+// Preload Nancy image
+const preloadNancyImage = new Image();
+preloadNancyImage.src = nancyImage;
 
 const reviews = [
   { name: "Maria V.", rating: 5, text: "Altijd prachtige verse bloemen en geweldig advies van Nancy!" },
@@ -91,21 +99,10 @@ export default function Index() {
             <span className="font-heading text-xl md:text-2xl font-semibold text-primary">
               Madeliefste
             </span>
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://wa.me/31651343023" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-500 text-white px-3 py-2 rounded-full hover:bg-green-600 transition-colors text-sm font-medium"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span className="hidden sm:inline">WhatsApp</span>
-              </a>
-              <a href="tel:0235315809" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-                <Phone className="w-5 h-5" />
-                <span className="font-medium hidden sm:inline">023 531 58 09</span>
-              </a>
-            </div>
+            <a href="tel:0235315809" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+              <Phone className="w-5 h-5" />
+              <span className="font-medium">023 531 58 09</span>
+            </a>
           </div>
         </div>
       </header>
@@ -129,8 +126,22 @@ export default function Index() {
             Jouw buurtbloemist in de Hoofmanstraat, Haarlem
           </p>
           
-          {/* Two Main Buttons */}
+          {/* Main Buttons */}
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in-delay-2">
+            {/* WhatsApp Button */}
+            <a 
+              href="https://wa.me/31651343023" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-medium"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp
+            </a>
+          </div>
+          
+          {/* Secondary Buttons */}
+          <div className="flex flex-wrap justify-center gap-4 mt-4 animate-fade-in-delay-2">
             {/* Over Nancy Dialog */}
             <Dialog>
               <DialogTrigger asChild>
@@ -293,38 +304,64 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Services/Aanbod Section - On page */}
+      {/* Services/Aanbod Section - Popup buttons */}
       <section className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {services.map((service) => (
-              <div key={service.title} className="bg-card rounded-xl overflow-hidden shadow-soft">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-40 object-cover"
-                />
-                <div className="p-4">
-                  <div className="flex items-center gap-2 mb-3">
-                    <service.icon className="w-5 h-5 text-accent" />
-                    <h3 className="font-heading font-semibold text-foreground">{service.title}</h3>
+              <Dialog key={service.title}>
+                <DialogTrigger asChild>
+                  <button className="group bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
+                    <div className="relative h-32 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <div className="flex items-center gap-2 text-primary-foreground">
+                          <service.icon className="w-4 h-4" />
+                          <span className="font-heading font-semibold text-sm">{service.title}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center gap-2 text-primary">
+                      <service.icon className="w-5 h-5" />
+                      {service.title}
+                    </DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                    <p className="text-muted-foreground">{service.description}</p>
+                    <div className="bg-secondary rounded-lg p-4">
+                      <h4 className="font-medium mb-3">Prijzen</h4>
+                      <ul className="space-y-2">
+                        {service.prices.map((price, idx) => (
+                          <li key={idx} className="flex justify-between text-sm">
+                            <span className="text-muted-foreground">{price.item}</span>
+                            <span className="font-medium text-foreground">{price.price}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <p className="text-xs text-muted-foreground text-center">
+                      Indicatieprijzen. Neem contact op voor een offerte.
+                    </p>
                   </div>
-                  <ul className="space-y-1 text-sm">
-                    {service.prices.map((price, idx) => (
-                      <li key={idx} className="flex justify-between">
-                        <span className="text-muted-foreground">{price.item}</span>
-                        <span className="font-medium text-foreground">{price.price}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
-          <p className="text-center text-muted-foreground text-sm mt-8">
-            Indicatieprijzen. Bel of WhatsApp ons voor bestellingen!
-          </p>
         </div>
       </section>
 
@@ -400,10 +437,54 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Instagram Preview Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Instagram className="w-6 h-6 text-primary" />
+              <h2 className="heading-lg">Volg ons op Instagram</h2>
+            </div>
+            <p className="text-muted-foreground">@madeliefstebloemen</p>
+          </div>
+          <div className="max-w-lg mx-auto">
+            <a 
+              href="https://www.instagram.com/madeliefstebloemen/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all group"
+            >
+              <div className="p-4 flex items-center gap-3 border-b border-border">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                  <Instagram className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm">madeliefstebloemen</p>
+                  <p className="text-xs text-muted-foreground">Bloemist in Haarlem</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-0.5">
+                <img src={boeketGemengdImage} alt="Instagram post" className="w-full aspect-square object-cover" />
+                <img src={bloemstukImage} alt="Instagram post" className="w-full aspect-square object-cover" />
+                <img src={trouwboeketImage} alt="Instagram post" className="w-full aspect-square object-cover" />
+              </div>
+              <div className="p-4 text-center">
+                <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:underline">
+                  Bekijk profiel op Instagram
+                  <Instagram className="w-4 h-4" />
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-8">
         <div className="container-custom text-center">
           <h3 className="font-heading text-2xl font-semibold mb-4">Madeliefste Bloemen</h3>
+          <p className="text-primary-foreground/80 text-sm mb-2">Hoofmanstraat 1, 2014 DP Haarlem</p>
+          <p className="text-primary-foreground/80 text-sm mb-4">023 531 58 09</p>
           <div className="flex justify-center gap-4 mb-4">
             <a 
               href="https://www.instagram.com/madeliefstebloemen/" 
@@ -422,7 +503,8 @@ export default function Index() {
               <MessageCircle className="w-6 h-6" />
             </a>
           </div>
-          <p className="text-primary-foreground/60 text-sm">© 2024 Madeliefste Bloemen</p>
+          <p className="text-primary-foreground/60 text-xs">KvK: 52278506</p>
+          <p className="text-primary-foreground/60 text-xs mt-1">© 2024 Madeliefste Bloemen</p>
         </div>
       </footer>
     </div>
