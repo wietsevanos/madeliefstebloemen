@@ -1,71 +1,56 @@
 import { useState } from "react";
-import { MapPin, Clock, Phone, Mail, Star, Heart, Flower2, Gift, TreeDeciduous, Send, Sparkles } from "lucide-react";
+import { MapPin, Clock, Phone, Star, Heart, Flower2, Gift, TreeDeciduous, Send, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
-import bouquetImage from "@/assets/bouquet-1.jpg";
+import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
+import bloemstukImage from "@/assets/bloemstuk.jpg";
 import trouwboeketImage from "@/assets/trouwboeket.jpg";
 import rouwstukImage from "@/assets/rouwstuk.jpg";
-import kerststukImage from "@/assets/kerststuk.jpg";
 
 const services = [
   { 
-    title: "Verse Dagbloemen", 
-    description: "Elke dag verse, prachtige bloemen rechtstreeks van de veiling. Seizoensgebonden selectie met de mooiste kleuren en geuren.", 
+    title: "Verse Bloemen", 
     icon: Flower2, 
-    image: bouquetImage,
+    image: boeketGemengdImage,
     prices: [
       { item: "Gemengd boeket klein", price: "€12,50" },
       { item: "Gemengd boeket medium", price: "€17,50" },
       { item: "Gemengd boeket groot", price: "€25,00" },
       { item: "Luxe boeket", price: "vanaf €35,00" },
-      { item: "Bos tulpen (10 st.)", price: "€8,50" },
-      { item: "Bos rozen (10 st.)", price: "€15,00" },
     ]
   },
   { 
     title: "Trouwboeketten", 
-    description: "Maak je speciale dag nog mooier met een uniek bruidsboeket. Volledig op maat gemaakt in overleg.", 
     icon: Heart, 
     image: trouwboeketImage,
     prices: [
       { item: "Bruidsboeket classic", price: "vanaf €75,00" },
       { item: "Bruidsboeket luxe", price: "vanaf €125,00" },
       { item: "Corsage bruidegom", price: "€15,00" },
-      { item: "Haarstukje bruid", price: "€25,00" },
-      { item: "Bruidsmeisjes boeket", price: "vanaf €35,00" },
-      { item: "Tafelstuk ceremonie", price: "vanaf €45,00" },
     ]
   },
   { 
     title: "Rouwstukken", 
-    description: "Met respect en aandacht samengestelde bloemstukken voor een waardig afscheid. Persoonlijk advies mogelijk.", 
     icon: TreeDeciduous, 
     image: rouwstukImage,
     prices: [
       { item: "Rouwboeket", price: "vanaf €25,00" },
-      { item: "Kistbedekking klein", price: "vanaf €95,00" },
-      { item: "Kistbedekking groot", price: "vanaf €175,00" },
+      { item: "Kistbedekking", price: "vanaf €95,00" },
       { item: "Rouwkrans", price: "vanaf €85,00" },
-      { item: "Hartvorming stuk", price: "vanaf €125,00" },
-      { item: "Rouwlint met tekst", price: "€7,50" },
     ]
   },
   { 
-    title: "Kerststukjes & Seizoen", 
-    description: "Sfeervolle arrangementen voor de feestdagen. Amaryllis, narcissen, tulpen en meer seizoensspecials.", 
+    title: "Seizoensarrangementen", 
     icon: Gift, 
-    image: kerststukImage,
+    image: bloemstukImage,
     prices: [
-      { item: "Kerststukje klein", price: "€18,50" },
-      { item: "Kerststukje groot", price: "€32,50" },
+      { item: "Kerststukje", price: "vanaf €18,50" },
       { item: "Kerstkrans", price: "vanaf €35,00" },
-      { item: "Amaryllis in pot", price: "€12,50" },
-      { item: "Kerstboeket", price: "vanaf €22,50" },
-      { item: "Adventsstuk", price: "vanaf €27,50" },
+      { item: "Seizoensboeket", price: "vanaf €22,50" },
     ]
   },
 ];
@@ -76,7 +61,6 @@ const reviews = [
   { name: "Annemiek", rating: 5, text: "Mijn vaste adres voor alle speciale gelegenheden. Top!" },
 ];
 
-// Google logo SVG component
 const GoogleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -92,7 +76,6 @@ export default function Index() {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
     const subject = encodeURIComponent(`Vraag van ${contactForm.name}`);
     const body = encodeURIComponent(`Naam: ${contactForm.name}\nE-mail: ${contactForm.email}\n\nBericht:\n${contactForm.message}`);
     window.location.href = `mailto:nancy.stoete@gmail.com?subject=${subject}&body=${body}`;
@@ -101,28 +84,39 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Simple Header */}
+      {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <span className="font-heading text-xl md:text-2xl font-semibold text-primary">
               Madeliefste
             </span>
-            <a href="tel:0235315809" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
-              <Phone className="w-5 h-5" />
-              <span className="font-medium hidden sm:inline">023 531 58 09</span>
-            </a>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://wa.me/31651343023" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 bg-green-500 text-white px-3 py-2 rounded-full hover:bg-green-600 transition-colors text-sm font-medium"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span className="hidden sm:inline">WhatsApp</span>
+              </a>
+              <a href="tel:0235315809" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                <Phone className="w-5 h-5" />
+                <span className="font-medium hidden sm:inline">023 531 58 09</span>
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section with Full Shop Image */}
-      <section className="relative min-h-[90vh] flex items-end pt-16">
+      {/* Hero Section - Full Screen */}
+      <section className="relative h-screen flex items-end">
         <div className="absolute inset-0 z-0">
           <img
             src={winkelImage}
             alt="Bloemenzaak Madeliefste van buiten"
-            className="w-full h-full object-contain object-top bg-sage/20"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
         </div>
@@ -135,14 +129,14 @@ export default function Index() {
             Jouw buurtbloemist in de Hoofmanstraat, Haarlem
           </p>
           
-          {/* Three Main Popup Buttons */}
+          {/* Two Main Buttons */}
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in-delay-2">
             {/* Over Nancy Dialog */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="warm" size="lg">Over Nancy</Button>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+              <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle className="heading-md text-primary">Maak kennis met Nancy</DialogTitle>
                 </DialogHeader>
@@ -150,9 +144,9 @@ export default function Index() {
                   <img 
                     src={nancyImage} 
                     alt="Nancy, eigenares van Madeliefste" 
-                    className="w-full rounded-xl object-cover object-top aspect-[4/3]"
+                    className="w-full rounded-xl"
                   />
-                  <div className="space-y-4 text-muted-foreground">
+                  <div className="space-y-4 text-muted-foreground text-lg">
                     <p>
                       Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
                       Wat begon als een stageplek, groeide uit tot een passie die ze elke dag deelt met de buurt.
@@ -163,67 +157,22 @@ export default function Index() {
                     </p>
                     <p>
                       Nancy kiest bewust voor kwaliteit: geen veldboeketten, maar combinaties die écht werken. 
+                      Van bruidsboeketten tot rouwstukken, alles wordt met zorg samengesteld.
+                    </p>
+                    <p>
                       En vergeet hond Kerel niet – de trouwe viervoeter die elke klant verwelkomt!
                     </p>
                   </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-
-            {/* Aanbod Dialog - Larger with prices */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" size="lg" className="bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30">
-                  Bekijk Aanbod
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle className="heading-md text-primary flex items-center gap-2">
-                    <Sparkles className="w-6 h-6 text-accent" />
-                    Ons Aanbod & Prijsindicatie
-                  </DialogTitle>
-                </DialogHeader>
-                <p className="text-muted-foreground mb-6">
-                  Hieronder een overzicht van ons aanbod met indicatieprijzen. Neem contact op voor speciale wensen of grote bestellingen!
-                </p>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {services.map((service) => (
-                    <div key={service.title} className="bg-secondary rounded-xl overflow-hidden">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <service.icon className="w-5 h-5 text-accent" />
-                          <h3 className="font-heading font-semibold text-lg text-foreground">{service.title}</h3>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
-                        <div className="bg-card rounded-lg p-3">
-                          <h4 className="font-semibold text-sm mb-2 text-primary">Prijzen</h4>
-                          <ul className="space-y-1">
-                            {service.prices.map((price, idx) => (
-                              <li key={idx} className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">{price.item}</span>
-                                <span className="font-medium text-foreground">{price.price}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 p-4 bg-sage/20 rounded-xl text-center">
-                  <p className="text-muted-foreground">
-                    <strong>Let op:</strong> Dit zijn indicatieprijzen. Online bestellen is niet mogelijk. 
-                    Bel of mail ons voor bestellingen en speciale wensen!
-                  </p>
-                  <div className="flex justify-center gap-4 mt-4">
-                    <a href="tel:0235315809" className="text-primary font-medium hover:underline">📞 023 531 58 09</a>
-                    <a href="mailto:nancy.stoete@gmail.com" className="text-primary font-medium hover:underline">✉️ E-mail</a>
+                  <div className="flex justify-center pt-4">
+                    <a 
+                      href="https://www.instagram.com/madeliefstebloemen/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-6 py-3 rounded-full hover:opacity-90 transition-opacity font-medium"
+                    >
+                      <Instagram className="w-5 h-5" />
+                      Volg op Instagram
+                    </a>
                   </div>
                 </div>
               </DialogContent>
@@ -290,9 +239,6 @@ export default function Index() {
                       <Send className="w-4 h-4 mr-2" />
                       Verstuur via e-mail
                     </Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Dit opent je e-mailprogramma om het bericht te versturen.
-                    </p>
                   </form>
                 )}
               </DialogContent>
@@ -301,77 +247,65 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Info Section - Three clickable cards */}
+      {/* Opening Hours - Single compact card */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Opening Hours Card */}
-            <div className="bg-card rounded-xl p-6 shadow-soft">
-              <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
-              <h3 className="font-heading font-semibold text-center mb-4">Openingstijden</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Maandag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Dinsdag</span>
-                  <span className="text-primary font-medium">12:00 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Woensdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Donderdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Vrijdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-border">
-                  <span className="font-medium">Zaterdag</span>
-                  <span className="text-primary font-medium">09:00 – 17:00</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="font-medium">Zondag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-              </div>
+          <div className="max-w-md mx-auto bg-card rounded-xl p-6 shadow-soft text-center">
+            <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
+            <h3 className="font-heading font-semibold text-lg mb-4">Openingstijden</h3>
+            <div className="space-y-2 text-sm">
+              <p className="text-muted-foreground">Maandag & Zondag gesloten</p>
+              <p><span className="font-medium">Di</span> 12:00 – 17:30</p>
+              <p><span className="font-medium">Wo – Vr</span> 09:30 – 17:30</p>
+              <p><span className="font-medium">Za</span> 09:00 – 17:00</p>
             </div>
-
-            {/* Call Us Card */}
-            <a 
-              href="tel:0235315809" 
-              className="bg-card rounded-xl p-6 shadow-soft hover:shadow-md transition-shadow group cursor-pointer block"
-            >
-              <Phone className="w-8 h-8 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="font-heading font-semibold text-center mb-2">Bel Ons</h3>
-              <p className="text-center text-xl font-medium text-primary mb-2">023 531 58 09</p>
-              <p className="text-center text-sm text-muted-foreground">Klik om direct te bellen</p>
-              <p className="text-center text-xs text-muted-foreground mt-2">Mobiel: 06 51 34 30 23</p>
-            </a>
-
-            {/* Location Card */}
-            <a 
-              href="https://maps.google.com/?q=Hoofmanstraat+1,+2014+DP+Haarlem"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-card rounded-xl p-6 shadow-soft hover:shadow-md transition-shadow group cursor-pointer block"
-            >
-              <MapPin className="w-8 h-8 text-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="font-heading font-semibold text-center mb-2">Locatie</h3>
-              <p className="text-center font-medium">Hoofmanstraat 1</p>
-              <p className="text-center text-muted-foreground">2014 DP Haarlem</p>
-              <p className="text-center text-sm text-primary mt-2">Bekijk op Google Maps →</p>
-            </a>
+            <div className="mt-6 pt-4 border-t border-border">
+              <p className="text-sm text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
+              <a href="tel:0235315809" className="text-primary hover:underline font-medium text-sm">
+                <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Google Reviews Section with Google Logo */}
+      {/* Services/Aanbod Section - On page */}
       <section className="section-padding">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <div key={service.title} className="bg-card rounded-xl overflow-hidden shadow-soft">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <service.icon className="w-5 h-5 text-accent" />
+                    <h3 className="font-heading font-semibold text-foreground">{service.title}</h3>
+                  </div>
+                  <ul className="space-y-1 text-sm">
+                    {service.prices.map((price, idx) => (
+                      <li key={idx} className="flex justify-between">
+                        <span className="text-muted-foreground">{price.item}</span>
+                        <span className="font-medium text-foreground">{price.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-muted-foreground text-sm mt-8">
+            Indicatieprijzen. Bel of WhatsApp ons voor bestellingen!
+          </p>
+        </div>
+      </section>
+
+      {/* Google Reviews Section */}
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -382,9 +316,7 @@ export default function Index() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-6 h-6 text-yellow-500 fill-yellow-500" />
               ))}
-              <span className="ml-2 text-muted-foreground">5.0 op</span>
-              <GoogleLogo className="w-4 h-4 ml-1" />
-              <span className="text-muted-foreground">Google</span>
+              <span className="ml-2 text-muted-foreground">5.0 op Google</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -405,7 +337,7 @@ export default function Index() {
           </div>
           <div className="text-center mt-8">
             <a 
-              href="https://www.google.com/maps/place/Madeliefste+Bloemen/@52.3884,4.6347,17z/data=!4m8!3m7!1s0x47c5ef0eb7f8c0d7:0x5c3e9d8e8e8e8e8e!8m2!3d52.3884!4d4.6347!9m1!1b1!16s%2Fg%2F1tf7_0_c"
+              href="https://www.google.com/maps/place/Madeliefste+Bloemen/@52.3884,4.6347,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
@@ -417,19 +349,19 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Google Maps Section - Smaller with styled border */}
-      <section className="section-padding bg-secondary">
+      {/* Google Maps Section */}
+      <section className="section-padding">
         <div className="container-custom">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <GoogleLogo className="w-6 h-6" />
+            <MapPin className="w-6 h-6 text-primary" />
             <h2 className="heading-lg">Vind Ons</h2>
           </div>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <div className="rounded-2xl overflow-hidden border-4 border-primary/30 shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite"
                 width="100%"
-                height="300"
+                height="250"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -444,11 +376,29 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Simple Footer - No repetition */}
+      {/* Footer */}
       <footer className="bg-primary text-primary-foreground py-8">
         <div className="container-custom text-center">
-          <h3 className="font-heading text-2xl font-semibold mb-2">Madeliefste Bloemen</h3>
-          <p className="text-primary-foreground/60 text-sm">© 2024 Madeliefste Bloemen. Alle rechten voorbehouden.</p>
+          <h3 className="font-heading text-2xl font-semibold mb-4">Madeliefste Bloemen</h3>
+          <div className="flex justify-center gap-4 mb-4">
+            <a 
+              href="https://www.instagram.com/madeliefstebloemen/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+            >
+              <Instagram className="w-6 h-6" />
+            </a>
+            <a 
+              href="https://wa.me/31651343023" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </a>
+          </div>
+          <p className="text-primary-foreground/60 text-sm">© 2024 Madeliefste Bloemen</p>
         </div>
       </footer>
     </div>
