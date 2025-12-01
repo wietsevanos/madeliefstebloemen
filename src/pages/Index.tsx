@@ -127,21 +127,8 @@ export default function Index() {
           </p>
           
           {/* Main Buttons */}
+          {/* Main Buttons */}
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in-delay-2">
-            {/* WhatsApp Button */}
-            <a 
-              href="https://wa.me/31651343023" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-medium"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp
-            </a>
-          </div>
-          
-          {/* Secondary Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-4 animate-fade-in-delay-2">
             {/* Over Nancy Dialog */}
             <Dialog>
               <DialogTrigger asChild>
@@ -313,7 +300,7 @@ export default function Index() {
               <Dialog key={service.title}>
                 <DialogTrigger asChild>
                   <button className="group bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
-                    <div className="relative h-32 overflow-hidden">
+                    <div className="relative h-44 overflow-hidden">
                       <img 
                         src={service.image} 
                         alt={service.title}
@@ -476,6 +463,23 @@ export default function Index() {
               </div>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* WhatsApp CTA Section */}
+      <section className="section-padding bg-green-50">
+        <div className="container-custom text-center">
+          <h2 className="heading-lg mb-4">Direct contact?</h2>
+          <p className="text-muted-foreground mb-6">Stuur ons een bericht via WhatsApp voor vragen of bestellingen</p>
+          <a 
+            href="https://wa.me/31651343023" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-colors font-medium text-lg"
+          >
+            <MessageCircle className="w-6 h-6" />
+            WhatsApp ons
+          </a>
         </div>
       </section>
 
