@@ -183,8 +183,9 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <span className="font-heading text-xl md:text-2xl font-semibold text-primary">
-              Madeliefste
+            <span className="font-heading text-xl md:text-2xl font-semibold">
+              <span className="text-primary">Madeliefste</span>{" "}
+              <span className="text-blush-dark">Bloemen</span>
             </span>
             <a href="tel:0235315809" className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
               <Phone className="w-5 h-5" />
