@@ -403,40 +403,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Google Reviews Section */}
-      <section className="section-padding bg-secondary">
-        <div className="container-custom">
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <GoogleLogo className="w-8 h-8" />
-              <h2 className="heading-lg">Reviews</h2>
-            </div>
-            <div className="flex items-center justify-center gap-1">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 text-yellow-500 fill-yellow-500" />)}
-              <span className="ml-2 text-muted-foreground">5.0 op Google</span>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {reviews.map((review, index) => <div key={index} className="bg-card p-6 shadow-soft">
-                <div className="flex items-center gap-2 mb-3">
-                  <GoogleLogo className="w-4 h-4" />
-                  <div className="flex gap-0.5">
-                    {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
-                  </div>
-                </div>
-                <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
-                <p className="font-medium text-foreground">{review.name}</p>
-              </div>)}
-          </div>
-          <div className="text-center mt-8">
-            <a href="https://www.google.com/maps/place/Madeliefste+Bloemen/@52.3884,4.6347,17z" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
-              <GoogleLogo className="w-4 h-4" />
-              Bekijk alle reviews op Google →
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Google Maps Section */}
       <section className="section-padding">
         <div className="container-custom">
@@ -494,15 +460,37 @@ export default function Index() {
         </div>
       </section>
 
-      {/* WhatsApp CTA Section */}
-      <section className="section-padding bg-green-50">
-        <div className="container-custom text-center">
-          <h2 className="heading-lg mb-4">Direct contact?</h2>
-          <p className="text-muted-foreground mb-6">Stuur ons een bericht via WhatsApp voor vragen of bestellingen</p>
-          <a href="https://wa.me/31651343023" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 hover:bg-green-600 transition-colors font-medium text-lg">
-            <MessageCircle className="w-6 h-6" />
-            WhatsApp ons
-          </a>
+      {/* Google Reviews Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <GoogleLogo className="w-8 h-8" />
+              <h2 className="heading-lg">Reviews</h2>
+            </div>
+            <div className="flex items-center justify-center gap-1">
+              {[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 text-yellow-500 fill-yellow-500" />)}
+              <span className="ml-2 text-muted-foreground">5.0 op Google</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {reviews.map((review, index) => <div key={index} className="bg-card p-6 shadow-soft">
+                <div className="flex items-center gap-2 mb-3">
+                  <GoogleLogo className="w-4 h-4" />
+                  <div className="flex gap-0.5">
+                    {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
+                <p className="font-medium text-foreground">{review.name}</p>
+              </div>)}
+          </div>
+          <div className="text-center mt-8">
+            <a href="https://www.google.com/maps/place/Madeliefste+Bloemen/@52.3884,4.6347,17z" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
+              <GoogleLogo className="w-4 h-4" />
+              Bekijk alle reviews op Google →
+            </a>
+          </div>
         </div>
       </section>
 
