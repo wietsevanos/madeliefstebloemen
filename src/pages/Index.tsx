@@ -159,7 +159,7 @@ export default function Index() {
                   <DialogTitle className="heading-md text-primary">Maak kennis met Nancy</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-6">
-                  <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full rounded-xl" />
+                  <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
                   <div className="space-y-4 text-muted-foreground text-lg">
                     <p>
                       Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
@@ -196,7 +196,7 @@ export default function Index() {
                   <DialogTitle className="heading-md text-primary">Stel een Vraag</DialogTitle>
                 </DialogHeader>
                 {formSubmitted ? <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-sage/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-sage/30 flex items-center justify-center mx-auto mb-4">
                       <Send className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="font-heading font-semibold text-lg mb-2">Bedankt!</h3>
@@ -247,7 +247,7 @@ export default function Index() {
       {/* Opening Hours - Single compact card */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-          <div className="max-w-md mx-auto bg-card rounded-xl p-6 shadow-soft text-center">
+          <div className="max-w-md mx-auto bg-card p-6 shadow-soft text-center">
             <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
             <h3 className="font-heading font-semibold text-lg mb-4">Openingstijden</h3>
             <div className="space-y-1 text-sm">
@@ -297,7 +297,7 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {services.map(service => <Dialog key={service.title}>
                 <DialogTrigger asChild>
-                  <button className="group bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
+                  <button className="group bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
                     <div className="relative h-44 overflow-hidden">
                       <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
@@ -318,9 +318,9 @@ export default function Index() {
                     </DialogTitle>
                   </DialogHeader>
                   <div className="space-y-4">
-                    <img src={service.image} alt={service.title} className="w-full h-48 object-cover rounded-lg" />
+                    <img src={service.image} alt={service.title} className="w-full h-48 object-cover" />
                     <p className="text-muted-foreground">{service.description}</p>
-                    <div className="bg-secondary rounded-lg p-4">
+                    <div className="bg-secondary p-4">
                       <h4 className="font-medium mb-3">Prijzen</h4>
                       <ul className="space-y-2">
                         {service.prices.map((price, idx) => <li key={idx} className="flex justify-between text-sm">
@@ -353,7 +353,7 @@ export default function Index() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {reviews.map((review, index) => <div key={index} className="bg-card rounded-xl p-6 shadow-soft">
+            {reviews.map((review, index) => <div key={index} className="bg-card p-6 shadow-soft">
                 <div className="flex items-center gap-2 mb-3">
                   <GoogleLogo className="w-4 h-4" />
                   <div className="flex gap-0.5">
@@ -381,7 +381,7 @@ export default function Index() {
             <h2 className="heading-lg">Vind Ons</h2>
           </div>
           <div className="max-w-2xl mx-auto">
-            <div className="rounded-2xl overflow-hidden border-4 border-primary/30 shadow-lg">
+            <div className="overflow-hidden border-4 border-primary/30 shadow-lg">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite" width="100%" height="250" style={{
               border: 0
             }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Locatie Madeliefste Bloemen" />
@@ -404,9 +404,9 @@ export default function Index() {
             <p className="text-muted-foreground">@madeliefstebloemen</p>
           </div>
           <div className="max-w-lg mx-auto">
-            <a href="https://www.instagram.com/madeliefstebloemen/" target="_blank" rel="noopener noreferrer" className="block bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all group">
+            <a href="https://www.instagram.com/madeliefstebloemen/" target="_blank" rel="noopener noreferrer" className="block bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all group">
               <div className="p-4 flex items-center gap-3 border-b border-border">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
                   <Instagram className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -435,7 +435,7 @@ export default function Index() {
         <div className="container-custom text-center">
           <h2 className="heading-lg mb-4">Direct contact?</h2>
           <p className="text-muted-foreground mb-6">Stuur ons een bericht via WhatsApp voor vragen of bestellingen</p>
-          <a href="https://wa.me/31651343023" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-full hover:bg-green-600 transition-colors font-medium text-lg">
+          <a href="https://wa.me/31651343023" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 hover:bg-green-600 transition-colors font-medium text-lg">
             <MessageCircle className="w-6 h-6" />
             WhatsApp ons
           </a>
