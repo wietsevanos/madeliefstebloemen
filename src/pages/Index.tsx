@@ -117,7 +117,7 @@ export default function Index() {
   };
   return <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush rounded-b-2xl">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <span className="font-heading text-xl md:text-2xl font-semibold text-primary">
