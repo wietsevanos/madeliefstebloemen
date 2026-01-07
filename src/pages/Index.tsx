@@ -10,6 +10,9 @@ import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
 import bloemstukImage from "@/assets/bloemstuk.jpg";
 import trouwboeketImage from "@/assets/trouwboeket.jpg";
 import rouwstukImage from "@/assets/rouwstuk.jpg";
+import bouquet1Image from "@/assets/bouquet-1.jpg";
+import heroFlowersImage from "@/assets/hero-flowers.jpg";
+import kerststukImage from "@/assets/kerststuk.jpg";
 const services = [{
   title: "Verse Bloemen",
   icon: Flower2,
@@ -72,6 +75,66 @@ const services = [{
   }, {
     item: "Seizoensboeket",
     price: "vanaf €22,50"
+  }]
+}, {
+  title: "Planten",
+  icon: TreeDeciduous,
+  image: heroFlowersImage,
+  description: "Groene sfeermakers voor in huis",
+  prices: [{
+    item: "Kamerplant klein",
+    price: "vanaf €8,50"
+  }, {
+    item: "Kamerplant medium",
+    price: "vanaf €18,00"
+  }, {
+    item: "Kamerplant groot",
+    price: "vanaf €35,00"
+  }]
+}, {
+  title: "Kerstcreaties",
+  icon: Star,
+  image: kerststukImage,
+  description: "Feestelijke decoraties voor de kerst",
+  prices: [{
+    item: "Adventsstuk",
+    price: "vanaf €22,50"
+  }, {
+    item: "Kerststuk deluxe",
+    price: "vanaf €45,00"
+  }, {
+    item: "Kerstdecoratie",
+    price: "vanaf €15,00"
+  }]
+}, {
+  title: "Cadeauboeketten",
+  icon: Gift,
+  image: bouquet1Image,
+  description: "Het perfecte cadeau voor elke gelegenheid",
+  prices: [{
+    item: "Verjaardagsboeket",
+    price: "vanaf €20,00"
+  }, {
+    item: "Bedankboeket",
+    price: "vanaf €17,50"
+  }, {
+    item: "Luxe geschenkboeket",
+    price: "vanaf €40,00"
+  }]
+}, {
+  title: "Bloemenabonnement",
+  icon: Flower2,
+  image: winkelImage,
+  description: "Wekelijks of maandelijks verse bloemen",
+  prices: [{
+    item: "Wekelijks abonnement",
+    price: "vanaf €45,00/maand"
+  }, {
+    item: "Tweewekelijks",
+    price: "vanaf €30,00/maand"
+  }, {
+    item: "Maandelijks",
+    price: "vanaf €20,00/maand"
   }]
 }];
 
