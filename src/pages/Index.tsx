@@ -253,7 +253,7 @@ export default function Index() {
             {/* Hanny Schaftstichting Partnership */}
             <div className="bg-card border border-primary/20 rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 border-2 border-primary/20 shadow-sm">
+                <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4 border-2 border-primary/20 shadow-sm">
                   <img 
                     src={hannySchaftPortrait} 
                     alt="Hannie Schaft" 
