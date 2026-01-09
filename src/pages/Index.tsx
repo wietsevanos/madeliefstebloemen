@@ -146,7 +146,10 @@ export default function Index() {
       {/* Ons Aanbod Section - Simple Photo Gallery */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
+          <h2 className="heading-lg text-center mb-3">Ons Aanbod</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
+            Van verse seizoensbloemen tot bijzondere planten — altijd met liefde samengesteld
+          </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {aanbodImages.map((image, index) => (
               <div key={index} className="overflow-hidden rounded-lg shadow-soft">
