@@ -283,7 +283,7 @@ export default function Index() {
                   />
                 </div>
                 {/* Logo badge */}
-                <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3">
+                <div className="absolute -top-4 -right-4 bg-blush/30 rounded-lg shadow-lg p-3">
                   <img 
                     src={hannySchaftLogoFull} 
                     alt="Nationale Hannie Schaft Stichting" 
@@ -304,7 +304,7 @@ export default function Index() {
                     Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
                     van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
                   </p>
-                  <p className="text-sm italic text-primary/80">
+                  <p className="text-sm italic text-primary bg-blush/20 rounded-lg px-4 py-3 mt-2">
                     Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
                   </p>
                 </div>
