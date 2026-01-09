@@ -271,18 +271,20 @@ export default function Index() {
       <section className="section-padding bg-card">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-stretch gap-8">
+            <div className="grid md:grid-cols-5 gap-8 items-stretch">
               {/* Portrait */}
-              <div className="md:w-2/5 flex-shrink-0">
-                <img 
-                  src={hannySchaftPortrait} 
-                  alt="Hannie Schaft" 
-                  className="w-full h-full object-cover rounded-xl shadow-lg"
-                />
+              <div className="md:col-span-2">
+                <div className="h-full rounded-xl overflow-hidden shadow-lg">
+                  <img 
+                    src={hannySchaftPortrait} 
+                    alt="Hannie Schaft" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
               
               {/* Content */}
-              <div className="md:w-3/5 flex flex-col justify-center text-center md:text-left">
+              <div className="md:col-span-3 flex flex-col justify-center text-center md:text-left py-4">
                 <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
