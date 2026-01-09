@@ -250,6 +250,23 @@ export default function Index() {
               </div>
             </div>
           </div>
+
+          {/* Hanny Schaftstichting Partnership */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <div className="bg-card border border-primary/20 rounded-xl p-6 text-center shadow-soft">
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                  <span className="text-xl">🤝</span>
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-primary">Trotse Partner</h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                Madeliefste Bloemen verzorgt met gepaste trots de boeketten voor de{" "}
+                <span className="font-semibold text-foreground">Hanny Schaftstichting</span>. 
+                Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
