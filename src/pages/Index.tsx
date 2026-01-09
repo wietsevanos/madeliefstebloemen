@@ -89,21 +89,6 @@ const services = [{
     price: "vanaf €35,00"
   }]
 }, {
-  title: "Kerstcreaties",
-  icon: Star,
-  image: kerststukImage,
-  description: "Feestelijke decoraties voor de kerst",
-  prices: [{
-    item: "Adventsstuk",
-    price: "vanaf €22,50"
-  }, {
-    item: "Kerststuk deluxe",
-    price: "vanaf €45,00"
-  }, {
-    item: "Kerstdecoratie",
-    price: "vanaf €15,00"
-  }]
-}, {
   title: "Cadeauboeketten",
   icon: Gift,
   image: bouquet1Image,
@@ -117,21 +102,6 @@ const services = [{
   }, {
     item: "Luxe geschenkboeket",
     price: "vanaf €40,00"
-  }]
-}, {
-  title: "Bloemenabonnement",
-  icon: Flower2,
-  image: winkelImage,
-  description: "Wekelijks of maandelijks verse bloemen",
-  prices: [{
-    item: "Wekelijks abonnement",
-    price: "vanaf €45,00/maand"
-  }, {
-    item: "Tweewekelijks",
-    price: "vanaf €30,00/maand"
-  }, {
-    item: "Maandelijks",
-    price: "vanaf €20,00/maand"
   }]
 }];
 
@@ -244,57 +214,11 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Opening Hours - Single compact card */}
-      <section id="openingstijden" className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-md mx-auto bg-card p-6 shadow-soft text-center">
-            <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h3 className="font-heading font-semibold text-lg mb-4">Openingstijden</h3>
-            <div className="space-y-1 text-sm">
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Maandag</span>
-                <span className="text-muted-foreground">Gesloten</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Dinsdag</span>
-                <span className="text-primary font-medium">12:00 – 17:30</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Woensdag</span>
-                <span className="text-primary font-medium">09:30 – 17:30</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Donderdag</span>
-                <span className="text-primary font-medium">09:30 – 17:30</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Vrijdag</span>
-                <span className="text-primary font-medium">09:30 – 17:30</span>
-              </div>
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Zaterdag</span>
-                <span className="text-primary font-medium">09:00 – 17:00</span>
-              </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="font-medium">Zondag</span>
-                <span className="text-muted-foreground">Gesloten</span>
-              </div>
-            </div>
-            <div className="mt-6 pt-4 border-t border-border">
-              <p className="text-sm text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
-              <a href="tel:0235315809" className="text-primary hover:underline font-medium text-sm">
-                <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services/Aanbod Section - Popup buttons */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {services.map(service => <Dialog key={service.title}>
                 <DialogTrigger asChild>
                   <button className="group bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
@@ -335,6 +259,52 @@ export default function Index() {
                   </div>
                 </DialogContent>
               </Dialog>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Opening Hours - Single compact card */}
+      <section id="openingstijden" className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="max-w-md mx-auto bg-card p-6 shadow-soft text-center">
+            <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
+            <h3 className="font-heading font-semibold text-lg mb-4">Openingstijden</h3>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Maandag</span>
+                <span className="text-muted-foreground">Gesloten</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Dinsdag</span>
+                <span className="text-primary font-medium">12:00 – 17:30</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Woensdag</span>
+                <span className="text-primary font-medium">09:30 – 17:30</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Donderdag</span>
+                <span className="text-primary font-medium">09:30 – 17:30</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Vrijdag</span>
+                <span className="text-primary font-medium">09:30 – 17:30</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-border">
+                <span className="font-medium">Zaterdag</span>
+                <span className="text-primary font-medium">09:00 – 17:00</span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="font-medium">Zondag</span>
+                <span className="text-muted-foreground">Gesloten</span>
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-border">
+              <p className="text-sm text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
+              <a href="tel:0235315809" className="text-primary hover:underline font-medium text-sm">
+                <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
+              </a>
+            </div>
           </div>
         </div>
       </section>
