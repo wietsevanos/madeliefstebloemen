@@ -206,7 +206,7 @@ export default function Index() {
                   Van bruidsboeketten tot rouwstukken, alles wordt met zorg samengesteld.
                 </p>
                 <p>
-                  En vergeet hond Kerel niet – de trouwe viervoeter die elke klant verwelkomt!
+                  En vergeet hond Kerel niet, de trouwe viervoeter die elke klant verwelkomt!
                 </p>
               </div>
             </div>
