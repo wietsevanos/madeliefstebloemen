@@ -15,6 +15,7 @@ import aanbod6Image from "@/assets/aanbod-6.jpg";
 import aanbod7Image from "@/assets/aanbod-7.jpg";
 import aanbod8Image from "@/assets/aanbod-8.jpg";
 import hannySchaftLogo from "@/assets/hanny-schaft-logo.png";
+import hannySchaftLogoFull from "@/assets/hanny-schaft-logo-full.png";
 import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 
 const aanbodImages = [
@@ -273,12 +274,20 @@ export default function Index() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 items-stretch">
               {/* Portrait */}
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 relative">
                 <div className="h-full rounded-xl overflow-hidden shadow-lg">
                   <img 
                     src={hannySchaftPortrait} 
                     alt="Hannie Schaft" 
                     className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Logo badge */}
+                <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3">
+                  <img 
+                    src={hannySchaftLogoFull} 
+                    alt="Nationale Hannie Schaft Stichting" 
+                    className="h-12 w-auto"
                   />
                 </div>
               </div>
