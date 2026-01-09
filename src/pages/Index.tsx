@@ -252,18 +252,18 @@ export default function Index() {
 
             {/* Hanny Schaftstichting Partnership */}
             <div className="bg-card border border-primary/20 rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={hannySchaftPortrait} 
-                  alt="Hannie Schaft" 
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
               <div className="p-6 text-center flex flex-col flex-1">
+                <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-4 border-2 border-primary/20 shadow-sm">
+                  <img 
+                    src={hannySchaftPortrait} 
+                    alt="Hannie Schaft" 
+                    className="w-full h-full object-cover object-top scale-110"
+                  />
+                </div>
                 <img 
                   src={hannySchaftLogo} 
                   alt="Nationale Hannie Schaft Stichting" 
-                  className="h-8 w-auto mx-auto mb-3"
+                  className="h-7 w-auto mx-auto mb-3"
                 />
                 <h3 className="font-heading text-lg font-semibold text-primary mb-2">Trotse Partner</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
