@@ -271,25 +271,18 @@ export default function Index() {
       <section className="section-padding bg-card">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* Portrait & Logo */}
-              <div className="flex flex-col items-center md:w-1/3">
-                <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4">
-                  <img 
-                    src={hannySchaftPortrait} 
-                    alt="Hannie Schaft" 
-                    className="w-full h-full object-cover object-top scale-110"
-                  />
-                </div>
+            <div className="flex flex-col md:flex-row items-stretch gap-8">
+              {/* Portrait */}
+              <div className="md:w-2/5 flex-shrink-0">
                 <img 
-                  src={hannySchaftLogo} 
-                  alt="Nationale Hannie Schaft Stichting" 
-                  className="h-10 w-auto"
+                  src={hannySchaftPortrait} 
+                  alt="Hannie Schaft" 
+                  className="w-full h-full object-cover rounded-xl shadow-lg"
                 />
               </div>
               
               {/* Content */}
-              <div className="md:w-2/3 text-center md:text-left">
+              <div className="md:w-3/5 flex flex-col justify-center text-center md:text-left">
                 <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
