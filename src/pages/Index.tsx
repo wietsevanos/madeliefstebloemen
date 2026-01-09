@@ -309,51 +309,70 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Google Maps Section */}
+      {/* Location & Instagram Combined Section */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <MapPin className="w-6 h-6 text-primary" />
-            <h2 className="heading-lg">Vind Ons</h2>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            <div className="overflow-hidden border-4 border-primary/30 shadow-lg">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite" width="100%" height="250" style={{
-              border: 0
-            }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Locatie Madeliefste Bloemen" />
-            </div>
-            <p className="text-center text-muted-foreground mt-4">
-              Hoofmanstraat 1, 2014 DP Haarlem
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram Preview Section */}
-      <section className="section-padding bg-secondary">
-        <div className="container-custom">
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Instagram className="w-6 h-6 text-primary" />
-              <h2 className="heading-lg">Volg ons op Instagram</h2>
-            </div>
-            <p className="text-muted-foreground">@madeliefstebloemen</p>
-          </div>
-          <div className="max-w-lg mx-auto">
-            <a href="https://www.instagram.com/madeliefstebloemen/" target="_blank" rel="noopener noreferrer" className="block bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all group">
-              <div className="p-4 flex items-center gap-3 border-b border-border">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-white" />
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Location Card */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300">
+              <div className="p-5 border-b border-border">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold">Vind ons</h3>
+                    <p className="text-sm text-muted-foreground">Hoofmanstraat 1, Haarlem</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm">madeliefstebloemen</p>
-                  <p className="text-xs text-muted-foreground">Bloemist in Haarlem</p>
+              </div>
+              <div className="aspect-video">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade" 
+                  title="Locatie Madeliefste Bloemen" 
+                />
+              </div>
+              <div className="p-4 text-center">
+                <a 
+                  href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                >
+                  Route plannen
+                  <MapPin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Instagram Card */}
+            <a 
+              href="https://www.instagram.com/madeliefstebloemen/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block"
+            >
+              <div className="p-5 border-b border-border">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
+                    <Instagram className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold">Volg ons</h3>
+                    <p className="text-sm text-muted-foreground">@madeliefstebloemen</p>
+                  </div>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-0.5">
-                <img src={boeketGemengdImage} alt="Instagram post" className="w-full aspect-square object-cover" />
-                <img src={bloemstukImage} alt="Instagram post" className="w-full aspect-square object-cover" />
-                <img src={trouwboeketImage} alt="Instagram post" className="w-full aspect-square object-cover" />
+                <img src={boeketGemengdImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={bloemstukImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={trouwboeketImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-4 text-center">
                 <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:underline">
