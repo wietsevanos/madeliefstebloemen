@@ -1,109 +1,29 @@
-import { MapPin, Clock, Phone, Star, Heart, Flower2, Gift, TreeDeciduous, MessageCircle, Instagram } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
 import bloemstukImage from "@/assets/bloemstuk.jpg";
 import trouwboeketImage from "@/assets/trouwboeket.jpg";
-import rouwstukImage from "@/assets/rouwstuk.jpg";
-import bouquet1Image from "@/assets/bouquet-1.jpg";
-import heroFlowersImage from "@/assets/hero-flowers.jpg";
-import kerststukImage from "@/assets/kerststuk.jpg";
-const services = [{
-  title: "Verse Bloemen",
-  icon: Flower2,
-  image: boeketGemengdImage,
-  description: "Dagelijks verse bloemen, met liefde samengesteld",
-  prices: [{
-    item: "Gemengd boeket klein",
-    price: "€12,50"
-  }, {
-    item: "Gemengd boeket medium",
-    price: "€17,50"
-  }, {
-    item: "Gemengd boeket groot",
-    price: "€25,00"
-  }, {
-    item: "Luxe boeket",
-    price: "vanaf €35,00"
-  }]
-}, {
-  title: "Trouwboeketten",
-  icon: Heart,
-  image: trouwboeketImage,
-  description: "Maak je grote dag onvergetelijk",
-  prices: [{
-    item: "Bruidsboeket classic",
-    price: "vanaf €75,00"
-  }, {
-    item: "Bruidsboeket luxe",
-    price: "vanaf €125,00"
-  }, {
-    item: "Corsage bruidegom",
-    price: "€15,00"
-  }]
-}, {
-  title: "Rouwstukken",
-  icon: TreeDeciduous,
-  image: rouwstukImage,
-  description: "Met zorg en aandacht samengesteld",
-  prices: [{
-    item: "Rouwboeket",
-    price: "vanaf €25,00"
-  }, {
-    item: "Kistbedekking",
-    price: "vanaf €95,00"
-  }, {
-    item: "Rouwkrans",
-    price: "vanaf €85,00"
-  }]
-}, {
-  title: "Seizoensarrangementen",
-  icon: Gift,
-  image: bloemstukImage,
-  description: "Passend bij elk seizoen",
-  prices: [{
-    item: "Kerststukje",
-    price: "vanaf €18,50"
-  }, {
-    item: "Kerstkrans",
-    price: "vanaf €35,00"
-  }, {
-    item: "Seizoensboeket",
-    price: "vanaf €22,50"
-  }]
-}, {
-  title: "Planten",
-  icon: TreeDeciduous,
-  image: heroFlowersImage,
-  description: "Groene sfeermakers voor in huis",
-  prices: [{
-    item: "Kamerplant klein",
-    price: "vanaf €8,50"
-  }, {
-    item: "Kamerplant medium",
-    price: "vanaf €18,00"
-  }, {
-    item: "Kamerplant groot",
-    price: "vanaf €35,00"
-  }]
-}, {
-  title: "Cadeauboeketten",
-  icon: Gift,
-  image: bouquet1Image,
-  description: "Het perfecte cadeau voor elke gelegenheid",
-  prices: [{
-    item: "Verjaardagsboeket",
-    price: "vanaf €20,00"
-  }, {
-    item: "Bedankboeket",
-    price: "vanaf €17,50"
-  }, {
-    item: "Luxe geschenkboeket",
-    price: "vanaf €40,00"
-  }]
-}];
+import aanbod1Image from "@/assets/aanbod-1.jpg";
+import aanbod2Image from "@/assets/aanbod-2.jpg";
+import aanbod3Image from "@/assets/aanbod-3.jpg";
+import aanbod4Image from "@/assets/aanbod-4.jpg";
+import aanbod5Image from "@/assets/aanbod-5.jpg";
+import aanbod6Image from "@/assets/aanbod-6.jpg";
+import aanbod7Image from "@/assets/aanbod-7.jpg";
+import aanbod8Image from "@/assets/aanbod-8.jpg";
+
+const aanbodImages = [
+  aanbod1Image,
+  aanbod2Image,
+  aanbod3Image,
+  aanbod4Image,
+  aanbod5Image,
+  aanbod6Image,
+  aanbod7Image,
+  aanbod8Image,
+];
 
 // Preload Nancy image
 const preloadNancyImage = new Image();
@@ -223,51 +143,20 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Services/Aanbod Section - Popup buttons */}
+      {/* Ons Aanbod Section - Simple Photo Gallery */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {services.map(service => <Dialog key={service.title}>
-                <DialogTrigger asChild>
-                  <button className="group bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 text-left">
-                    <div className="relative h-44 overflow-hidden">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <div className="flex items-center gap-2 text-primary-foreground">
-                          <service.icon className="w-4 h-4" />
-                          <span className="font-heading font-semibold text-sm">{service.title}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                </DialogTrigger>
-                <DialogContent className="max-w-md">
-                  <DialogHeader>
-                    <DialogTitle className="flex items-center gap-2 text-primary">
-                      <service.icon className="w-5 h-5" />
-                      {service.title}
-                    </DialogTitle>
-                  </DialogHeader>
-                  <div className="space-y-4">
-                    <img src={service.image} alt={service.title} className="w-full h-48 object-cover" />
-                    <p className="text-muted-foreground">{service.description}</p>
-                    <div className="bg-secondary p-4">
-                      <h4 className="font-medium mb-3">Prijzen</h4>
-                      <ul className="space-y-2">
-                        {service.prices.map((price, idx) => <li key={idx} className="flex justify-between text-sm">
-                            <span className="text-muted-foreground">{price.item}</span>
-                            <span className="font-medium text-foreground">{price.price}</span>
-                          </li>)}
-                      </ul>
-                    </div>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Indicatieprijzen. Neem contact op voor een offerte.
-                    </p>
-                  </div>
-                </DialogContent>
-              </Dialog>)}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            {aanbodImages.map((image, index) => (
+              <div key={index} className="overflow-hidden rounded-lg shadow-soft">
+                <img 
+                  src={image} 
+                  alt={`Ons aanbod ${index + 1}`} 
+                  className="w-full aspect-square object-cover"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
