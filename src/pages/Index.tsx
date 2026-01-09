@@ -1,9 +1,6 @@
-import { useState } from "react";
-import { MapPin, Clock, Phone, Star, Heart, Flower2, Gift, TreeDeciduous, Send, MessageCircle, Instagram } from "lucide-react";
+import { MapPin, Clock, Phone, Star, Heart, Flower2, Gift, TreeDeciduous, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
@@ -165,19 +162,6 @@ const GoogleLogo = ({
     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
   </svg>;
 export default function Index() {
-  const [contactForm, setContactForm] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Vraag van ${contactForm.name}`);
-    const body = encodeURIComponent(`Naam: ${contactForm.name}\nE-mail: ${contactForm.email}\n\nBericht:\n${contactForm.message}`);
-    window.location.href = `mailto:nancy.stoete@gmail.com?subject=${subject}&body=${body}`;
-    setFormSubmitted(true);
-  };
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
@@ -211,105 +195,57 @@ export default function Index() {
           </p>
           
           {/* Main Buttons */}
-          {/* Main Buttons */}
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in-delay-2">
-            {/* Over Nancy Dialog */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="warm" size="lg">Over Nancy</Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-                <DialogHeader>
-                  <DialogTitle className="heading-md text-primary">Maak kennis met Nancy</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-6">
-                  <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
-                  <div className="space-y-4 text-muted-foreground text-lg">
-                    <p>
-                      Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
-                      Wat begon als een stageplek, groeide uit tot een passie die ze elke dag deelt met de buurt.
-                    </p>
-                    <p>
-                      "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
-                      Elke creatie maak ik met liefde en aandacht voor detail."
-                    </p>
-                    <p>
-                      Nancy kiest bewust voor kwaliteit: geen veldboeketten, maar combinaties die écht werken. 
-                      Van bruidsboeketten tot rouwstukken, alles wordt met zorg samengesteld.
-                    </p>
-                    <p>
-                      En vergeet hond Kerel niet – de trouwe viervoeter die elke klant verwelkomt!
-                    </p>
-                  </div>
-                  <div className="flex justify-center pt-4">
-                    
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button 
+              variant="warm" 
+              size="lg"
+              onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Bekijk ons aanbod
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
+              onClick={() => document.getElementById('openingstijden')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Openingstijden
+            </Button>
+          </div>
+        </div>
+      </section>
 
-            {/* Contact Form Dialog */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline" size="lg" className="bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30">
-                  Stel een Vraag
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-lg">
-                <DialogHeader>
-                  <DialogTitle className="heading-md text-primary">Stel een Vraag</DialogTitle>
-                </DialogHeader>
-                {formSubmitted ? <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-sage/30 flex items-center justify-center mx-auto mb-4">
-                      <Send className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-heading font-semibold text-lg mb-2">Bedankt!</h3>
-                    <p className="text-muted-foreground">Je e-mailprogramma wordt geopend om je bericht te versturen.</p>
-                    <Button variant="outline" className="mt-4" onClick={() => {
-                  setFormSubmitted(false);
-                  setContactForm({
-                    name: "",
-                    email: "",
-                    message: ""
-                  });
-                }}>
-                      Nieuwe vraag stellen
-                    </Button>
-                  </div> : <form onSubmit={handleContactSubmit} className="space-y-4 mt-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Je naam</label>
-                      <Input placeholder="Naam" value={contactForm.name} onChange={e => setContactForm({
-                    ...contactForm,
-                    name: e.target.value
-                  })} required />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Je e-mailadres</label>
-                      <Input type="email" placeholder="email@voorbeeld.nl" value={contactForm.email} onChange={e => setContactForm({
-                    ...contactForm,
-                    email: e.target.value
-                  })} required />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Je vraag of bericht</label>
-                      <Textarea placeholder="Waar kunnen we je mee helpen?" value={contactForm.message} onChange={e => setContactForm({
-                    ...contactForm,
-                    message: e.target.value
-                  })} rows={4} required />
-                    </div>
-                    <Button type="submit" className="w-full" size="lg">
-                      <Send className="w-4 h-4 mr-2" />
-                      Verstuur via e-mail
-                    </Button>
-                  </form>}
-              </DialogContent>
-            </Dialog>
+      {/* Over Nancy Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="heading-lg text-center mb-8">Maak kennis met Nancy</h2>
+            <div className="bg-card overflow-hidden shadow-soft">
+              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full h-80 object-cover object-top" />
+              <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
+                <p>
+                  Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
+                  Wat begon als een stageplek, groeide uit tot een passie die ze elke dag deelt met de buurt.
+                </p>
+                <p>
+                  "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
+                  Elke creatie maak ik met liefde en aandacht voor detail."
+                </p>
+                <p>
+                  Nancy kiest bewust voor kwaliteit: geen veldboeketten, maar combinaties die écht werken. 
+                  Van bruidsboeketten tot rouwstukken, alles wordt met zorg samengesteld.
+                </p>
+                <p>
+                  En vergeet hond Kerel niet – de trouwe viervoeter die elke klant verwelkomt!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Opening Hours - Single compact card */}
-      <section className="section-padding bg-secondary">
+      <section id="openingstijden" className="section-padding">
         <div className="container-custom">
           <div className="max-w-md mx-auto bg-card p-6 shadow-soft text-center">
             <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -355,7 +291,7 @@ export default function Index() {
       </section>
 
       {/* Services/Aanbod Section - Popup buttons */}
-      <section className="section-padding">
+      <section id="aanbod" className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-10">Ons Aanbod</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
