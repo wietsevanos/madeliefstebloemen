@@ -131,6 +131,15 @@ const GoogleLogo = ({
     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
   </svg>;
+
+const GoogleMapsLogo = ({
+  className = "w-5 h-5"
+}: {
+  className?: string;
+}) => <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#4285F4" d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 5.56 7.1 13.89 7.41 14.26.31.38.88.38 1.19 0 .31-.37 7.41-8.7 7.41-14.26C19.5 3.81 15.69 0 12 0zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+    <path fill="#34A853" d="M12 2c3.31 0 6 2.69 6 6.5 0 2.91-2.14 6.79-4.5 10.08V8.5c0-1.38-1.12-2.5-2.5-2.5S8.5 7.12 8.5 8.5v10.08C6.14 15.29 4 11.41 4 8.5 4 4.69 6.69 2 10 2h2z" opacity="0.3" />
+  </svg>;
 export default function Index() {
   return <div className="min-h-screen bg-background">
       {/* Header */}
@@ -317,8 +326,8 @@ export default function Index() {
             <div className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300">
               <div className="p-5 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                    <GoogleMapsLogo className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold">Vind ons</h3>
