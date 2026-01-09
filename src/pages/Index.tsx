@@ -250,10 +250,31 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Hanny Schaftstichting Partnership */}
-            <div className="bg-card border border-primary/20 rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
+            {/* Trouwerijen */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4 border-2 border-primary/20 shadow-sm">
+                <div className="w-14 h-14 bg-blush/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">💒</span>
+                </div>
+                <h3 className="font-heading text-lg font-semibold mb-3">Trouwboeketten</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                  Jouw mooiste dag verdient de mooiste bloemen. Nancy stelt met liefde 
+                  bruidsboeketten samen die perfect passen bij jouw droombruiloft.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hanny Schaft Section */}
+      <section className="section-padding bg-card">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              {/* Portrait & Logo */}
+              <div className="flex flex-col items-center md:w-1/3">
+                <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg mb-4">
                   <img 
                     src={hannySchaftPortrait} 
                     alt="Hannie Schaft" 
@@ -263,12 +284,26 @@ export default function Index() {
                 <img 
                   src={hannySchaftLogo} 
                   alt="Nationale Hannie Schaft Stichting" 
-                  className="h-7 w-auto mx-auto mb-3"
+                  className="h-10 w-auto"
                 />
-                <h3 className="font-heading text-lg font-semibold text-primary mb-2">Trotse Partner</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm flex-1">
-                  Wij verzorgen met trots de boeketten voor de Hanny Schaftstichting.
-                </p>
+              </div>
+              
+              {/* Content */}
+              <div className="md:w-2/3 text-center md:text-left">
+                <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>
+                    "Ik vind het heel speciaal dat ik voor de Hanny Schaftstichting de krans mag maken. 
+                    Ik ben een echte Hannie Schaft-fan en haar foto staat ook op de toonbank."
+                  </p>
+                  <p>
+                    Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
+                    van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
+                  </p>
+                  <p className="text-sm italic text-primary/80">
+                    Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
