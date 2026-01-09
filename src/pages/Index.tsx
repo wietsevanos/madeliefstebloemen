@@ -283,7 +283,7 @@ export default function Index() {
                   />
                 </div>
                 {/* Logo badge */}
-                <div className="absolute -top-4 -right-4 bg-blush/30 rounded-lg shadow-lg p-3">
+                <div className="absolute -top-4 -right-4 rounded-lg shadow-lg p-3" style={{ backgroundColor: '#FDF2F4' }}>
                   <img 
                     src={hannySchaftLogoFull} 
                     alt="Nationale Hannie Schaft Stichting" 
