@@ -14,6 +14,8 @@ import aanbod5Image from "@/assets/aanbod-5.jpg";
 import aanbod6Image from "@/assets/aanbod-6.jpg";
 import aanbod7Image from "@/assets/aanbod-7.jpg";
 import aanbod8Image from "@/assets/aanbod-8.jpg";
+import hannySchaftLogo from "@/assets/hanny-schaft-logo.png";
+import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 
 const aanbodImages = [
   aanbod1Image,
@@ -252,19 +254,35 @@ export default function Index() {
           </div>
 
           {/* Hanny Schaftstichting Partnership */}
-          <div className="mt-12 max-w-2xl mx-auto">
-            <div className="bg-card border border-primary/20 rounded-xl p-6 text-center shadow-soft">
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl">🤝</span>
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="bg-card border border-primary/20 rounded-xl overflow-hidden shadow-soft">
+              <div className="flex flex-col md:flex-row items-center">
+                {/* Portrait */}
+                <div className="w-full md:w-1/3 aspect-square md:aspect-auto">
+                  <img 
+                    src={hannySchaftPortrait} 
+                    alt="Hannie Schaft" 
+                    className="w-full h-full object-cover md:h-48"
+                  />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-primary">Trotse Partner</h3>
+                
+                {/* Content */}
+                <div className="flex-1 p-6 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
+                    <img 
+                      src={hannySchaftLogo} 
+                      alt="Nationale Hannie Schaft Stichting" 
+                      className="h-10 w-auto"
+                    />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-primary mb-2">Trotse Partner</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    Madeliefste Bloemen verzorgt met gepaste trots de boeketten voor de{" "}
+                    <span className="font-semibold text-foreground">Hanny Schaftstichting</span>. 
+                    Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
+                  </p>
+                </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed">
-                Madeliefste Bloemen verzorgt met gepaste trots de boeketten voor de{" "}
-                <span className="font-semibold text-foreground">Hanny Schaftstichting</span>. 
-                Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
-              </p>
             </div>
           </div>
         </div>
