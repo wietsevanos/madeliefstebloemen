@@ -221,7 +221,7 @@ export default function Index() {
           <div className="max-w-3xl mx-auto">
             <h2 className="heading-lg text-center mb-8">Maak kennis met Nancy</h2>
             <div className="bg-card overflow-hidden shadow-soft">
-              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full h-80 object-cover object-top" />
+              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
               <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
                 <p>
                   Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
