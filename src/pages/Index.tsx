@@ -148,7 +148,7 @@ export default function Index() {
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Ons Aanbod</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
-            Van verse seizoensbloemen tot bijzondere planten — altijd met liefde samengesteld
+            Van verse seizoensbloemen tot bijzondere planten, altijd met liefde samengesteld
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {aanbodImages.map((image, index) => (
@@ -160,6 +160,48 @@ export default function Index() {
                 />
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Onze Specialiteiten Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
+            Waar we écht in uitblinken, met hart en ziel
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Rouwstukken */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-soft">
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-3xl">🌿</span>
+                </div>
+                <h3 className="font-heading text-xl font-semibold mb-4">Rouwstukken</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
+                  prachtige rouwstukken die recht doen aan wie er niet meer is. 
+                  Persoonlijk, liefdevol, en precies zoals het hoort.
+                </p>
+              </div>
+            </div>
+
+            {/* Zelf samengestelde boeketten */}
+            <div className="bg-card rounded-xl overflow-hidden shadow-soft">
+              <div className="p-8 text-center">
+                <div className="w-16 h-16 bg-blush/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-3xl">💐</span>
+                </div>
+                <h3 className="font-heading text-xl font-semibold mb-4">Boeketten op Maat</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Geen standaard bosjes hier! Nancy haalt haar bloemen kort van tevoren 
+                  vers bij de boer. Jouw boeket wordt helemaal naar wens samengesteld, 
+                  met topkwaliteit én een eerlijke prijs. Vertellen wat je wilt, en wij toveren het tevoorschijn!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
