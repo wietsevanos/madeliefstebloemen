@@ -83,13 +83,13 @@ export default function Index() {
       </header>
 
       {/* Hero Section - Full Screen */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative h-screen flex items-end">
         <div className="absolute inset-0 z-0">
           <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
         </div>
         
-        <div className="container-custom relative z-10 text-center">
+        <div className="container-custom relative z-10 text-center pb-12 md:pb-16">
           <h1 className="heading-xl animate-fade-in-up mb-3 text-primary-foreground">
             Madeliefste Bloemen
           </h1>
