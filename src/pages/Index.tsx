@@ -98,10 +98,11 @@ export default function Index() {
           </p>
           
           {/* Main Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 animate-fade-in-delay-2">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2 px-4 sm:px-0">
             <Button 
               variant="warm" 
               size="lg"
+              className="w-full sm:w-auto"
               onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Bekijk ons aanbod
@@ -111,7 +112,7 @@ export default function Index() {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
+                  className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
                 >
                   <Clock className="w-4 h-4 mr-2" />
                   Openingstijden
