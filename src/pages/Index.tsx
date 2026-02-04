@@ -1,5 +1,4 @@
 import { MapPin, Clock, Phone, Star, MessageCircle, Instagram } from "lucide-react";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
@@ -107,60 +106,15 @@ export default function Index() {
             >
               Bekijk ons aanbod
             </Button>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
-                >
-                  <Clock className="w-4 h-4 mr-2" />
-                  Openingstijden
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="p-0 border-0 bg-transparent max-w-md">
-                <div className="bg-card p-6 shadow-soft text-center rounded-xl">
-                  <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
-                  <h3 className="font-heading font-semibold text-lg mb-4">Openingstijden</h3>
-                  <div className="space-y-1 text-sm">
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Maandag</span>
-                      <span className="text-muted-foreground">Gesloten</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Dinsdag</span>
-                      <span className="text-primary font-medium">12:00 – 17:30</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Woensdag</span>
-                      <span className="text-primary font-medium">09:30 – 17:30</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Donderdag</span>
-                      <span className="text-primary font-medium">09:30 – 17:30</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Vrijdag</span>
-                      <span className="text-primary font-medium">09:30 – 17:30</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b border-border">
-                      <span className="font-medium">Zaterdag</span>
-                      <span className="text-primary font-medium">09:00 – 17:00</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2">
-                      <span className="font-medium">Zondag</span>
-                      <span className="text-muted-foreground">Gesloten</span>
-                    </div>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
-                    <a href="tel:0235315809" className="text-primary hover:underline font-medium text-sm">
-                      <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
-                    </a>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
+              onClick={() => document.getElementById('openingstijden')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Clock className="w-4 h-4 mr-2" />
+              Openingstijden
+            </Button>
           </div>
         </div>
       </section>
@@ -188,6 +142,56 @@ export default function Index() {
                 <p>
                   En vergeet hond Kerel niet, de trouwe viervoeter die elke klant verwelkomt!
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Openingstijden Section */}
+      <section id="openingstijden" className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Clock className="w-8 h-8 text-primary" />
+              <h2 className="heading-lg">Openingstijden</h2>
+            </div>
+            <div className="bg-card rounded-xl shadow-soft p-6 md:p-8">
+              <div className="space-y-1 text-sm">
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Maandag</span>
+                  <span className="text-muted-foreground">Gesloten</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Dinsdag</span>
+                  <span className="text-primary font-medium">12:00 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Woensdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Donderdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Vrijdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Zaterdag</span>
+                  <span className="text-primary font-medium">09:00 – 17:00</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="font-medium">Zondag</span>
+                  <span className="text-muted-foreground">Gesloten</span>
+                </div>
+              </div>
+              <div className="mt-6 pt-4 border-t border-border">
+                <p className="text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
+                <a href="tel:0235315809" className="text-primary hover:underline font-medium">
+                  <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
+                </a>
               </div>
             </div>
           </div>
