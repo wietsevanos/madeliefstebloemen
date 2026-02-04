@@ -309,11 +309,11 @@ export default function Index() {
                   <span className="text-muted-foreground">Gesloten</span>
                 </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-border">
-                <p className="text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
-                <a href="tel:0235315809" className="text-primary hover:underline font-medium">
-                  <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
-                </a>
+              <div className="mt-6 pt-4 border-t border-border text-center">
+                <p className="text-muted-foreground text-sm">
+                  💡 Openingstijden kunnen soms afwijken, bijvoorbeeld rond feestdagen. 
+                  Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
+                </p>
               </div>
             </div>
           </div>
