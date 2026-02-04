@@ -148,55 +148,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Openingstijden Section */}
-      <section id="openingstijden" className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Clock className="w-8 h-8 text-primary" />
-              <h2 className="heading-lg">Openingstijden</h2>
-            </div>
-            <div className="bg-card rounded-xl shadow-soft p-6 md:p-8">
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Maandag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Dinsdag</span>
-                  <span className="text-primary font-medium">12:00 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Woensdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Donderdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Vrijdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Zaterdag</span>
-                  <span className="text-primary font-medium">09:00 – 17:00</span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="font-medium">Zondag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-              </div>
-              <div className="mt-6 pt-4 border-t border-border">
-                <p className="text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
-                <a href="tel:0235315809" className="text-primary hover:underline font-medium">
-                  <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Ons Aanbod Section - Simple Photo Gallery */}
       <section id="aanbod" className="section-padding">
@@ -319,6 +270,55 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Openingstijden Section */}
+      <section id="openingstijden" className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="max-w-xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Clock className="w-8 h-8 text-primary" />
+              <h2 className="heading-lg">Openingstijden</h2>
+            </div>
+            <div className="bg-card rounded-xl shadow-soft p-6 md:p-8">
+              <div className="space-y-1 text-sm">
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Maandag</span>
+                  <span className="text-muted-foreground">Gesloten</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Dinsdag</span>
+                  <span className="text-primary font-medium">12:00 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Woensdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Donderdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Vrijdag</span>
+                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-border">
+                  <span className="font-medium">Zaterdag</span>
+                  <span className="text-primary font-medium">09:00 – 17:00</span>
+                </div>
+                <div className="flex justify-between items-center py-3">
+                  <span className="font-medium">Zondag</span>
+                  <span className="text-muted-foreground">Gesloten</span>
+                </div>
+              </div>
+              <div className="mt-6 pt-4 border-t border-border">
+                <p className="text-muted-foreground mb-2">Hoofmanstraat 1, Haarlem</p>
+                <a href="tel:0235315809" className="text-primary hover:underline font-medium">
+                  <Phone className="w-4 h-4 inline mr-1" />023 531 58 09
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Location & Instagram Combined Section */}
       <section className="section-padding">
