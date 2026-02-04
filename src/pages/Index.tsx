@@ -435,7 +435,8 @@ export default function Index() {
         <div className="container-custom text-center">
           <h3 className="font-heading text-2xl font-semibold mb-4">Madeliefste Bloemen</h3>
           <p className="text-primary-foreground/80 text-sm mb-2">Hoofmanstraat 1, 2014 DP Haarlem</p>
-          <p className="text-primary-foreground/80 text-sm mb-4">023 531 58 09</p>
+          <p className="text-primary-foreground/80 text-sm mb-2">023 531 58 09</p>
+          <a href="mailto:madeliefstebloemen@gmail.com" className="text-primary-foreground/80 hover:text-primary-foreground text-sm mb-4 inline-block transition-colors">madeliefstebloemen@gmail.com</a>
           <div className="flex justify-center gap-4 mb-4">
             <a href="https://www.instagram.com/madeliefstebloemen/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
               <Instagram className="w-6 h-6" />
