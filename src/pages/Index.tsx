@@ -73,18 +73,12 @@ export default function Index() {
               <span className="text-primary">Madeliefste</span>{" "}
               <span className="text-blush-dark">Bloemen</span>
             </span>
-            <div className="flex items-center gap-3">
-              <a href="tel:0235315809" className="hidden md:flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+            <Button variant="outline" size="sm" asChild>
+              <a href="tel:0235315809" className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm font-medium">023 531 58 09</span>
+                <span>Bel ons</span>
               </a>
-              <Button variant="warm" size="sm" asChild>
-                <a href="tel:0235315809" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <span>Bel ons</span>
-                </a>
-              </Button>
-            </div>
+            </Button>
           </div>
         </div>
       </header>
