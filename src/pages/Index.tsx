@@ -1,6 +1,6 @@
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Sun, Moon, CalendarDays, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import OrderForm from "@/components/OrderForm";
+import { Link } from "react-router-dom";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
@@ -77,10 +77,10 @@ export default function Index() {
             </span>
             <div className="flex items-center gap-2">
               <Button variant="warm" size="sm" asChild>
-                <a href="#bestellen" className="flex items-center gap-2">
+                <Link to="/bestellen" className="flex items-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
                   <span>Bestel bloemen</span>
-                </a>
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
                 <a href="tel:0235315809" className="flex items-center gap-2">
@@ -114,10 +114,12 @@ export default function Index() {
               variant="warm" 
               size="lg"
               className="w-full sm:w-auto"
-              onClick={() => document.getElementById('bestellen')?.scrollIntoView({ behavior: 'smooth' })}
+              asChild
             >
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Bestel bloemen
+              <Link to="/bestellen">
+                <ShoppingBag className="w-4 h-4 mr-2" />
+                Bestel bloemen
+              </Link>
             </Button>
             <Button 
               variant="outline" 
@@ -220,39 +222,46 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Bezorgmomenten */}
-          <div className="max-w-md mx-auto bg-card p-6 shadow-soft mb-12">
-            <h3 className="font-heading font-semibold text-center mb-4">Bezorgmomenten</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between py-2 border-b border-border">
-                <span className="font-medium">Overdag</span>
-                <span className="text-primary">✔ Beschikbaar</span>
+          {/* Bezorgmomenten - zelfde kaart-stijl */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Sun className="w-6 h-6 text-primary" />
               </div>
-              <div className="flex justify-between py-2 border-b border-border">
-                <span className="font-medium">'s Avonds</span>
-                <span className="text-primary">✔ Beschikbaar</span>
-              </div>
-              <div className="flex justify-between py-2 border-b border-border">
-                <span className="font-medium">Zaterdag</span>
-                <span className="text-primary">✔ Beschikbaar</span>
-              </div>
-              <div className="flex justify-between py-2">
-                <span className="font-medium">Zondag</span>
-                <span className="text-muted-foreground">Bij uitzondering</span>
-              </div>
+              <h3 className="font-heading font-semibold mb-2">Overdag</h3>
+              <p className="text-sm text-muted-foreground">Beschikbaar</p>
             </div>
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              Zondagbezorging is mogelijk in overleg. Hiervoor geldt een toeslag van €15.
-            </p>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Moon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">'s Avonds</h3>
+              <p className="text-sm text-muted-foreground">Beschikbaar</p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CalendarDays className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Zaterdag</h3>
+              <p className="text-sm text-muted-foreground">Beschikbaar</p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <AlertCircle className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Zondag</h3>
+              <p className="text-sm text-muted-foreground">In overleg · toeslag €20</p>
+            </div>
           </div>
 
-          {/* Bestelformulier */}
-          <div className="max-w-lg mx-auto">
-            <h3 className="font-heading text-xl font-semibold text-center mb-2">Plaats uw bestelling</h3>
-            <p className="text-center text-muted-foreground mb-8 text-sm">
-              Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
-            </p>
-            <OrderForm />
+          {/* CTA knop */}
+          <div className="text-center">
+            <Button variant="warm" size="xl" asChild>
+              <Link to="/bestellen" className="flex items-center gap-3">
+                <ShoppingBag className="w-5 h-5" />
+                Bestel bloemen
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

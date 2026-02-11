@@ -1,0 +1,40 @@
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import OrderForm from "@/components/OrderForm";
+
+export default function Bestellen() {
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="bg-card/95 shadow-soft border-b-4 border-blush">
+        <div className="container-custom">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <Link to="/" className="font-heading text-xl md:text-2xl font-semibold">
+              <span className="text-primary">Madeliefste</span>{" "}
+              <span className="text-blush-dark">Bloemen</span>
+            </Link>
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/" className="flex items-center gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Terug
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="max-w-lg mx-auto">
+            <h1 className="heading-lg text-center mb-2">Plaats uw bestelling</h1>
+            <p className="text-center text-muted-foreground mb-10 text-sm">
+              Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
+            </p>
+            <OrderForm />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
