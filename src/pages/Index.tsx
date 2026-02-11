@@ -1,4 +1,5 @@
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Sun, Moon, CalendarDays, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Sun, Moon, CalendarDays, AlertCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import winkelImage from "@/assets/winkel.jpg";
@@ -66,6 +67,16 @@ const GoogleMapsLogo = ({
   </svg>;
 
 export default function Index() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: "#aanbod", label: "Aanbod" },
+    { href: "#bestellen", label: "Bezorging" },
+    { href: "#specialiteiten", label: "Specialiteiten" },
+    { href: "#openingstijden", label: "Openingstijden" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
@@ -76,13 +87,11 @@ export default function Index() {
               <span className="text-blush-dark">Bloemen</span>
             </span>
             
-            {/* Nav links - centered */}
+            {/* Nav links - desktop */}
             <nav className="hidden md:flex items-center gap-6 mx-auto">
-              <a href="#aanbod" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Aanbod</a>
-              <a href="#bestellen" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Bezorging</a>
-              <a href="#specialiteiten" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Specialiteiten</a>
-              <a href="#openingstijden" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Openingstijden</a>
-              <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
+              {navLinks.map((link) => (
+                <a key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{link.label}</a>
+              ))}
             </nav>
 
             <div className="flex items-center gap-2 shrink-0">
@@ -92,15 +101,45 @@ export default function Index() {
                   <span>Bestel</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex">
                 <a href="tel:0235315809" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  <span className="hidden sm:inline">Bel ons</span>
+                  <span>Bel ons</span>
                 </a>
               </Button>
+              {/* Mobile menu toggle */}
+              <button
+                className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile menu dropdown */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-card border-t border-border">
+            <nav className="container-custom py-4 flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a href="tel:0235315809" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2 flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                023 531 58 09
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section - Full Screen */}
