@@ -571,8 +571,8 @@ export default function Index() {
           </div>
           
           {/* Bottom bar */}
-          <div className="mt-8 pt-6 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-primary-foreground/50">
-            <p>© 2024 Madeliefste Bloemen</p>
+          <div className="mt-8 pt-6 border-t border-primary-foreground/30 flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-primary-foreground/70">
+            <p>© 2026 Madeliefste Bloemen</p>
             <p>KvK: 52278506</p>
           </div>
         </div>
