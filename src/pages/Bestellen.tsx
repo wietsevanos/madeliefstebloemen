@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import OrderForm from "@/components/OrderForm";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
+import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 
 export default function Bestellen() {
   return (
@@ -11,9 +12,10 @@ export default function Bestellen() {
       <header className="bg-card/95 shadow-soft border-b-4 border-blush">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <Link to="/" className="font-heading text-xl md:text-2xl font-semibold">
-              <span className="text-primary">Madeliefste</span>{" "}
-              <span className="text-blush-dark">Bloemen</span>
+            <Link to="/" className="font-heading text-xl md:text-2xl font-semibold flex items-center gap-2">
+              <img src={madeliefsteLogo} alt="Madeliefste logo" className="w-8 h-8 md:w-10 md:h-10" />
+              <span><span className="text-primary">Madeliefste</span>{" "}
+              <span className="text-blush-dark">Bloemen</span></span>
             </Link>
             <Button variant="ghost" size="sm" asChild>
               <Link to="/" className="flex items-center gap-2">
