@@ -71,15 +71,25 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <span className="font-heading text-xl md:text-2xl font-semibold">
+            <span className="font-heading text-xl md:text-2xl font-semibold shrink-0">
               <span className="text-primary">Madeliefste</span>{" "}
               <span className="text-blush-dark">Bloemen</span>
             </span>
-            <div className="flex items-center gap-2">
+            
+            {/* Nav links - centered */}
+            <nav className="hidden md:flex items-center gap-6 mx-auto">
+              <a href="#aanbod" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Aanbod</a>
+              <a href="#bestellen" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Bezorging</a>
+              <a href="#specialiteiten" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Specialiteiten</a>
+              <a href="#openingstijden" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Openingstijden</a>
+              <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Contact</a>
+            </nav>
+
+            <div className="flex items-center gap-2 shrink-0">
               <Button variant="warm" size="sm" asChild>
                 <Link to="/bestellen" className="flex items-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
-                  <span>Bestel bloemen</span>
+                  <span>Bestel</span>
                 </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
@@ -267,7 +277,7 @@ export default function Index() {
       </section>
 
       {/* Onze Specialiteiten Section */}
-      <section className="section-padding bg-secondary">
+      <section id="specialiteiten" className="section-padding bg-secondary">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
@@ -417,7 +427,7 @@ export default function Index() {
       </section>
 
       {/* Location & Instagram Combined Section */}
-      <section className="section-padding">
+      <section id="contact" className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Location Card */}
