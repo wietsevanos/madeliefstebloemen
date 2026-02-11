@@ -416,7 +416,7 @@ export default function Index() {
       <section id="openingstijden" className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-xl mx-auto text-center">
-            <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-6" />
+            <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-[-2rem] relative z-10" />
             <div className="bg-card shadow-soft p-6 md:p-8">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Clock className="w-7 h-7 text-primary" />
