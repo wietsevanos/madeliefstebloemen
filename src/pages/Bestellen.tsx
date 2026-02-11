@@ -5,7 +5,7 @@ import OrderForm from "@/components/OrderForm";
 
 export default function Bestellen() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-secondary via-blush/20 to-secondary">
       {/* Header */}
       <header className="bg-card/95 shadow-soft border-b-4 border-blush">
         <div className="container-custom">
@@ -27,11 +27,13 @@ export default function Bestellen() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-lg mx-auto">
-            <h1 className="heading-lg text-center mb-2">Plaats uw bestelling</h1>
-            <p className="text-center text-muted-foreground mb-10 text-sm">
-              Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
-            </p>
-            <OrderForm />
+            <div className="bg-card p-6 md:p-10 shadow-soft">
+              <h1 className="heading-lg text-center mb-2">Plaats uw bestelling</h1>
+              <p className="text-center text-muted-foreground mb-10 text-sm">
+                Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
+              </p>
+              <OrderForm />
+            </div>
           </div>
         </div>
       </section>
