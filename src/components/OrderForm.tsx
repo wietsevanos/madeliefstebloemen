@@ -4,39 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChevronRight, ChevronLeft, Send } from "lucide-react";
-
-const STEPS = [
-  "Bestelling",
-  "Bezorgadres",
-  "Uw gegevens",
-  "Details",
-];
+import { Send } from "lucide-react";
 
 export default function OrderForm() {
-  const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     soortBestelling: "",
-    soortAnders: "",
-    // bezorgadres
-    naamOntvanger: "",
-    straatOntvanger: "",
-    postcodeOntvanger: "",
-    plaatsOntvanger: "",
-    telefoonOntvanger: "",
-    // opdrachtgever
-    naamOpdrachtgever: "",
-    straatOpdrachtgever: "",
-    postcodeOpdrachtgever: "",
-    plaatsOpdrachtgever: "",
-    telefoonOpdrachtgever: "",
-    emailOpdrachtgever: "",
-    // details
+    naam: "",
+    telefoon: "",
+    email: "",
+    bezorgadres: "",
     bezorgdatum: "",
     bezorgtijd: "",
-    kaartje: "",
-    bijzonderheden: "",
+    bericht: "",
   });
 
   const update = (field: string, value: string) =>
@@ -44,26 +24,15 @@ export default function OrderForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Build mailto body
     const lines = [
-      `Soort bestelling: ${form.soortBestelling}${form.soortAnders ? ` – ${form.soortAnders}` : ""}`,
-      "",
-      "— Bezorgadres —",
-      `Naam: ${form.naamOntvanger}`,
-      `Adres: ${form.straatOntvanger}, ${form.postcodeOntvanger} ${form.plaatsOntvanger}`,
-      `Telefoon: ${form.telefoonOntvanger}`,
-      "",
-      "— Opdrachtgever —",
-      `Naam: ${form.naamOpdrachtgever}`,
-      `Adres: ${form.straatOpdrachtgever}, ${form.postcodeOpdrachtgever} ${form.plaatsOpdrachtgever}`,
-      `Telefoon: ${form.telefoonOpdrachtgever}`,
-      `E-mail: ${form.emailOpdrachtgever}`,
-      "",
-      "— Details —",
+      `Soort bestelling: ${form.soortBestelling}`,
+      `Naam: ${form.naam}`,
+      `Telefoon: ${form.telefoon}`,
+      `E-mail: ${form.email}`,
+      `Bezorgadres: ${form.bezorgadres}`,
       `Bezorgdatum: ${form.bezorgdatum}`,
       `Bezorgtijd: ${form.bezorgtijd}`,
-      `Kaartje: ${form.kaartje}`,
-      `Bijzonderheden: ${form.bijzonderheden}`,
+      `Bericht / bijzonderheden: ${form.bericht}`,
     ];
     const subject = encodeURIComponent("Bestelling via website");
     const body = encodeURIComponent(lines.join("\n"));
@@ -82,7 +51,7 @@ export default function OrderForm() {
           Na ontvangst nemen wij telefonisch contact met u op om alles zorgvuldig af te stemmen.
           U ontvangt daarna een Tikkie voor de betaling.
         </p>
-        <Button variant="outline" onClick={() => { setSubmitted(false); setStep(0); }}>
+        <Button variant="outline" onClick={() => { setSubmitted(false); }}>
           Nieuwe bestelling
         </Button>
       </div>
@@ -90,181 +59,79 @@ export default function OrderForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-      {/* Step indicator */}
-      <div className="flex items-center justify-between mb-8">
-        {STEPS.map((label, i) => (
-          <div key={label} className="flex items-center gap-2">
-            <div
-              className={`w-8 h-8 flex items-center justify-center text-sm font-medium transition-colors ${
-                i <= step
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground"
-              }`}
-            >
-              {i + 1}
-            </div>
-            <span className="hidden sm:inline text-sm text-muted-foreground">{label}</span>
-            {i < STEPS.length - 1 && (
-              <div className={`w-6 md:w-12 h-0.5 ${i < step ? "bg-primary" : "bg-muted"}`} />
-            )}
-          </div>
-        ))}
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
+      <div className="space-y-2">
+        <Label>Wat wilt u bestellen? *</Label>
+        <Input
+          placeholder="Bijv. boeket, rouwstuk, bruidsboeket…"
+          value={form.soortBestelling}
+          onChange={(e) => update("soortBestelling", e.target.value)}
+          required
+        />
       </div>
 
-      {/* Step 1: Soort bestelling */}
-      {step === 0 && (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label>Soort bestelling</Label>
-            <Input
-              placeholder="Bijv. boeket, rouwstuk, bruidsboeket…"
-              value={form.soortBestelling}
-              onChange={(e) => update("soortBestelling", e.target.value)}
-              required
-            />
-          </div>
-          <div className="space-y-2">
-            <Label>Anders, namelijk…</Label>
-            <Input
-              placeholder="Optioneel"
-              value={form.soortAnders}
-              onChange={(e) => update("soortAnders", e.target.value)}
-            />
-          </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Uw naam *</Label>
+          <Input value={form.naam} onChange={(e) => update("naam", e.target.value)} required />
         </div>
-      )}
-
-      {/* Step 2: Bezorgadres */}
-      {step === 1 && (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label>Naam ontvanger *</Label>
-            <Input value={form.naamOntvanger} onChange={(e) => update("naamOntvanger", e.target.value)} required />
-          </div>
-          <div className="space-y-2">
-            <Label>Straat + huisnummer *</Label>
-            <Input value={form.straatOntvanger} onChange={(e) => update("straatOntvanger", e.target.value)} required />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Postcode *</Label>
-              <Input value={form.postcodeOntvanger} onChange={(e) => update("postcodeOntvanger", e.target.value)} required />
-            </div>
-            <div className="space-y-2">
-              <Label>Plaats *</Label>
-              <Input value={form.plaatsOntvanger} onChange={(e) => update("plaatsOntvanger", e.target.value)} required />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <Label>Telefoonnummer ontvanger</Label>
-            <Input type="tel" value={form.telefoonOntvanger} onChange={(e) => update("telefoonOntvanger", e.target.value)} />
-          </div>
+        <div className="space-y-2">
+          <Label>Telefoonnummer *</Label>
+          <Input type="tel" value={form.telefoon} onChange={(e) => update("telefoon", e.target.value)} required />
         </div>
-      )}
-
-      {/* Step 3: Opdrachtgever */}
-      {step === 2 && (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label>Uw naam *</Label>
-            <Input value={form.naamOpdrachtgever} onChange={(e) => update("naamOpdrachtgever", e.target.value)} required />
-          </div>
-          <div className="space-y-2">
-            <Label>Straat + huisnummer *</Label>
-            <Input value={form.straatOpdrachtgever} onChange={(e) => update("straatOpdrachtgever", e.target.value)} required />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Postcode *</Label>
-              <Input value={form.postcodeOpdrachtgever} onChange={(e) => update("postcodeOpdrachtgever", e.target.value)} required />
-            </div>
-            <div className="space-y-2">
-              <Label>Plaats *</Label>
-              <Input value={form.plaatsOpdrachtgever} onChange={(e) => update("plaatsOpdrachtgever", e.target.value)} required />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <Label>Telefoonnummer *</Label>
-            <Input type="tel" value={form.telefoonOpdrachtgever} onChange={(e) => update("telefoonOpdrachtgever", e.target.value)} required />
-          </div>
-          <div className="space-y-2">
-            <Label>E-mailadres *</Label>
-            <Input type="email" value={form.emailOpdrachtgever} onChange={(e) => update("emailOpdrachtgever", e.target.value)} required />
-          </div>
-        </div>
-      )}
-
-      {/* Step 4: Details */}
-      {step === 3 && (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <Label>Gewenste bezorgdatum *</Label>
-            <Input type="date" value={form.bezorgdatum} onChange={(e) => update("bezorgdatum", e.target.value)} required />
-          </div>
-          <div className="space-y-2">
-            <Label>Gewenste bezorgtijd</Label>
-            <Select value={form.bezorgtijd} onValueChange={(v) => update("bezorgtijd", v)}>
-              <SelectTrigger><SelectValue placeholder="Kies een moment" /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ochtend">Ochtend</SelectItem>
-                <SelectItem value="middag">Middag</SelectItem>
-                <SelectItem value="avond">Avond</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="space-y-2">
-            <Label>Bericht voor op het kaartje</Label>
-            <Textarea
-              placeholder="Bijv. Gefeliciteerd met jullie trouwdag!"
-              value={form.kaartje}
-              onChange={(e) => update("kaartje", e.target.value)}
-              rows={3}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label>Bijzonderheden</Label>
-            <Textarea
-              placeholder="Bijv. kleurvoorkeur, budget, allergieën…"
-              value={form.bijzonderheden}
-              onChange={(e) => update("bijzonderheden", e.target.value)}
-              rows={3}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Navigation */}
-      <div className="flex justify-between mt-8 pt-6 border-t border-border">
-        <Button
-          type="button"
-          variant="ghost"
-          onClick={() => setStep((s) => s - 1)}
-          disabled={step === 0}
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Vorige
-        </Button>
-
-        {step < STEPS.length - 1 ? (
-          <Button type="button" onClick={() => setStep((s) => s + 1)}>
-            Volgende
-            <ChevronRight className="w-4 h-4" />
-          </Button>
-        ) : (
-          <Button type="submit" variant="warm" size="lg">
-            <Send className="w-4 h-4" />
-            Bestel bloemen
-          </Button>
-        )}
       </div>
 
-      {step === STEPS.length - 1 && (
-        <p className="text-sm text-muted-foreground text-center mt-6">
-          Na ontvangst nemen wij telefonisch contact met u op om alles zorgvuldig af te stemmen.
-          U ontvangt daarna een Tikkie voor de betaling.
-        </p>
-      )}
+      <div className="space-y-2">
+        <Label>E-mailadres *</Label>
+        <Input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} required />
+      </div>
+
+      <div className="space-y-2">
+        <Label>Bezorgadres</Label>
+        <Input
+          placeholder="Straat, postcode, plaats"
+          value={form.bezorgadres}
+          onChange={(e) => update("bezorgadres", e.target.value)}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label>Gewenste bezorgdatum</Label>
+          <Input type="date" value={form.bezorgdatum} onChange={(e) => update("bezorgdatum", e.target.value)} />
+        </div>
+        <div className="space-y-2">
+          <Label>Bezorgtijd</Label>
+          <Select value={form.bezorgtijd} onValueChange={(v) => update("bezorgtijd", v)}>
+            <SelectTrigger><SelectValue placeholder="Kies een moment" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="ochtend">Ochtend</SelectItem>
+              <SelectItem value="middag">Middag</SelectItem>
+              <SelectItem value="avond">Avond</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <Label>Bericht of bijzonderheden</Label>
+        <Textarea
+          placeholder="Bijv. kaartje, kleurvoorkeur, budget…"
+          value={form.bericht}
+          onChange={(e) => update("bericht", e.target.value)}
+          rows={3}
+        />
+      </div>
+
+      <Button type="submit" variant="warm" size="lg" className="w-full">
+        <Send className="w-4 h-4" />
+        Bestel bloemen
+      </Button>
+
+      <p className="text-xs text-muted-foreground text-center">
+        Na ontvangst nemen wij telefonisch contact met u op om alles af te stemmen.
+        U ontvangt daarna een Tikkie voor de betaling.
+      </p>
     </form>
   );
 }

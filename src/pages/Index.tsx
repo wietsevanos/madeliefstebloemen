@@ -181,17 +181,16 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Bezorgservice & Online Bestellen Section */}
-      <section id="bezorging" className="section-padding bg-secondary">
+      {/* Bezorgservice & Bestellen Section */}
+      <section id="bestellen" className="section-padding bg-secondary">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Bezorgservice & Online Bestellen</h2>
+          <h2 className="heading-lg text-center mb-3">Bezorgservice & Bestellen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
             Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
-            Bestel eenvoudig online en wij regelen de rest.
           </p>
 
           {/* 3 kolommen bezorginfo */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
             <div className="bg-card p-6 shadow-soft text-center">
               <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <Truck className="w-6 h-6 text-primary" />
@@ -246,17 +245,15 @@ export default function Index() {
               Zondagbezorging is mogelijk in overleg. Hiervoor geldt een toeslag van €15.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Bestelformulier Section */}
-      <section id="bestellen" className="section-padding">
-        <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Plaats uw bestelling</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-            Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om de bestelling definitief af te stemmen.
-          </p>
-          <OrderForm />
+          {/* Bestelformulier */}
+          <div className="max-w-lg mx-auto">
+            <h3 className="font-heading text-xl font-semibold text-center mb-2">Plaats uw bestelling</h3>
+            <p className="text-center text-muted-foreground mb-8 text-sm">
+              Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
+            </p>
+            <OrderForm />
+          </div>
         </div>
       </section>
 
