@@ -95,13 +95,13 @@ export default function Index() {
             </nav>
 
             <div className="flex items-center gap-2 shrink-0">
-              <Button variant="warm" size="sm" asChild>
+              <Button variant="warm" size="sm" asChild className="hidden md:inline-flex">
                 <Link to="/bestellen" className="flex items-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
                   <span>Bestel</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex">
+              <Button variant="outline" size="sm" asChild className="hidden md:inline-flex">
                 <a href="tel:0235315809" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   <span>Bel ons</span>
@@ -133,10 +133,20 @@ export default function Index() {
                   {link.label}
                 </a>
               ))}
-              <a href="tel:0235315809" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2 flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                023 531 58 09
-              </a>
+              <div className="border-t border-border pt-3 mt-1 flex flex-col gap-2">
+                <Button variant="warm" size="sm" asChild className="w-full">
+                  <Link to="/bestellen" className="flex items-center justify-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                    <ShoppingBag className="w-4 h-4" />
+                    Bestel bloemen
+                  </Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild className="w-full">
+                  <a href="tel:0235315809" className="flex items-center justify-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Bel ons – 023 531 58 09
+                  </a>
+                </Button>
+              </div>
             </nav>
           </div>
         )}
