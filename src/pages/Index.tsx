@@ -22,6 +22,7 @@ import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import bloemenOpeningstijden from "@/assets/bloemen-openingstijden.png";
+import rozenhartImage from "@/assets/rozenhart.jpg";
 
 const aanbodImages = [
   aanbod1Image,
@@ -338,10 +339,8 @@ export default function Index() {
 
             {/* Zelf samengestelde boeketten */}
             <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+              <img src={rozenhartImage} alt="Hartvormig bloemstuk van kleurrijke rozen" className="w-full aspect-[4/3] object-cover" />
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-blush/30 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💐</span>
-                </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
                   Geen standaard bosjes! Nancy haalt bloemen vers bij de boer. 
