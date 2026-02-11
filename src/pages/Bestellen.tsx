@@ -29,7 +29,7 @@ export default function Bestellen() {
         <div className="container-custom">
           <div className="max-w-lg mx-auto">
             <div className="bg-card p-6 md:p-10 shadow-soft">
-              <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-48 md:w-64 mx-auto mb-6" />
+              <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-3/4 max-w-sm mx-auto mb-6" />
               <h1 className="heading-lg text-center mb-2">Plaats uw bestelling</h1>
               <p className="text-center text-muted-foreground mb-10 text-sm">
                 Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om alles af te stemmen.
