@@ -2,6 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import OrderForm from "@/components/OrderForm";
+import Footer from "@/components/Footer";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 
@@ -41,6 +42,7 @@ export default function Bestellen() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
