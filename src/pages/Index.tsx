@@ -322,7 +322,7 @@ export default function Index() {
             Waar we écht in uitblinken, met hart en ziel
           </p>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {/* Rouwstukken */}
             <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
@@ -337,10 +337,12 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Zelf samengestelde boeketten */}
+            {/* Boeketten op Maat */}
             <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
-              <img src={rozenhartImage} alt="Hartvormig bloemstuk van kleurrijke rozen" className="w-full aspect-[4/3] object-cover" />
               <div className="p-6 text-center flex flex-col flex-1">
+                <div className="w-14 h-14 bg-blush/30 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">💐</span>
+                </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
                   Geen standaard bosjes! Nancy haalt bloemen vers bij de boer. 
@@ -349,7 +351,7 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Trouwerijen */}
+            {/* Trouwboeketten */}
             <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
                 <div className="w-14 h-14 bg-blush/20 flex items-center justify-center mx-auto mb-4">
@@ -361,6 +363,11 @@ export default function Index() {
                   bruidsboeketten samen die perfect passen bij jouw droombruiloft.
                 </p>
               </div>
+            </div>
+
+            {/* Rozenhart foto */}
+            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+              <img src={rozenhartImage} alt="Hartvormig bloemstuk van kleurrijke rozen" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
