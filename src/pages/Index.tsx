@@ -366,7 +366,7 @@ export default function Index() {
             </div>
 
             {/* Rozenhart foto */}
-            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full border-4 border-blush">
               <img src={rozenhartImage} alt="Hartvormig bloemstuk van kleurrijke rozen" className="w-full h-full object-cover" />
             </div>
           </div>
