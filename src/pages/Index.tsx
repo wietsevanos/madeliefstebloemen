@@ -184,44 +184,67 @@ export default function Index() {
       {/* Bezorgservice & Online Bestellen Section */}
       <section id="bezorging" className="section-padding bg-secondary">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="heading-lg text-center mb-3">Bezorgservice & Online Bestellen</h2>
-            <p className="text-center text-muted-foreground mb-8 max-w-xl mx-auto">
-              Al 18 jaar maken wij met liefde bloemcreaties. Nu bezorgen wij ook binnen 15 km rondom de winkel.
-            </p>
+          <h2 className="heading-lg text-center mb-3">Bezorgservice & Online Bestellen</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
+            Bestel eenvoudig online en wij regelen de rest.
+          </p>
 
-            {/* Unified card with 3 columns + bezorgmomenten */}
-            <div className="bg-card shadow-soft overflow-hidden">
-              {/* 3 kolommen */}
-              <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
-                <div className="p-6 text-center">
-                  <Truck className="w-5 h-5 text-primary mx-auto mb-3" />
-                  <h3 className="font-heading text-sm font-semibold mb-1">Binnen 15 km</h3>
-                  <p className="text-xs text-muted-foreground">Bezorging rondom de winkel</p>
-                </div>
-                <div className="p-6 text-center">
-                  <CreditCard className="w-5 h-5 text-primary mx-auto mb-3" />
-                  <h3 className="font-heading text-sm font-semibold mb-1">Betalen via Tikkie</h3>
-                  <p className="text-xs text-muted-foreground">Achteraf betalen, geen gedoe</p>
-                </div>
-                <div className="p-6 text-center">
-                  <Camera className="w-5 h-5 text-primary mx-auto mb-3" />
-                  <h3 className="font-heading text-sm font-semibold mb-1">Bevestiging met foto</h3>
-                  <p className="text-xs text-muted-foreground">U ontvangt bewijs van aflevering</p>
-                </div>
+          {/* 3 kolommen bezorginfo */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Truck className="w-6 h-6 text-primary" />
               </div>
+              <h3 className="font-heading font-semibold mb-2">Bezorgen binnen 15 km</h3>
+              <p className="text-sm text-muted-foreground">
+                Wij bezorgen binnen een straal van 15 kilometer rondom de winkel.
+              </p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CreditCard className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Betalen via Tikkie</h3>
+              <p className="text-sm text-muted-foreground">
+                U bestelt via de website en ontvangt een Tikkie betaalverzoek. U betaalt dus achteraf.
+              </p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Camera className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Bevestiging met foto</h3>
+              <p className="text-sm text-muted-foreground">
+                Na bezorging ontvangt u een bevestiging van aflevering met een foto.
+              </p>
+            </div>
+          </div>
 
-              {/* Bezorgmomenten — compact strip */}
-              <div className="border-t border-border px-6 py-4">
-                <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
-                  <span className="font-medium">Bezorgmomenten:</span>
-                  <span className="text-primary">✔ Overdag</span>
-                  <span className="text-primary">✔ 's Avonds</span>
-                  <span className="text-primary">✔ Zaterdag</span>
-                  <span className="text-muted-foreground">Zondag in overleg (+€15)</span>
-                </div>
+          {/* Bezorgmomenten */}
+          <div className="max-w-md mx-auto bg-card p-6 shadow-soft mb-12">
+            <h3 className="font-heading font-semibold text-center mb-4">Bezorgmomenten</h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">Overdag</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">'s Avonds</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">Zaterdag</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2">
+                <span className="font-medium">Zondag</span>
+                <span className="text-muted-foreground">Bij uitzondering</span>
               </div>
             </div>
+            <p className="text-xs text-muted-foreground mt-4 text-center">
+              Zondagbezorging is mogelijk in overleg. Hiervoor geldt een toeslag van €15.
+            </p>
           </div>
         </div>
       </section>
