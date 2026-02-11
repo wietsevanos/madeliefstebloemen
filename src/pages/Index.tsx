@@ -20,6 +20,7 @@ import hannySchaftLogoFull from "@/assets/hanny-schaft-logo-full.png";
 import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
+import bloemenOpeningstijden from "@/assets/bloemen-openingstijden.png";
 
 const aanbodImages = [
   aanbod1Image,
@@ -456,8 +457,9 @@ export default function Index() {
                   Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
                 </p>
               </div>
+              </div>
+              <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full -mt-1" />
             </div>
-          </div>
         </div>
       </section>
 
