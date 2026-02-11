@@ -19,6 +19,7 @@ import hannySchaftLogo from "@/assets/hanny-schaft-logo.png";
 import hannySchaftLogoFull from "@/assets/hanny-schaft-logo-full.png";
 import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
+import bloemenOrnament from "@/assets/bloemen-ornament.png";
 
 const aanbodImages = [
   aanbod1Image,
@@ -247,6 +248,7 @@ export default function Index() {
       {/* Bezorgservice & Bestellen Section */}
       <section id="bestellen" className="section-padding bg-secondary">
         <div className="container-custom">
+          <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-full max-w-lg mx-auto mb-8" />
           <h2 className="heading-lg text-center mb-3">Bezorgservice & Bestellen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
             Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
