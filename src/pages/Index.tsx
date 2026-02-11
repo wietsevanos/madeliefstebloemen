@@ -288,10 +288,10 @@ export default function Index() {
               <h3 className="font-heading font-semibold">Bezorgmomenten</h3>
             </div>
             <p className="text-sm text-muted-foreground text-center">
-              Overdag · 's avonds · zaterdag
+              Wij bezorgen overdag, 's avonds en op zaterdag.
             </p>
-            <p className="text-xs text-muted-foreground text-center mt-2">
-              Zondag is mogelijk in overleg — toeslag €20
+            <p className="text-sm text-muted-foreground text-center mt-1">
+              Op zondag is bezorging mogelijk in overleg, met een toeslag van €15.
             </p>
           </div>
 
