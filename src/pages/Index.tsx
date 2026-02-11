@@ -85,8 +85,8 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-blush">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <span className="font-heading text-xl md:text-2xl font-semibold shrink-0 flex items-center gap-2">
-              <img src={madeliefsteLogo} alt="Madeliefste logo" className="w-8 h-8 md:w-10 md:h-10" />
+            <span className="font-heading text-base sm:text-xl md:text-2xl font-semibold shrink-0 flex items-center gap-1.5 sm:gap-2">
+              <img src={madeliefsteLogo} alt="Madeliefste logo" className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
               <span><span className="text-primary">Madeliefste</span>{" "}
               <span className="text-blush-dark">Bloemen</span></span>
             </span>
