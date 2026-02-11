@@ -314,7 +314,7 @@ export default function Index() {
       </section>
 
       {/* Onze Specialiteiten Section */}
-      <section id="specialiteiten" className="section-padding bg-secondary">
+      <section id="specialiteiten" className="section-padding bg-blush-light">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
