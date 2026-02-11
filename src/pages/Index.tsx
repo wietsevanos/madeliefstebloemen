@@ -416,11 +416,12 @@ export default function Index() {
       <section id="openingstijden" className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Clock className="w-8 h-8 text-primary" />
-              <h2 className="heading-lg">Openingstijden</h2>
-            </div>
+            <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-6" />
             <div className="bg-card shadow-soft p-6 md:p-8">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <Clock className="w-7 h-7 text-primary" />
+                <h2 className="heading-lg">Openingstijden</h2>
+              </div>
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between items-center py-3 border-b border-border">
                   <span className="font-medium">Maandag</span>
@@ -457,9 +458,8 @@ export default function Index() {
                   Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
                 </p>
               </div>
-              </div>
-              <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full -mt-1" />
             </div>
+          </div>
         </div>
       </section>
 
