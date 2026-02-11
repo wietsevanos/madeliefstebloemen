@@ -1,5 +1,6 @@
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import OrderForm from "@/components/OrderForm";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
@@ -63,6 +64,7 @@ const GoogleMapsLogo = ({
     <path fill="#4285F4" d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 5.56 7.1 13.89 7.41 14.26.31.38.88.38 1.19 0 .31-.37 7.41-8.7 7.41-14.26C19.5 3.81 15.69 0 12 0zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
     <path fill="#34A853" d="M12 2c3.31 0 6 2.69 6 6.5 0 2.91-2.14 6.79-4.5 10.08V8.5c0-1.38-1.12-2.5-2.5-2.5S8.5 7.12 8.5 8.5v10.08C6.14 15.29 4 11.41 4 8.5 4 4.69 6.69 2 10 2h2z" opacity="0.3" />
   </svg>;
+
 export default function Index() {
   return <div className="min-h-screen bg-background">
       {/* Header */}
@@ -73,12 +75,20 @@ export default function Index() {
               <span className="text-primary">Madeliefste</span>{" "}
               <span className="text-blush-dark">Bloemen</span>
             </span>
-            <Button variant="outline" size="sm" asChild>
-              <a href="tel:0235315809" className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>Bel ons</span>
-              </a>
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button variant="warm" size="sm" asChild>
+                <a href="#bestellen" className="flex items-center gap-2">
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Bestel bloemen</span>
+                </a>
+              </Button>
+              <Button variant="outline" size="sm" asChild>
+                <a href="tel:0235315809" className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span className="hidden sm:inline">Bel ons</span>
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -104,18 +114,18 @@ export default function Index() {
               variant="warm" 
               size="lg"
               className="w-full sm:w-auto"
-              onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('bestellen')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Bekijk ons aanbod
+              <ShoppingBag className="w-4 h-4 mr-2" />
+              Bestel bloemen
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
-              onClick={() => document.getElementById('openingstijden')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Clock className="w-4 h-4 mr-2" />
-              Openingstijden
+              Bekijk ons aanbod
             </Button>
           </div>
         </div>
@@ -130,8 +140,8 @@ export default function Index() {
               <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
               <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
                 <p>
-                  Al meer dan 15 jaar is Nancy de drijvende kracht achter Madeliefste. 
-                  Wat begon als een stageplek, groeide uit tot een passie die ze elke dag deelt met de buurt.
+                  Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste.
+                  Inmiddels al 18 jaar een vertrouwd gezicht in de buurt.
                 </p>
                 <p>
                   "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
@@ -150,8 +160,7 @@ export default function Index() {
         </div>
       </section>
 
-
-      {/* Ons Aanbod Section - Simple Photo Gallery */}
+      {/* Ons Aanbod Section */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Ons Aanbod</h2>
@@ -160,7 +169,7 @@ export default function Index() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             {aanbodImages.map((image, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-soft">
+              <div key={index} className="overflow-hidden shadow-soft">
                 <img 
                   src={image} 
                   alt={`Ons aanbod ${index + 1}`} 
@@ -169,6 +178,85 @@ export default function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Bezorgservice & Online Bestellen Section */}
+      <section id="bezorging" className="section-padding bg-secondary">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-3">Bezorgservice & Online Bestellen</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
+            Bestel eenvoudig online en wij regelen de rest.
+          </p>
+
+          {/* 3 kolommen bezorginfo */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Truck className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Bezorgen binnen 15 km</h3>
+              <p className="text-sm text-muted-foreground">
+                Wij bezorgen binnen een straal van 15 kilometer rondom de winkel.
+              </p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <CreditCard className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Betalen via Tikkie</h3>
+              <p className="text-sm text-muted-foreground">
+                U bestelt via de website en ontvangt een Tikkie betaalverzoek. U betaalt dus achteraf.
+              </p>
+            </div>
+            <div className="bg-card p-6 shadow-soft text-center">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Camera className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-heading font-semibold mb-2">Bevestiging met foto</h3>
+              <p className="text-sm text-muted-foreground">
+                Na bezorging ontvangt u een bevestiging van aflevering met een foto.
+              </p>
+            </div>
+          </div>
+
+          {/* Bezorgmomenten */}
+          <div className="max-w-md mx-auto bg-card p-6 shadow-soft mb-12">
+            <h3 className="font-heading font-semibold text-center mb-4">Bezorgmomenten</h3>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">Overdag</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">'s Avonds</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-border">
+                <span className="font-medium">Zaterdag</span>
+                <span className="text-primary">✔ Beschikbaar</span>
+              </div>
+              <div className="flex justify-between py-2">
+                <span className="font-medium">Zondag</span>
+                <span className="text-muted-foreground">Bij uitzondering</span>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-4 text-center">
+              Zondagbezorging is mogelijk in overleg. Hiervoor geldt een toeslag van €15.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Bestelformulier Section */}
+      <section id="bestellen" className="section-padding">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-3">Plaats uw bestelling</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
+            Vul hieronder uw gegevens in. Wij nemen persoonlijk contact met u op om de bestelling definitief af te stemmen.
+          </p>
+          <OrderForm />
         </div>
       </section>
 
@@ -182,9 +270,9 @@ export default function Index() {
           
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {/* Rouwstukken */}
-            <div className="bg-card rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🌿</span>
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
@@ -196,9 +284,9 @@ export default function Index() {
             </div>
 
             {/* Zelf samengestelde boeketten */}
-            <div className="bg-card rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-blush/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-blush/30 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💐</span>
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
@@ -210,9 +298,9 @@ export default function Index() {
             </div>
 
             {/* Trouwerijen */}
-            <div className="bg-card rounded-xl overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-blush/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 bg-blush/20 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💒</span>
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Trouwboeketten</h3>
@@ -233,7 +321,7 @@ export default function Index() {
             <div className="grid md:grid-cols-5 gap-8 items-stretch">
               {/* Portrait */}
               <div className="md:col-span-2 relative">
-                <div className="h-full rounded-xl overflow-hidden shadow-lg">
+                <div className="h-full overflow-hidden shadow-lg">
                   <img 
                     src={hannySchaftPortrait} 
                     alt="Hannie Schaft" 
@@ -241,7 +329,7 @@ export default function Index() {
                   />
                 </div>
                 {/* Logo badge */}
-                <div className="absolute -top-4 -right-4 rounded-lg shadow-lg p-3" style={{ backgroundColor: '#FDF2F4' }}>
+                <div className="absolute -top-4 -right-4 shadow-lg p-3" style={{ backgroundColor: '#FDF2F4' }}>
                   <img 
                     src={hannySchaftLogoFull} 
                     alt="Nationale Hannie Schaft Stichting" 
@@ -262,7 +350,7 @@ export default function Index() {
                     Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
                     van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
                   </p>
-                  <p className="text-sm italic text-primary bg-blush/20 rounded-lg px-4 py-3 mt-2">
+                  <p className="text-sm italic text-primary bg-blush/20 px-4 py-3 mt-2">
                     Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
                   </p>
                 </div>
@@ -280,7 +368,7 @@ export default function Index() {
               <Clock className="w-8 h-8 text-primary" />
               <h2 className="heading-lg">Openingstijden</h2>
             </div>
-            <div className="bg-card rounded-xl shadow-soft p-6 md:p-8">
+            <div className="bg-card shadow-soft p-6 md:p-8">
               <div className="space-y-1 text-sm">
                 <div className="flex justify-between items-center py-3 border-b border-border">
                   <span className="font-medium">Maandag</span>
@@ -327,10 +415,10 @@ export default function Index() {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Location Card */}
-            <div className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300">
+            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300">
               <div className="p-5 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-white flex items-center justify-center shadow-sm">
                     <GoogleMapsLogo className="w-6 h-6" />
                   </div>
                   <div>
@@ -369,11 +457,11 @@ export default function Index() {
               href="https://www.instagram.com/madeliefstebloemen/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="bg-card rounded-xl overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block"
+              className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block"
             >
               <div className="p-5 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
                     <Instagram className="w-5 h-5 text-white" />
                   </div>
                   <div>
