@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Sun, Moon, CalendarDays, AlertCircle, Menu, X } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import winkelImage from "@/assets/winkel.jpg";
@@ -281,36 +281,18 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Bezorgmomenten - zelfde kaart-stijl */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="bg-card p-6 shadow-soft text-center">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Sun className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold mb-2">Overdag</h3>
-              <p className="text-sm text-muted-foreground">Beschikbaar</p>
+          {/* Bezorgmomenten - compact */}
+          <div className="max-w-xl mx-auto bg-card p-5 shadow-soft mb-12">
+            <div className="flex items-center gap-2 justify-center mb-3">
+              <Clock className="w-5 h-5 text-primary" />
+              <h3 className="font-heading font-semibold">Bezorgmomenten</h3>
             </div>
-            <div className="bg-card p-6 shadow-soft text-center">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Moon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold mb-2">'s Avonds</h3>
-              <p className="text-sm text-muted-foreground">Beschikbaar</p>
-            </div>
-            <div className="bg-card p-6 shadow-soft text-center">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <CalendarDays className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold mb-2">Zaterdag</h3>
-              <p className="text-sm text-muted-foreground">Beschikbaar</p>
-            </div>
-            <div className="bg-card p-6 shadow-soft text-center">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <AlertCircle className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold mb-2">Zondag</h3>
-              <p className="text-sm text-muted-foreground">In overleg · toeslag €20</p>
-            </div>
+            <p className="text-sm text-muted-foreground text-center">
+              Overdag · 's avonds · zaterdag
+            </p>
+            <p className="text-xs text-muted-foreground text-center mt-2">
+              Zondag is mogelijk in overleg — toeslag €20
+            </p>
           </div>
 
           {/* CTA knop */}
