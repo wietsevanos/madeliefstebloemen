@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +8,8 @@ import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 
 export default function Bestellen() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary via-blush/20 to-secondary">
       {/* Header */}
