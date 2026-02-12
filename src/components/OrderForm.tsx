@@ -4,10 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const [form, setForm] = useState({
     soortBestelling: "",
     naam: "",
@@ -22,22 +26,25 @@ export default function OrderForm() {
   const update = (field: string, value: string) =>
     setForm((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const lines = [
-      `Soort bestelling: ${form.soortBestelling}`,
-      `Naam: ${form.naam}`,
-      `Telefoon: ${form.telefoon}`,
-      `E-mail: ${form.email}`,
-      `Bezorgadres: ${form.bezorgadres}`,
-      `Bezorgdatum: ${form.bezorgdatum}`,
-      `Bezorgtijd: ${form.bezorgtijd}`,
-      `Bericht / bijzonderheden: ${form.bericht}`,
-    ];
-    const subject = encodeURIComponent("Bestelling via website");
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:madeliefstebloemen@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-order-email', {
+        body: form,
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error('Order error:', err);
+      toast({
+        title: "Er ging iets mis",
+        description: "De bestelling kon niet worden verzonden. Probeer het opnieuw of bel ons.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -123,9 +130,9 @@ export default function OrderForm() {
         />
       </div>
 
-      <Button type="submit" variant="warm" size="lg" className="w-full">
-        <Send className="w-4 h-4" />
-        Bestel bloemen
+      <Button type="submit" variant="warm" size="lg" className="w-full" disabled={loading}>
+        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+        {loading ? "Verzenden…" : "Bestel bloemen"}
       </Button>
 
       <p className="text-xs text-muted-foreground text-center">
