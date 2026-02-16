@@ -35,28 +35,28 @@ import galerij9 from "@/assets/galerij-9.jpg";
 import galerij10 from "@/assets/galerij-10.jpg";
 
 const galerijImages = [
-  { src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
-  { src: galerij2, alt: "Herfststuk met rozen en bessen", tall: false },
-  { src: galerij3, alt: "Kleurrijk bloemstuk op werktafel", tall: false },
-  { src: galerij4, alt: "Rood rozenbloemstuk", tall: false },
-  { src: galerij5, alt: "Bloemenkrans van rozen", tall: true },
-  { src: galerij6, alt: "Hartvormig bloemstuk van rozen", tall: true },
-  { src: galerij7, alt: "Hart van rozen in diverse kleuren", tall: false },
-  { src: galerij8, alt: "Bloemstuk met clematis en limonium", tall: false },
-  { src: galerij9, alt: "Weelderig bloemstuk met rozen", tall: false },
-  { src: galerij10, alt: "Bloemenkrans met rozen en clematis", tall: true },
-];
+{ src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
+{ src: galerij2, alt: "Herfststuk met rozen en bessen", tall: false },
+{ src: galerij3, alt: "Kleurrijk bloemstuk op werktafel", tall: false },
+{ src: galerij4, alt: "Rood rozenbloemstuk", tall: false },
+{ src: galerij5, alt: "Bloemenkrans van rozen", tall: true },
+{ src: galerij6, alt: "Hartvormig bloemstuk van rozen", tall: true },
+{ src: galerij7, alt: "Hart van rozen in diverse kleuren", tall: false },
+{ src: galerij8, alt: "Bloemstuk met clematis en limonium", tall: false },
+{ src: galerij9, alt: "Weelderig bloemstuk met rozen", tall: false },
+{ src: galerij10, alt: "Bloemenkrans met rozen en clematis", tall: true }];
+
 
 const aanbodImages = [
-  aanbod1Image,
-  aanbod2Image,
-  aanbod3Image,
-  aanbod4Image,
-  aanbod5Image,
-  aanbod6Image,
-  aanbod7Image,
-  aanbod8Image,
-];
+aanbod1Image,
+aanbod2Image,
+aanbod3Image,
+aanbod4Image,
+aanbod5Image,
+aanbod6Image,
+aanbod7Image,
+aanbod8Image];
+
 
 // Preload Nancy image
 const preloadNancyImage = new Image();
@@ -76,9 +76,9 @@ const reviews = [{
 }];
 const GoogleLogo = ({
   className = "w-5 h-5"
-}: {
-  className?: string;
-}) => <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+
+}: {className?: string;}) => <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
     <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -87,9 +87,9 @@ const GoogleLogo = ({
 
 const GoogleMapsLogo = ({
   className = "w-5 h-5"
-}: {
-  className?: string;
-}) => <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+
+}: {className?: string;}) => <svg className={className} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path fill="#4285F4" d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 5.56 7.1 13.89 7.41 14.26.31.38.88.38 1.19 0 .31-.37 7.41-8.7 7.41-14.26C19.5 3.81 15.69 0 12 0zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
     <path fill="#34A853" d="M12 2c3.31 0 6 2.69 6 6.5 0 2.91-2.14 6.79-4.5 10.08V8.5c0-1.38-1.12-2.5-2.5-2.5S8.5 7.12 8.5 8.5v10.08C6.14 15.29 4 11.41 4 8.5 4 4.69 6.69 2 10 2h2z" opacity="0.3" />
   </svg>;
@@ -98,12 +98,12 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#aanbod", label: "Aanbod" },
-    { href: "#bestellen", label: "Bezorging" },
-    { href: "#specialiteiten", label: "Specialiteiten" },
-    { href: "#openingstijden", label: "Openingstijden" },
-    { href: "#contact", label: "Contact" },
-  ];
+  { href: "#aanbod", label: "Aanbod" },
+  { href: "#bestellen", label: "Bezorging" },
+  { href: "#specialiteiten", label: "Specialiteiten" },
+  { href: "#openingstijden", label: "Openingstijden" },
+  { href: "#contact", label: "Contact" }];
+
 
   return <div className="min-h-screen bg-background">
       {/* Header */}
@@ -118,9 +118,9 @@ export default function Index() {
             
             {/* Nav links - desktop */}
             <nav className="hidden md:flex items-center gap-6 mx-auto">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{link.label}</a>
-              ))}
+              {navLinks.map((link) =>
+            <a key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{link.label}</a>
+            )}
             </nav>
 
             <div className="flex items-center gap-2 shrink-0">
@@ -138,10 +138,10 @@ export default function Index() {
               </Button>
               {/* Mobile menu toggle */}
               <button
-                className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label="Menu"
-              >
+              className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Menu">
+
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
@@ -149,19 +149,19 @@ export default function Index() {
         </div>
 
         {/* Mobile menu dropdown */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-card border-t border-border">
+        {mobileMenuOpen &&
+      <div className="md:hidden bg-card border-t border-border">
             <nav className="container-custom py-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+              {navLinks.map((link) =>
+          <a
+            key={link.href}
+            href={link.href}
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+            onClick={() => setMobileMenuOpen(false)}>
+
                   {link.label}
                 </a>
-              ))}
+          )}
               <div className="border-t border-border pt-3 mt-1 flex flex-col gap-2">
                 <Button variant="warm" size="sm" asChild className="w-full">
                   <Link to="/bestellen" className="flex items-center justify-center gap-2" onClick={() => setMobileMenuOpen(false)}>
@@ -178,7 +178,7 @@ export default function Index() {
               </div>
             </nav>
           </div>
-        )}
+      }
       </header>
 
       {/* Hero Section - Full Screen */}
@@ -198,23 +198,23 @@ export default function Index() {
           
           {/* Main Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2 px-4 sm:px-0">
-            <Button 
-              variant="warm" 
-              size="lg"
-              className="w-full sm:w-auto"
-              asChild
-            >
+            <Button
+            variant="warm"
+            size="lg"
+            className="w-full sm:w-auto"
+            asChild>
+
               <Link to="/bestellen">
                 <ShoppingBag className="w-4 h-4 mr-2" />
                 Bestel bloemen
               </Link>
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
-              onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}
-            >
+            <Button
+            variant="outline"
+            size="lg"
+            className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
+            onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}>
+
               Bekijk ons aanbod
             </Button>
           </div>
@@ -258,15 +258,15 @@ export default function Index() {
             Van verse seizoensbloemen tot bijzondere planten, altijd met liefde samengesteld
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {aanbodImages.map((image, index) => (
-              <div key={index} className="overflow-hidden shadow-soft">
-                <img 
-                  src={image} 
-                  alt={`Ons aanbod ${index + 1}`} 
-                  className="w-full aspect-square object-cover"
-                />
+            {aanbodImages.map((image, index) =>
+          <div key={index} className="overflow-hidden shadow-soft">
+                <img
+              src={image}
+              alt={`Ons aanbod ${index + 1}`}
+              className="w-full aspect-square object-cover" />
+
               </div>
-            ))}
+          )}
           </div>
         </div>
       </section>
@@ -396,21 +396,21 @@ export default function Index() {
       <section className="py-12 md:py-16 bg-secondary">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Galerij</h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">
-            Een greep uit ons werk — elk bloemstuk uniek en met liefde gemaakt
-          </p>
+          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Een greep uit ons werk —
+
+
+ elk bloemstuk uniek en met liefde gemaakt</p>
           
           <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 max-w-5xl mx-auto">
-            {galerijImages.map((img, index) => (
-              <div key={index} className="overflow-hidden aspect-square">
-                <img 
-                  src={img.src} 
-                  alt={img.alt} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
+            {galerijImages.map((img, index) => <div key={index} className="overflow-hidden aspect-square">
+                <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                loading="lazy" />
+
               </div>
-            ))}
+          )}
           </div>
         </div>
       </section>
@@ -423,19 +423,19 @@ export default function Index() {
               {/* Portrait */}
               <div className="md:col-span-2 relative">
                 <div className="h-full overflow-hidden shadow-lg">
-                  <img 
-                    src={hannySchaftPortrait} 
-                    alt="Hannie Schaft" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img
+                  src={hannySchaftPortrait}
+                  alt="Hannie Schaft"
+                  className="w-full h-full object-cover" />
+
                 </div>
                 {/* Logo badge */}
                 <div className="absolute -top-4 -right-4 shadow-lg p-3" style={{ backgroundColor: '#FDF2F4' }}>
-                  <img 
-                    src={hannySchaftLogoFull} 
-                    alt="Nationale Hannie Schaft Stichting" 
-                    className="h-12 w-auto"
-                  />
+                  <img
+                  src={hannySchaftLogoFull}
+                  alt="Nationale Hannie Schaft Stichting"
+                  className="h-12 w-auto" />
+
                 </div>
               </div>
               
@@ -530,24 +530,24 @@ export default function Index() {
                 </div>
               </div>
               <div className="aspect-video">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade" 
-                  title="Locatie Madeliefste Bloemen" 
-                />
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Locatie Madeliefste Bloemen" />
+
               </div>
               <div className="p-4 text-center">
-                <a 
-                  href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-                >
+                <a
+                href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+
                   Route plannen
                   <MapPin className="w-4 h-4" />
                 </a>
@@ -555,12 +555,12 @@ export default function Index() {
             </div>
 
             {/* Instagram Card */}
-            <a 
-              href="https://www.instagram.com/madeliefstebloemen/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block"
-            >
+            <a
+            href="https://www.instagram.com/madeliefstebloemen/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block">
+
               <div className="p-5 border-b border-border">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
