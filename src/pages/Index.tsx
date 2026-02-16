@@ -393,20 +393,20 @@ export default function Index() {
       </section>
 
       {/* Galerij Section */}
-      <section className="section-padding bg-secondary">
+      <section className="py-12 md:py-16 bg-secondary">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Galerij</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
+          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">
             Een greep uit ons werk — elk bloemstuk uniek en met liefde gemaakt
           </p>
           
-          <div className="columns-2 md:columns-3 gap-4 max-w-5xl mx-auto space-y-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 max-w-5xl mx-auto">
             {galerijImages.map((img, index) => (
-              <div key={index} className="break-inside-avoid overflow-hidden shadow-soft">
+              <div key={index} className="overflow-hidden aspect-square">
                 <img 
                   src={img.src} 
                   alt={img.alt} 
-                  className="w-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
