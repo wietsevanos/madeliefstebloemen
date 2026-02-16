@@ -23,6 +23,29 @@ import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import bloemenOpeningstijden from "@/assets/bloemen-openingstijden.png";
 import rozenhartImage from "@/assets/rozenhart.jpg";
+import galerij1 from "@/assets/galerij-1.jpg";
+import galerij2 from "@/assets/galerij-2.jpg";
+import galerij3 from "@/assets/galerij-3.jpg";
+import galerij4 from "@/assets/galerij-4.jpg";
+import galerij5 from "@/assets/galerij-5.jpg";
+import galerij6 from "@/assets/galerij-6.jpg";
+import galerij7 from "@/assets/galerij-7.jpg";
+import galerij8 from "@/assets/galerij-8.jpg";
+import galerij9 from "@/assets/galerij-9.jpg";
+import galerij10 from "@/assets/galerij-10.jpg";
+
+const galerijImages = [
+  { src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
+  { src: galerij2, alt: "Herfststuk met rozen en bessen", tall: false },
+  { src: galerij3, alt: "Kleurrijk bloemstuk op werktafel", tall: false },
+  { src: galerij4, alt: "Rood rozenbloemstuk", tall: false },
+  { src: galerij5, alt: "Bloemenkrans van rozen", tall: true },
+  { src: galerij6, alt: "Hartvormig bloemstuk van rozen", tall: true },
+  { src: galerij7, alt: "Hart van rozen in diverse kleuren", tall: false },
+  { src: galerij8, alt: "Bloemstuk met clematis en limonium", tall: false },
+  { src: galerij9, alt: "Weelderig bloemstuk met rozen", tall: false },
+  { src: galerij10, alt: "Bloemenkrans met rozen en clematis", tall: true },
+];
 
 const aanbodImages = [
   aanbod1Image,
@@ -365,6 +388,29 @@ export default function Index() {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Galerij Section */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-3">Galerij</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
+            Een greep uit ons werk — elk bloemstuk uniek en met liefde gemaakt
+          </p>
+          
+          <div className="columns-2 md:columns-3 gap-4 max-w-5xl mx-auto space-y-4">
+            {galerijImages.map((img, index) => (
+              <div key={index} className="break-inside-avoid overflow-hidden shadow-soft">
+                <img 
+                  src={img.src} 
+                  alt={img.alt} 
+                  className="w-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
