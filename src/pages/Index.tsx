@@ -322,7 +322,7 @@ export default function Index() {
             Waar we écht in uitblinken, met hart en ziel
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* Rouwstukken */}
             <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
@@ -365,10 +365,6 @@ export default function Index() {
               </div>
             </div>
 
-            {/* Rozenhart foto */}
-            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full border-4 border-blush">
-              <img src={rozenhartImage} alt="Hartvormig bloemstuk van kleurrijke rozen" className="w-full h-full object-cover" />
-            </div>
           </div>
         </div>
       </section>
