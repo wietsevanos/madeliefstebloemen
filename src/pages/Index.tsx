@@ -112,9 +112,8 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-gradient-to-r from-blush-dark to-blush" style={{ borderImage: 'linear-gradient(to right, hsl(350 45% 65%), hsl(350 45% 85%)) 1' }}>
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <span className="text-sm sm:text-base md:text-lg font-semibold shrink-0 tracking-[0.15em] uppercase font-heading">
-              <span className="text-primary">Madeliefste</span>{' '}
-              <span className="text-accent">Bloemen</span>
+            <span className="font-heading text-xl font-semibold text-foreground">
+              Madeliefste Bloemen
             </span>
             
             {/* Nav links - desktop */}
