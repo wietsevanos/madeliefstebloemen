@@ -150,6 +150,10 @@
   .body-base {
     @apply text-base md:text-lg leading-relaxed;
   }
+
+  .section-subtitle {
+    @apply text-xs md:text-sm font-body font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3;
+  }
 }
 
 @layer utilities {
