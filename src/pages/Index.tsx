@@ -565,8 +565,7 @@ export default function Index() {
           <p className="text-center text-muted-foreground mb-4 max-w-lg mx-auto">
             We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10">
-            
+          
 
 
 
@@ -575,16 +574,17 @@ export default function Index() {
 
 
 
-            <a href="mailto:madeliefstebloemen@gmail.com" className="inline-flex items-center gap-3 bg-card shadow-soft px-6 py-3 hover:shadow-medium transition-all duration-300 group">
-              <div className="w-10 h-10 bg-gradient-to-b from-blush-dark to-blush flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 text-foreground" />
-              </div>
-              <div className="text-left">
-                <span className="text-xs text-muted-foreground block">E-mail</span>
-                <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">madeliefstebloemen@gmail.com</span>
-              </div>
-            </a>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
             {/* Location Card */}
             <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col">
