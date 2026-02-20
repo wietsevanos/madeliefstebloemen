@@ -498,7 +498,7 @@ export default function Index() {
                     Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
                     van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
                   </p>
-                  <p className="text-sm italic text-primary bg-blush/20 px-4 py-3 mt-2">
+                  <p className="text-sm italic text-primary-foreground bg-gradient-to-r from-primary to-primary/75 px-4 py-3 mt-2">
                     Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
                   </p>
                 </div>
