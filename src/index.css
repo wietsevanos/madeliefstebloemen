@@ -151,8 +151,20 @@
     @apply text-base md:text-lg leading-relaxed;
   }
 
-  .section-subtitle {
-    @apply text-xs md:text-sm font-body font-semibold tracking-[0.2em] uppercase text-muted-foreground mb-3;
+  .section-gradient-warm {
+    background: linear-gradient(180deg, hsl(45 40% 94%) 0%, hsl(45 40% 90%) 100%);
+  }
+
+  .section-gradient-blush {
+    background: linear-gradient(180deg, hsl(350 50% 97%) 0%, hsl(350 45% 92%) 100%);
+  }
+
+  .section-gradient-sage {
+    background: linear-gradient(180deg, hsl(150 20% 97%) 0%, hsl(150 25% 92%) 100%);
+  }
+
+  .section-gradient-cream {
+    background: linear-gradient(180deg, hsl(45 33% 98%) 0%, hsl(45 40% 93%) 100%);
   }
 }
 
