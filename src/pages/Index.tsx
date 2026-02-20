@@ -224,10 +224,9 @@ export default function Index() {
       </section>
 
       {/* Over Nancy Section */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding section-gradient-warm">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
-            <p className="section-subtitle text-center">Wie is Nancy?</p>
             <h2 className="heading-lg text-center mb-8">Maak kennis met Nancy</h2>
             <div className="bg-card overflow-hidden shadow-soft">
               <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
@@ -260,9 +259,8 @@ export default function Index() {
       </section>
 
       {/* Ons Aanbod & Galerij Section */}
-      <section id="aanbod" className="section-padding">
+      <section id="aanbod" className="section-padding section-gradient-sage">
         <div className="container-custom">
-          <p className="section-subtitle text-center">Ons portfolio</p>
           <h2 className="heading-lg text-center mb-3">Ons Werk</h2>
           <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Van verse seizoensbloemen tot bijzondere creaties, altijd met liefde samengesteld
 
@@ -344,10 +342,9 @@ export default function Index() {
       </section>
 
       {/* Bezorgservice & Bestellen Section */}
-      <section id="bestellen" className="section-padding bg-secondary">
+      <section id="bestellen" className="section-padding section-gradient-cream">
         <div className="container-custom">
           <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-full max-w-lg mx-auto mb-8" />
-          <p className="section-subtitle text-center">Gemak aan huis</p>
           <h2 className="heading-lg text-center mb-3">Bezorgservice & Bestellen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
             Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
@@ -411,9 +408,8 @@ export default function Index() {
       </section>
 
       {/* Onze Specialiteiten Section */}
-      <section id="specialiteiten" className="section-padding bg-blush-light">
+      <section id="specialiteiten" className="section-padding section-gradient-blush">
         <div className="container-custom">
-          <p className="section-subtitle text-center">Waar we in uitblinken</p>
           <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
             Waar we écht in uitblinken, met hart en ziel
@@ -467,7 +463,7 @@ export default function Index() {
       </section>
 
       {/* Hanny Schaft Section */}
-      <section id="hanny-schaft" className="section-padding bg-card">
+      <section id="hanny-schaft" className="section-padding section-gradient-sage">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 items-stretch">
@@ -492,7 +488,6 @@ export default function Index() {
               
               {/* Content */}
               <div className="md:col-span-3 flex flex-col justify-center text-center md:text-left py-4">
-                <p className="section-subtitle md:text-left">Trots partnership</p>
                 <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -514,12 +509,11 @@ export default function Index() {
       </section>
 
       {/* Openingstijden Section */}
-      <section id="openingstijden" className="section-padding bg-secondary">
+      <section id="openingstijden" className="section-padding section-gradient-warm">
         <div className="container-custom">
           <div className="max-w-xl mx-auto text-center">
             <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-[-4rem] relative z-10" />
             <div className="bg-card shadow-soft p-6 md:p-8 pt-12 md:pt-16">
-              <p className="section-subtitle">Wanneer zijn we open?</p>
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Clock className="w-7 h-7 text-primary" />
                 <h2 className="heading-lg">Openingstijden</h2>
@@ -566,9 +560,8 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-padding">
+      <section id="contact" className="section-padding section-gradient-blush">
         <div className="container-custom">
-          <p className="section-subtitle text-center">Kom langs of neem contact op</p>
           <h2 className="heading-lg text-center mb-10">Contact</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {/* Location Card */}
@@ -612,7 +605,6 @@ export default function Index() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center mb-6">
                 <Instagram className="w-8 h-8 text-white" />
               </div>
-              <p className="section-subtitle">Volg ons op Instagram</p>
               <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">Een kijkje achter de schermen</h3>
               <p className="text-muted-foreground leading-relaxed mb-6 max-w-sm">
                 Benieuwd wat er dagelijks in de winkel gebeurt? Ontdek de mooiste creaties, seizoensinspiratie en leuke momenten bij Madeliefste.
@@ -633,10 +625,9 @@ export default function Index() {
       </section>
 
       {/* Google Reviews Section */}
-      <section className="section-padding bg-secondary">
+      <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <p className="section-subtitle">Wat klanten zeggen</p>
             <div className="flex items-center justify-center gap-3 mb-4">
               <GoogleLogo className="w-8 h-8" />
               <h2 className="heading-lg">Reviews</h2>
