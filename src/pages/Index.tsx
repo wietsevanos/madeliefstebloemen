@@ -232,19 +232,25 @@ export default function Index() {
               <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
               <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
                 <p>
-                  Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste.
-                  Inmiddels al 18 jaar een vertrouwd gezicht in de buurt.
+                  Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat.
+                  Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt — en dat is niet voor niets.
+                  Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.
                 </p>
-                <p>
+                <p className="italic border-l-2 border-blush pl-4">
                   "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
-                  Elke creatie maak ik met liefde en aandacht voor detail."
+                  Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje 
+                  voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid — ik leg overal mijn hart in."
                 </p>
                 <p>
-                  Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze. 
-                  Denk aan seizoensbloemen als amaryllis en tulpen, bruidsboeketten en rouwstukken — alles wordt met zorg samengesteld.
+                  Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze.
+                  Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, 
+                  maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, 
+                  precies afgestemd op de wensen van de klant.
                 </p>
                 <p>
-                  En vergeet hond Kerel niet, de trouwe viervoeter die elke klant verwelkomt!
+                  De winkel voelt als thuiskomen — en dat komt niet alleen door de bloemen. 
+                  Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. 
+                  Het maakt Madeliefste nóg persoonlijker.
                 </p>
               </div>
             </div>
@@ -260,14 +266,20 @@ export default function Index() {
 
         </p>
           {(() => {
-          const allImages = [
-          ...aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` })),
-          ...galerijImages.map((img) => ({ src: img.src, alt: img.alt }))];
+          // Mix aanbod and galerij images alternately
+          const allImages: { src: string; alt: string }[] = [];
+          const aanbodMapped = aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` }));
+          const galerijMapped = galerijImages.map((img) => ({ src: img.src, alt: img.alt }));
+          const maxLen = Math.max(aanbodMapped.length, galerijMapped.length);
+          for (let i = 0; i < maxLen; i++) {
+            if (i < aanbodMapped.length) allImages.push(aanbodMapped[i]);
+            if (i < galerijMapped.length) allImages.push(galerijMapped[i]);
+          }
 
           return (
             <>
-                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 max-w-4xl mx-auto">
-                  {allImages.slice(0, 6).map((img, index) =>
+                <div className="grid grid-cols-5 gap-2 max-w-4xl mx-auto">
+                  {allImages.slice(0, 10).map((img, index) =>
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
