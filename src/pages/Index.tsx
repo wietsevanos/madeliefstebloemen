@@ -256,76 +256,76 @@ export default function Index() {
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
           <h2 className="heading-lg text-center mb-3">Ons Werk</h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">
-            Van verse seizoensbloemen tot bijzondere creaties — altijd met liefde samengesteld
-          </p>
+          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Van verse seizoensbloemen tot bijzondere creaties, altijd met liefde samengesteld
+
+        </p>
           {(() => {
-            const allImages = [
-              ...aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` })),
-              ...galerijImages.map(img => ({ src: img.src, alt: img.alt })),
-            ];
-            return (
-              <>
+          const allImages = [
+          ...aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` })),
+          ...galerijImages.map((img) => ({ src: img.src, alt: img.alt }))];
+
+          return (
+            <>
                 <div className="grid grid-cols-3 md:grid-cols-6 gap-2 max-w-4xl mx-auto">
-                  {allImages.slice(0, 6).map((img, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setLightboxIndex(index)}
-                      className="overflow-hidden aspect-square cursor-pointer group"
-                    >
+                  {allImages.slice(0, 6).map((img, index) =>
+                <button
+                  key={index}
+                  onClick={() => setLightboxIndex(index)}
+                  className="overflow-hidden aspect-square cursor-pointer group">
+
                       <img
-                        src={img.src}
-                        alt={img.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy" />
+
                     </button>
-                  ))}
+                )}
                 </div>
                 <div className="text-center mt-4">
                   <button
-                    onClick={() => setLightboxIndex(0)}
-                    className="text-primary font-medium hover:underline text-sm inline-flex items-center gap-1"
-                  >
+                  onClick={() => setLightboxIndex(0)}
+                  className="text-primary font-medium hover:underline text-sm inline-flex items-center gap-1">
+
                     Bekijk alle {allImages.length} foto's →
                   </button>
                 </div>
 
                 {/* Lightbox */}
-                {lightboxIndex !== null && (
-                  <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setLightboxIndex(null)}>
+                {lightboxIndex !== null &&
+              <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setLightboxIndex(null)}>
                     <button
-                      className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
-                      onClick={() => setLightboxIndex(null)}
-                    >
+                  className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  onClick={() => setLightboxIndex(null)}>
+
                       <X className="w-8 h-8" />
                     </button>
                     <button
-                      className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
-                      onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + allImages.length) % allImages.length); }}
-                    >
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  onClick={(e) => {e.stopPropagation();setLightboxIndex((lightboxIndex - 1 + allImages.length) % allImages.length);}}>
+
                       <ChevronLeft className="w-10 h-10" />
                     </button>
                     <button
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
-                      onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % allImages.length); }}
-                    >
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  onClick={(e) => {e.stopPropagation();setLightboxIndex((lightboxIndex + 1) % allImages.length);}}>
+
                       <ChevronRight className="w-10 h-10" />
                     </button>
                     <img
-                      src={allImages[lightboxIndex].src}
-                      alt={allImages[lightboxIndex].alt}
-                      className="max-h-[85vh] max-w-[90vw] object-contain"
-                      onClick={(e) => e.stopPropagation()}
-                    />
+                  src={allImages[lightboxIndex].src}
+                  alt={allImages[lightboxIndex].alt}
+                  className="max-h-[85vh] max-w-[90vw] object-contain"
+                  onClick={(e) => e.stopPropagation()} />
+
                     <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
                       {lightboxIndex + 1} / {allImages.length}
                     </span>
                   </div>
-                )}
-              </>
-            );
-          })()}
+              }
+              </>);
+
+        })()}
         </div>
       </section>
 
