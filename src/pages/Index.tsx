@@ -236,22 +236,22 @@ export default function Index() {
 
 
               </p>
-                <p className="italic border-l-2 border-blush pl-4">
-                  "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
-                  Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje 
-                  voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid — ik leg overal mijn hart in."
-                </p>
+                <p className="italic border-l-2 border-blush pl-4">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."
+
+
+
+              </p>
                 <p>
                   Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze.
                   Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, 
                   maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, 
                   precies afgestemd op de wensen van de klant.
                 </p>
-                <p>
-                  De winkel voelt als thuiskomen — en dat komt niet alleen door de bloemen. 
-                  Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. 
-                  Het maakt Madeliefste nóg persoonlijker.
-                </p>
+                <p>De winkel voelt als thuiskomen, en dat komt niet alleen door de bloemen. Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. Het maakt Madeliefste nóg persoonlijker.
+
+
+
+              </p>
               </div>
             </div>
           </div>
