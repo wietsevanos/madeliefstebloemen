@@ -20,7 +20,6 @@ import hannySchaftLogo from "@/assets/hanny-schaft-logo.png";
 import hannySchaftLogoFull from "@/assets/hanny-schaft-logo-full.png";
 import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
-import headerLogo from "@/assets/header-logo.png";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import bloemenOpeningstijden from "@/assets/bloemen-openingstijden.png";
 import rozenhartImage from "@/assets/rozenhart.jpg";
@@ -113,12 +112,9 @@ export default function Index() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-gradient-to-r from-blush-dark to-blush" style={{ borderImage: 'linear-gradient(to right, hsl(350 45% 65%), hsl(350 45% 85%)) 1' }}>
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <div className="flex items-center gap-2 shrink-0">
-              <img src={headerLogo} alt="Madeliefste Bloemen logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />
-              <span className="text-sm sm:text-base md:text-lg font-semibold tracking-[0.15em] uppercase text-foreground font-heading">
-                Madeliefste Bloemen
-              </span>
-            </div>
+            <span className="text-sm sm:text-base md:text-lg font-semibold shrink-0 tracking-[0.15em] uppercase text-foreground font-heading">
+              Madeliefste Bloemen
+            </span>
             
             {/* Nav links - desktop */}
             <nav className="hidden md:flex items-center gap-6 mx-auto">
