@@ -294,13 +294,13 @@ export default function Index() {
                     </button>
                 )}
                 </div>
-                <div className="text-center mt-4">
-                  <button
-                  onClick={() => setLightboxIndex(0)}
-                  className="text-primary font-medium hover:underline text-sm inline-flex items-center gap-1">
-
+                <div className="text-center mt-6">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => setLightboxIndex(0)}>
                     Bekijk alle {allImages.length} foto's →
-                  </button>
+                  </Button>
                 </div>
 
                 {/* Lightbox */}
