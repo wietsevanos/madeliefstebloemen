@@ -586,21 +586,21 @@ export default function Index() {
               </div>
             </a>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
             {/* Location Card */}
             <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col">
-              <div className="p-5 border-b border-border">
+              <div className="p-4 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white flex items-center justify-center shadow-sm">
-                    <GoogleMapsLogo className="w-6 h-6" />
+                  <div className="w-9 h-9 bg-card flex items-center justify-center shadow-sm">
+                    <GoogleMapsLogo className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold">Vind ons</h3>
-                    <p className="text-sm text-muted-foreground">Hoofmanstraat 1, Haarlem</p>
+                    <h3 className="font-heading font-semibold text-sm">Vind ons</h3>
+                    <p className="text-xs text-muted-foreground">Hoofmanstraat 1, Haarlem</p>
                   </div>
                 </div>
               </div>
-              <div className="aspect-video flex-1">
+              <div className="flex-1 min-h-[220px]">
                 <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite"
                 width="100%"
@@ -611,12 +611,12 @@ export default function Index() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Locatie Madeliefste Bloemen" />
               </div>
-              <div className="p-4 text-center">
+              <div className="p-3 text-center">
                 <a
                 href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline">
                   Route plannen
                   <MapPin className="w-4 h-4" />
                 </a>
@@ -624,21 +624,21 @@ export default function Index() {
             </div>
 
             {/* Instagram CTA Card */}
-            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center p-8 md:p-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center mb-6">
-                <Instagram className="w-8 h-8 text-white" />
+            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center p-6 md:p-8">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center mb-5">
+                <Instagram className="w-7 h-7 text-white" />
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">Een kijkje achter de schermen</h3>
-              <p className="text-muted-foreground leading-relaxed mb-6 max-w-sm">
+              <h3 className="font-heading text-lg md:text-xl font-semibold mb-2">Een kijkje achter de schermen</h3>
+              <p className="text-muted-foreground leading-relaxed mb-5 max-w-xs text-sm">
                 Benieuwd wat er dagelijks in de winkel gebeurt? Ontdek de mooiste creaties, seizoensinspiratie en leuke momenten bij Madeliefste.
               </p>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" asChild>
                 <a
                   href="https://www.instagram.com/madeliefstebloemen/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2">
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4" />
                   @madeliefstebloemen
                 </a>
               </Button>
