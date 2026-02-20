@@ -231,11 +231,11 @@ export default function Index() {
             <div className="bg-card overflow-hidden shadow-soft">
               <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
               <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
-                <p>
-                  Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat.
-                  Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt — en dat is niet voor niets.
-                  Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.
-                </p>
+                <p>Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat. Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt,  en dat is niet voor niets. Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.
+
+
+
+              </p>
                 <p className="italic border-l-2 border-blush pl-4">
                   "Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. 
                   Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje 
@@ -267,7 +267,7 @@ export default function Index() {
         </p>
           {(() => {
           // Mix aanbod and galerij images alternately
-          const allImages: { src: string; alt: string }[] = [];
+          const allImages: {src: string;alt: string;}[] = [];
           const aanbodMapped = aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` }));
           const galerijMapped = galerijImages.map((img) => ({ src: img.src, alt: img.alt }));
           const maxLen = Math.max(aanbodMapped.length, galerijMapped.length);
