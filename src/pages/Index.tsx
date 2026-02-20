@@ -278,8 +278,8 @@ export default function Index() {
 
           return (
             <>
-                <div className="grid grid-cols-5 gap-2 max-w-4xl mx-auto">
-                  {allImages.slice(0, 10).map((img, index) =>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
+                  {allImages.slice(0, 8).map((img, index) =>
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
