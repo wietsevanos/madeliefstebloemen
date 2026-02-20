@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X } from "lucide-react";
+import { useState, useCallback } from "react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -96,11 +96,13 @@ const GoogleMapsLogo = ({
 
 export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const navLinks = [
   { href: "#aanbod", label: "Aanbod" },
   { href: "#bestellen", label: "Bezorging" },
   { href: "#specialiteiten", label: "Specialiteiten" },
+  { href: "#hanny-schaft", label: "Hanny Schaft" },
   { href: "#openingstijden", label: "Openingstijden" },
   { href: "#contact", label: "Contact" }];
 
@@ -238,8 +240,8 @@ export default function Index() {
                   Elke creatie maak ik met liefde en aandacht voor detail."
                 </p>
                 <p>
-                  Nancy kiest bewust voor kwaliteit: geen veldboeketten, maar combinaties die écht werken. 
-                  Van bruidsboeketten tot rouwstukken, alles wordt met zorg samengesteld.
+                  Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze. 
+                  Denk aan seizoensbloemen als amaryllis en tulpen, bruidsboeketten en rouwstukken — alles wordt met zorg samengesteld.
                 </p>
                 <p>
                   En vergeet hond Kerel niet, de trouwe viervoeter die elke klant verwelkomt!
@@ -250,24 +252,80 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Ons Aanbod Section */}
+      {/* Ons Aanbod & Galerij Section */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Ons Aanbod</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
-            Van verse seizoensbloemen tot bijzondere planten, altijd met liefde samengesteld
+          <h2 className="heading-lg text-center mb-3">Ons Werk</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">
+            Van verse seizoensbloemen tot bijzondere creaties — altijd met liefde samengesteld
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {aanbodImages.map((image, index) =>
-          <div key={index} className="overflow-hidden shadow-soft">
-                <img
-              src={image}
-              alt={`Ons aanbod ${index + 1}`}
-              className="w-full aspect-square object-cover" />
+          {(() => {
+            const allImages = [
+              ...aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` })),
+              ...galerijImages.map(img => ({ src: img.src, alt: img.alt })),
+            ];
+            return (
+              <>
+                <div className="grid grid-cols-3 md:grid-cols-6 gap-2 max-w-4xl mx-auto">
+                  {allImages.slice(0, 6).map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setLightboxIndex(index)}
+                      className="overflow-hidden aspect-square cursor-pointer group"
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </button>
+                  ))}
+                </div>
+                <div className="text-center mt-4">
+                  <button
+                    onClick={() => setLightboxIndex(0)}
+                    className="text-primary font-medium hover:underline text-sm inline-flex items-center gap-1"
+                  >
+                    Bekijk alle {allImages.length} foto's →
+                  </button>
+                </div>
 
-              </div>
-          )}
-          </div>
+                {/* Lightbox */}
+                {lightboxIndex !== null && (
+                  <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setLightboxIndex(null)}>
+                    <button
+                      className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                      onClick={() => setLightboxIndex(null)}
+                    >
+                      <X className="w-8 h-8" />
+                    </button>
+                    <button
+                      className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                      onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex - 1 + allImages.length) % allImages.length); }}
+                    >
+                      <ChevronLeft className="w-10 h-10" />
+                    </button>
+                    <button
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                      onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex + 1) % allImages.length); }}
+                    >
+                      <ChevronRight className="w-10 h-10" />
+                    </button>
+                    <img
+                      src={allImages[lightboxIndex].src}
+                      alt={allImages[lightboxIndex].alt}
+                      className="max-h-[85vh] max-w-[90vw] object-contain"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                    <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
+                      {lightboxIndex + 1} / {allImages.length}
+                    </span>
+                  </div>
+                )}
+              </>
+            );
+          })()}
         </div>
       </section>
 
@@ -355,7 +413,7 @@ export default function Index() {
                 <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
                   Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
-                  prachtige rouwstukken die recht doen aan wie er niet meer is.
+                  prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
                 </p>
               </div>
             </div>
@@ -368,8 +426,8 @@ export default function Index() {
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
-                  Geen standaard bosjes! Nancy haalt bloemen vers bij de boer. 
-                  Jouw boeket wordt naar wens samengesteld, met topkwaliteit én eerlijke prijs.
+                  Elk boeket is maatwerk met karakter. Nancy haalt bloemen vers bij de boer 
+                  en stelt bijzondere combinaties samen met topkwaliteit én een eerlijke prijs.
                 </p>
               </div>
             </div>
@@ -392,31 +450,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Galerij Section */}
-      <section className="py-12 md:py-16 bg-secondary">
-        <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Galerij</h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Een greep uit ons werk, elk bloemstuk uniek en met liefde gemaakt
-
-
-        </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 max-w-5xl mx-auto">
-            {galerijImages.map((img, index) => <div key={index} className="overflow-hidden aspect-square">
-                <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              loading="lazy" />
-
-              </div>
-          )}
-          </div>
-        </div>
-      </section>
-
       {/* Hanny Schaft Section */}
-      <section className="section-padding bg-card">
+      <section id="hanny-schaft" className="section-padding bg-card">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 items-stretch">
