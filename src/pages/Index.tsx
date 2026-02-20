@@ -227,6 +227,7 @@ export default function Index() {
       <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
+            <p className="section-subtitle text-center">Wie is Nancy?</p>
             <h2 className="heading-lg text-center mb-8">Maak kennis met Nancy</h2>
             <div className="bg-card overflow-hidden shadow-soft">
               <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
@@ -261,6 +262,7 @@ export default function Index() {
       {/* Ons Aanbod & Galerij Section */}
       <section id="aanbod" className="section-padding">
         <div className="container-custom">
+          <p className="section-subtitle text-center">Ons portfolio</p>
           <h2 className="heading-lg text-center mb-3">Ons Werk</h2>
           <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Van verse seizoensbloemen tot bijzondere creaties, altijd met liefde samengesteld
 
@@ -345,6 +347,7 @@ export default function Index() {
       <section id="bestellen" className="section-padding bg-secondary">
         <div className="container-custom">
           <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-full max-w-lg mx-auto mb-8" />
+          <p className="section-subtitle text-center">Gemak aan huis</p>
           <h2 className="heading-lg text-center mb-3">Bezorgservice & Bestellen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
             Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
@@ -410,6 +413,7 @@ export default function Index() {
       {/* Onze Specialiteiten Section */}
       <section id="specialiteiten" className="section-padding bg-blush-light">
         <div className="container-custom">
+          <p className="section-subtitle text-center">Waar we in uitblinken</p>
           <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
             Waar we écht in uitblinken, met hart en ziel
@@ -488,6 +492,7 @@ export default function Index() {
               
               {/* Content */}
               <div className="md:col-span-3 flex flex-col justify-center text-center md:text-left py-4">
+                <p className="section-subtitle md:text-left">Trots partnership</p>
                 <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
@@ -514,6 +519,7 @@ export default function Index() {
           <div className="max-w-xl mx-auto text-center">
             <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-[-4rem] relative z-10" />
             <div className="bg-card shadow-soft p-6 md:p-8 pt-12 md:pt-16">
+              <p className="section-subtitle">Wanneer zijn we open?</p>
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Clock className="w-7 h-7 text-primary" />
                 <h2 className="heading-lg">Openingstijden</h2>
@@ -559,12 +565,14 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Location & Instagram Combined Section */}
+      {/* Contact Section */}
       <section id="contact" className="section-padding">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <p className="section-subtitle text-center">Kom langs of neem contact op</p>
+          <h2 className="heading-lg text-center mb-10">Contact</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {/* Location Card */}
-            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300">
+            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="p-5 border-b border-border">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white flex items-center justify-center shadow-sm">
@@ -576,7 +584,7 @@ export default function Index() {
                   </div>
                 </div>
               </div>
-              <div className="aspect-video">
+              <div className="aspect-video flex-1">
                 <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite"
                 width="100%"
@@ -586,7 +594,6 @@ export default function Index() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Locatie Madeliefste Bloemen" />
-
               </div>
               <div className="p-4 text-center">
                 <a
@@ -594,43 +601,33 @@ export default function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
-
                   Route plannen
                   <MapPin className="w-4 h-4" />
                 </a>
               </div>
             </div>
 
-            {/* Instagram Card */}
-            <a
-            href="https://www.instagram.com/madeliefstebloemen/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 group block">
-
-              <div className="p-5 border-b border-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                    <Instagram className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-semibold">Volg ons</h3>
-                    <p className="text-sm text-muted-foreground">@madeliefstebloemen</p>
-                  </div>
-                </div>
+            {/* Instagram CTA Card */}
+            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center p-8 md:p-10">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center mb-6">
+                <Instagram className="w-8 h-8 text-white" />
               </div>
-              <div className="grid grid-cols-3 gap-0.5">
-                <img src={boeketGemengdImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
-                <img src={bloemstukImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
-                <img src={trouwboeketImage} alt="Instagram post" className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <div className="p-4 text-center">
-                <span className="inline-flex items-center gap-2 text-primary font-medium group-hover:underline">
-                  Bekijk profiel op Instagram
-                  <Instagram className="w-4 h-4" />
-                </span>
-              </div>
-            </a>
+              <p className="section-subtitle">Volg ons op Instagram</p>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">Een kijkje achter de schermen</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6 max-w-sm">
+                Benieuwd wat er dagelijks in de winkel gebeurt? Ontdek de mooiste creaties, seizoensinspiratie en leuke momenten bij Madeliefste.
+              </p>
+              <Button variant="outline" size="lg" asChild>
+                <a
+                  href="https://www.instagram.com/madeliefstebloemen/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2">
+                  <Instagram className="w-5 h-5" />
+                  @madeliefstebloemen
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -639,6 +636,7 @@ export default function Index() {
       <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="text-center mb-10">
+            <p className="section-subtitle">Wat klanten zeggen</p>
             <div className="flex items-center justify-center gap-3 mb-4">
               <GoogleLogo className="w-8 h-8" />
               <h2 className="heading-lg">Reviews</h2>
