@@ -152,19 +152,19 @@
   }
 
   .section-gradient-warm {
-    background: linear-gradient(180deg, hsl(45 40% 94%) 0%, hsl(45 40% 90%) 100%);
+    background: linear-gradient(180deg, hsl(45 40% 96%) 0%, hsl(45 40% 86%) 100%);
   }
 
   .section-gradient-blush {
-    background: linear-gradient(180deg, hsl(350 50% 97%) 0%, hsl(350 45% 92%) 100%);
+    background: linear-gradient(180deg, hsl(350 50% 97%) 0%, hsl(350 45% 88%) 100%);
   }
 
   .section-gradient-sage {
-    background: linear-gradient(180deg, hsl(150 20% 97%) 0%, hsl(150 25% 92%) 100%);
+    background: linear-gradient(180deg, hsl(150 20% 97%) 0%, hsl(150 25% 87%) 100%);
   }
 
   .section-gradient-cream {
-    background: linear-gradient(180deg, hsl(45 33% 98%) 0%, hsl(45 40% 93%) 100%);
+    background: linear-gradient(180deg, hsl(45 33% 98%) 0%, hsl(45 40% 88%) 100%);
   }
 }
 

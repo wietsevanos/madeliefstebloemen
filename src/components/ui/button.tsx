@@ -9,15 +9,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-medium",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default: "bg-gradient-to-b from-primary to-primary/80 text-primary-foreground hover:from-primary/90 hover:to-primary/70 shadow-soft hover:shadow-medium",
+        destructive: "bg-gradient-to-b from-destructive to-destructive/80 text-destructive-foreground hover:from-destructive/90 hover:to-destructive/70",
+        outline: "border-2 border-primary bg-gradient-to-b from-transparent to-primary/5 text-primary hover:from-primary hover:to-primary/85 hover:text-primary-foreground",
+        secondary: "bg-gradient-to-b from-secondary to-secondary/70 text-secondary-foreground hover:from-secondary/90 hover:to-secondary/60",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-medium hover:shadow-hover text-lg px-8 py-4",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/80 shadow-soft",
-        warm: "bg-blush text-foreground hover:bg-blush-dark shadow-soft hover:shadow-medium",
+        hero: "bg-gradient-to-b from-primary to-primary/75 text-primary-foreground hover:from-primary/90 hover:to-primary/65 shadow-medium hover:shadow-hover text-lg px-8 py-4",
+        accent: "bg-gradient-to-b from-accent to-accent/70 text-accent-foreground hover:from-accent/80 hover:to-accent/60 shadow-soft",
+        warm: "bg-gradient-to-b from-blush-dark to-blush text-foreground hover:from-blush-dark/90 hover:to-blush/80 shadow-soft hover:shadow-medium",
       },
       size: {
         default: "h-12 px-6 py-3",
