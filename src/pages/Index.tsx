@@ -562,7 +562,20 @@ export default function Index() {
       {/* Contact Section */}
       <section id="contact" className="section-padding section-gradient-blush">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-10">Contact</h2>
+          <h2 className="heading-lg text-center mb-2">Contact</h2>
+          <p className="text-center text-muted-foreground mb-4 max-w-lg mx-auto">
+            We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-sm">
+            <a href="tel:0235315809" className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+              <Phone className="w-4 h-4" />
+              023 531 58 09
+            </a>
+            <a href="mailto:madeliefstebloemen@gmail.com" className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+              <MessageCircle className="w-4 h-4" />
+              madeliefstebloemen@gmail.com
+            </a>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {/* Location Card */}
             <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col">
