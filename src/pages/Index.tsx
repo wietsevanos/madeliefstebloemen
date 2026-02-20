@@ -294,9 +294,9 @@ export default function Index() {
                 </div>
                 <div className="text-center mt-6">
                   <Button
-                    variant="outline"
-                    size="lg"
-                    onClick={() => setLightboxIndex(0)}>
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setLightboxIndex(0)}>
                     Bekijk alle {allImages.length} foto's →
                   </Button>
                 </div>
@@ -565,15 +565,15 @@ export default function Index() {
             We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10">
-            <a href="tel:0235315809" className="inline-flex items-center gap-3 bg-card shadow-soft px-6 py-3 hover:shadow-medium transition-all duration-300 group">
-              <div className="w-10 h-10 bg-gradient-to-b from-primary to-primary/75 flex items-center justify-center">
-                <Phone className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <div className="text-left">
-                <span className="text-xs text-muted-foreground block">Bel ons</span>
-                <span className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">023 531 58 09</span>
-              </div>
-            </a>
+            
+
+
+
+
+
+
+
+
             <a href="mailto:madeliefstebloemen@gmail.com" className="inline-flex items-center gap-3 bg-card shadow-soft px-6 py-3 hover:shadow-medium transition-all duration-300 group">
               <div className="w-10 h-10 bg-gradient-to-b from-blush-dark to-blush flex items-center justify-center">
                 <MessageCircle className="w-5 h-5 text-foreground" />
@@ -632,10 +632,10 @@ export default function Index() {
               </p>
               <Button variant="outline" asChild>
                 <a
-                  href="https://www.instagram.com/madeliefstebloemen/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2">
+                href="https://www.instagram.com/madeliefstebloemen/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2">
                   <Instagram className="w-4 h-4" />
                   @madeliefstebloemen
                 </a>
