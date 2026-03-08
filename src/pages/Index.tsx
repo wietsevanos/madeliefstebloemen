@@ -62,17 +62,17 @@ aanbod8Image];
 const preloadNancyImage = new Image();
 preloadNancyImage.src = nancyImage;
 const reviews = [{
-  name: "Maria V.",
+  name: "Brenda Smit",
   rating: 5,
-  text: "Altijd prachtige verse bloemen en geweldig advies van Nancy!"
+  text: "Super gezellig buurtwinkeltje, altijd handig om een bloemetje voor iemand te kopen."
 }, {
-  name: "Jan de B.",
-  rating: 5,
-  text: "De beste bloemist van Haarlem. Persoonlijke service en oog voor detail."
+  name: "Ivonne Steffers",
+  rating: 4,
+  text: "Gezellige winkel en altijd een vriendelijk woord en vakkundig advies."
 }, {
-  name: "Annemiek",
+  name: "Ruby Jw",
   rating: 5,
-  text: "Mijn vaste adres voor alle speciale gelegenheden. Top!"
+  text: "Echt een fantastische bloemist! Fijne sfeer, hele aardige eigenaresse en prachtige bloemen en decoraties. Hier kom ik graag nog een keertje!"
 }];
 const GoogleLogo = ({
   className = "w-5 h-5"
