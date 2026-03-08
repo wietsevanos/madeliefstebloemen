@@ -150,14 +150,15 @@ export default function OrderForm() {
         {loading ? "Verzenden…" : "Bestel bloemen"}
       </Button>
 
-      <div className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
-        <Lock className="w-3 h-3" />
-        <span>Uw gegevens worden uitsluitend gebruikt voor uw bestelling en bezorging.</span>
+      <div className="text-center space-y-1">
+        <p className="text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+          <Lock className="w-3 h-3 shrink-0" />
+          Uw gegevens worden uitsluitend gebruikt voor uw bestelling en bezorging.
+        </p>
         <Dialog>
           <DialogTrigger asChild>
-            <button type="button" className="inline-flex items-center gap-1 text-primary hover:underline ml-1">
-              <Info className="w-3 h-3" />
-              Meer info
+            <button type="button" className="text-xs text-primary hover:underline">
+              Privacy & gegevens
             </button>
           </DialogTrigger>
           <DialogContent className="max-w-md">
