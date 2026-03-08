@@ -33,6 +33,7 @@ import galerij7 from "@/assets/galerij-7.jpg";
 import galerij8 from "@/assets/galerij-8.jpg";
 import galerij9 from "@/assets/galerij-9.jpg";
 import galerij10 from "@/assets/galerij-10.jpg";
+import googleReviewsImage from "@/assets/google-reviews.png";
 
 const galerijImages = [
 { src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
@@ -650,10 +651,7 @@ export default function Index() {
       <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <GoogleLogo className="w-6 h-6" />
-              <span className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Google Reviews</span>
-            </div>
+            <img src={googleReviewsImage} alt="Google Reviews" className="h-16 md:h-20 mx-auto mb-4" />
             <h2 className="heading-lg">Wat klanten over ons zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
