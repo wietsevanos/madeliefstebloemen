@@ -31,9 +31,9 @@ export default function Footer() {
         </div>
         <div className="mt-8 pt-6 border-t border-primary-foreground/30 flex flex-col md:flex-row justify-between items-center gap-2 text-sm text-primary-foreground/70">
           <p>© 2026 Madeliefste Bloemen</p>
+          <p className="text-xs text-primary-foreground/50">Fotografie: Sanna en Wietse</p>
           <p>KvK: 52278506</p>
         </div>
-        <p className="text-center text-xs text-primary-foreground/50 mt-4">Fotografie: Sanna en Wietse</p>
       </div>
     </footer>
   );
