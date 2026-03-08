@@ -651,7 +651,7 @@ export default function Index() {
       <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <img src={googleReviewsImage} alt="Google Reviews" className="h-16 md:h-20 mx-auto mb-4" />
+            <img src={googleReviewsImage} alt="Google Reviews" className="h-24 md:h-28 mx-auto mb-4" />
             <h2 className="heading-lg">Wat klanten over ons zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
