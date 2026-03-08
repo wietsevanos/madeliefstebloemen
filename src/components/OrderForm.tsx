@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const { toast } = useToast();
   const [form, setForm] = useState({
     soortBestelling: "",
