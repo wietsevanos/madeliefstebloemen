@@ -150,24 +150,33 @@ export default function OrderForm() {
         {loading ? "Verzenden…" : "Bestel bloemen"}
       </Button>
 
-      <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
+      <div className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
         <Lock className="w-3 h-3" />
-        Uw gegevens worden uitsluitend gebruikt voor uw bestelling en bezorging.
-      </p>
-
-      <div className="mt-6 pt-6 border-t border-border">
-        <h4 className="text-sm font-medium text-foreground mb-2">Privacy & gegevens</h4>
-        <div className="text-xs text-muted-foreground space-y-2">
-          <p>Wij gaan zorgvuldig om met uw persoonsgegevens. De gegevens die u via dit formulier verstrekt gebruiken wij uitsluitend voor:</p>
-          <ul className="list-disc list-inside space-y-1 ml-1">
-            <li>Het verwerken van uw bestelling</li>
-            <li>Het bezorgen van bloemen</li>
-            <li>Telefonisch of per e-mail contact over uw bestelling</li>
-          </ul>
-          <p>Wij delen uw gegevens niet met derden, behalve wanneer dit nodig is voor onze dienstverlening.</p>
-          <p>Uw gegevens worden niet langer bewaard dan noodzakelijk is voor onze administratie.</p>
-          <p>U heeft het recht om uw gegevens in te zien, te laten aanpassen of te laten verwijderen. Voor vragen kunt u contact opnemen via: <a href="mailto:madeliefstebloemen@gmail.com" className="text-primary hover:underline">madeliefstebloemen@gmail.com</a></p>
-        </div>
+        <span>Uw gegevens worden uitsluitend gebruikt voor uw bestelling en bezorging.</span>
+        <Dialog>
+          <DialogTrigger asChild>
+            <button type="button" className="inline-flex items-center gap-1 text-primary hover:underline ml-1">
+              <Info className="w-3 h-3" />
+              Meer info
+            </button>
+          </DialogTrigger>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>Privacy & gegevens</DialogTitle>
+            </DialogHeader>
+            <div className="text-sm text-muted-foreground space-y-3">
+              <p>Wij gaan zorgvuldig om met uw persoonsgegevens. De gegevens die u via dit formulier verstrekt gebruiken wij uitsluitend voor:</p>
+              <ul className="list-disc list-inside space-y-1 ml-1">
+                <li>Het verwerken van uw bestelling</li>
+                <li>Het bezorgen van bloemen</li>
+                <li>Telefonisch of per e-mail contact over uw bestelling</li>
+              </ul>
+              <p>Wij delen uw gegevens niet met derden, behalve wanneer dit nodig is voor onze dienstverlening.</p>
+              <p>Uw gegevens worden niet langer bewaard dan noodzakelijk is voor onze administratie.</p>
+              <p>U heeft het recht om uw gegevens in te zien, te laten aanpassen of te laten verwijderen. Voor vragen kunt u contact opnemen via: <a href="mailto:madeliefstebloemen@gmail.com" className="text-primary hover:underline">madeliefstebloemen@gmail.com</a></p>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
     </form>
   );
