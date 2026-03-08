@@ -650,16 +650,24 @@ export default function Index() {
       <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <GoogleLogo className="w-6 h-6" />
+              <span className="text-sm font-medium text-muted-foreground tracking-wide uppercase">Google Reviews</span>
+            </div>
             <h2 className="heading-lg">Wat klanten over ons zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {reviews.map((review, index) => <div key={index} className="bg-card p-6 shadow-soft">
+            {reviews.map((review, index) => (
+              <div key={index} className="bg-card p-6 shadow-soft flex flex-col h-full">
                 <div className="flex gap-0.5 mb-3">
-                  {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                  ))}
                 </div>
-                <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
-                <p className="font-medium text-foreground">{review.name}</p>
-              </div>)}
+                <p className="text-muted-foreground mb-4 italic flex-1">"{review.text}"</p>
+                <p className="font-medium text-foreground mt-auto pt-2 border-t border-border">{review.name}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
