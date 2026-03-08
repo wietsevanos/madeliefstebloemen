@@ -33,6 +33,7 @@ import galerij7 from "@/assets/galerij-7.jpg";
 import galerij8 from "@/assets/galerij-8.jpg";
 import galerij9 from "@/assets/galerij-9.jpg";
 import galerij10 from "@/assets/galerij-10.jpg";
+import googleReviewsImage from "@/assets/google-reviews.png";
 
 const galerijImages = [
 { src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
