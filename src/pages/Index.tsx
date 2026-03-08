@@ -652,7 +652,13 @@ export default function Index() {
       <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <img src={googleReviewsImage} alt="Google Reviews" className="h-24 md:h-28 mx-auto mb-4" />
+            <img src={googleLogo} alt="Google" className="h-10 md:h-12 mx-auto mb-3" />
+            <div className="flex items-center justify-center gap-1.5 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+              ))}
+              <span className="text-base font-medium text-muted-foreground ml-1.5">4,8 gemiddeld</span>
+            </div>
             <h2 className="heading-lg">Wat klanten over ons zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
