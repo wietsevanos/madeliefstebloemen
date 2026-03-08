@@ -33,6 +33,7 @@ export default function Footer() {
           <p>© 2026 Madeliefste Bloemen</p>
           <p>KvK: 52278506</p>
         </div>
+        <p className="text-center text-xs text-primary-foreground/50 mt-4">Fotografie: Sanna en Wietse</p>
       </div>
     </footer>
   );

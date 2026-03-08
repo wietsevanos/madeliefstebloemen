@@ -62,17 +62,17 @@ aanbod8Image];
 const preloadNancyImage = new Image();
 preloadNancyImage.src = nancyImage;
 const reviews = [{
-  name: "Maria V.",
+  name: "Brenda Smit",
   rating: 5,
-  text: "Altijd prachtige verse bloemen en geweldig advies van Nancy!"
+  text: "Super gezellig buurtwinkeltje, altijd handig om een bloemetje voor iemand te kopen."
 }, {
-  name: "Jan de B.",
-  rating: 5,
-  text: "De beste bloemist van Haarlem. Persoonlijke service en oog voor detail."
+  name: "Ivonne Steffers",
+  rating: 4,
+  text: "Gezellige winkel en altijd een vriendelijk woord en vakkundig advies."
 }, {
-  name: "Annemiek",
+  name: "Ruby Jw",
   rating: 5,
-  text: "Mijn vaste adres voor alle speciale gelegenheden. Top!"
+  text: "Echt een fantastische bloemist! Fijne sfeer, hele aardige eigenaresse en prachtige bloemen en decoraties. Hier kom ik graag nog een keertje!"
 }];
 const GoogleLogo = ({
   className = "w-5 h-5"
@@ -646,36 +646,20 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Google Reviews Section */}
+      {/* Reviews Section */}
       <section className="section-padding section-gradient-cream">
         <div className="container-custom">
           <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <GoogleLogo className="w-8 h-8" />
-              <h2 className="heading-lg">Reviews</h2>
-            </div>
-            <div className="flex items-center justify-center gap-1">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-6 h-6 text-yellow-500 fill-yellow-500" />)}
-              <span className="ml-2 text-muted-foreground">5.0 op Google</span>
-            </div>
+            <h2 className="heading-lg">Wat klanten over ons zeggen</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((review, index) => <div key={index} className="bg-card p-6 shadow-soft">
-                <div className="flex items-center gap-2 mb-3">
-                  <GoogleLogo className="w-4 h-4" />
-                  <div className="flex gap-0.5">
-                    {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
-                  </div>
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(review.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}
                 </div>
                 <p className="text-muted-foreground mb-4 italic">"{review.text}"</p>
                 <p className="font-medium text-foreground">{review.name}</p>
               </div>)}
-          </div>
-          <div className="text-center mt-8">
-            <a href="https://www.google.com/maps/place/Madeliefste+Bloemen/@52.3884,4.6347,17z" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
-              <GoogleLogo className="w-4 h-4" />
-              Bekijk alle reviews op Google →
-            </a>
           </div>
         </div>
       </section>

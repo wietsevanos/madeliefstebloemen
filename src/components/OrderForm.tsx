@@ -4,13 +4,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Send, Loader2 } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Send, Loader2, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const { toast } = useToast();
   const [form, setForm] = useState({
     soortBestelling: "",
@@ -130,15 +132,42 @@ export default function OrderForm() {
         />
       </div>
 
-      <Button type="submit" variant="warm" size="lg" className="w-full" disabled={loading}>
+      <div className="flex items-start space-x-3">
+        <Checkbox
+          id="privacy"
+          checked={privacyAccepted}
+          onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+          required
+        />
+        <Label htmlFor="privacy" className="text-sm leading-snug cursor-pointer">
+          Ik ga akkoord met de verwerking van mijn persoonsgegevens
+        </Label>
+      </div>
+
+      <Button type="submit" variant="warm" size="lg" className="w-full" disabled={loading || !privacyAccepted}>
         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {loading ? "Verzenden…" : "Bestel bloemen"}
       </Button>
 
-      <p className="text-xs text-muted-foreground text-center">
-        Na ontvangst nemen wij telefonisch contact met u op om alles af te stemmen.
-        U ontvangt daarna een Tikkie voor de betaling.
+      <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1">
+        <Lock className="w-3 h-3" />
+        Uw gegevens worden uitsluitend gebruikt voor uw bestelling en bezorging.
       </p>
+
+      <div className="mt-6 pt-6 border-t border-border">
+        <h4 className="text-sm font-medium text-foreground mb-2">Privacy & gegevens</h4>
+        <div className="text-xs text-muted-foreground space-y-2">
+          <p>Wij gaan zorgvuldig om met uw persoonsgegevens. De gegevens die u via dit formulier verstrekt gebruiken wij uitsluitend voor:</p>
+          <ul className="list-disc list-inside space-y-1 ml-1">
+            <li>Het verwerken van uw bestelling</li>
+            <li>Het bezorgen van bloemen</li>
+            <li>Telefonisch of per e-mail contact over uw bestelling</li>
+          </ul>
+          <p>Wij delen uw gegevens niet met derden, behalve wanneer dit nodig is voor onze dienstverlening.</p>
+          <p>Uw gegevens worden niet langer bewaard dan noodzakelijk is voor onze administratie.</p>
+          <p>U heeft het recht om uw gegevens in te zien, te laten aanpassen of te laten verwijderen. Voor vragen kunt u contact opnemen via: <a href="mailto:madeliefstebloemen@gmail.com" className="text-primary hover:underline">madeliefstebloemen@gmail.com</a></p>
+        </div>
+      </div>
     </form>
   );
 }
