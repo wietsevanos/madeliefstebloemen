@@ -185,6 +185,11 @@ export default function Index() {
       }
       </header>
 
+      {/* Moederdag Banner - onder de header */}
+      <div className="pt-16 md:pt-20">
+        <MoederdagBanner />
+      </div>
+
       {/* Hero Section - Full Screen */}
       <section className="relative h-screen flex items-end">
         <div className="absolute inset-0 z-0">
