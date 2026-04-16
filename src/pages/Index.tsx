@@ -3,6 +3,7 @@ import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import MoederdagBanner from "@/components/MoederdagBanner";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
@@ -110,6 +111,8 @@ export default function Index() {
 
 
   return <div className="min-h-screen bg-background">
+      {/* Moederdag Banner */}
+      <MoederdagBanner />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-gradient-to-r from-blush-dark to-blush" style={{ borderImage: 'linear-gradient(to right, hsl(350 45% 65%), hsl(350 45% 85%)) 1' }}>
         <div className="container-custom">

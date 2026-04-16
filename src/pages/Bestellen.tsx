@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import OrderForm from "@/components/OrderForm";
+import MoederdagBanner from "@/components/MoederdagBanner";
 import Footer from "@/components/Footer";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
@@ -12,6 +13,7 @@ export default function Bestellen() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary via-blush/20 to-secondary">
+      <MoederdagBanner />
       {/* Header */}
       <header className="bg-card/95 shadow-soft border-b-4 border-blush">
         <div className="container-custom">
