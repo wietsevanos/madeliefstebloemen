@@ -13,7 +13,6 @@ export default function Bestellen() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary via-blush/20 to-secondary">
-      <MoederdagBanner />
       {/* Header */}
       <header className="bg-card/95 shadow-soft border-b-4 border-blush">
         <div className="container-custom">
@@ -32,6 +31,8 @@ export default function Bestellen() {
           </div>
         </div>
       </header>
+
+      <MoederdagBanner />
 
       <section className="section-padding">
         <div className="container-custom">
