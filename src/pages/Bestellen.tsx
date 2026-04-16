@@ -32,6 +32,8 @@ export default function Bestellen() {
         </div>
       </header>
 
+      <MoederdagBanner />
+
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-lg mx-auto">
