@@ -530,7 +530,7 @@ export default function Index() {
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-border">
                   <span className="font-medium">Woensdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
+                  <span className="text-primary font-medium">11:30 – 17:00</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-border">
                   <span className="font-medium">Donderdag</span>
