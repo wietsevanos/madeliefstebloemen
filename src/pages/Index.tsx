@@ -554,37 +554,62 @@ export default function Index() {
                 <Clock className="w-7 h-7 text-primary" />
                 <h2 className="heading-lg">Openingstijden</h2>
               </div>
-              <div className="space-y-1 text-sm">
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Maandag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Dinsdag</span>
-                  <span className="text-primary font-medium">12:00 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Woensdag</span>
-                  <span className="text-primary font-medium">11:30 – 17:00</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Donderdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Vrijdag</span>
-                  <span className="text-primary font-medium">09:30 – 17:30</span>
-                </div>
-                <div className="flex justify-between items-center py-3 border-b border-border">
-                  <span className="font-medium">Zaterdag</span>
-                  <span className="text-primary font-medium">09:00 – 17:00</span>
-                </div>
-                <div className="flex justify-between items-center py-3">
-                  <span className="font-medium">Zondag</span>
-                  <span className="text-muted-foreground">Gesloten</span>
-                </div>
-              </div>
-              <div className="mt-6 pt-4 border-t border-border text-center">
+              {(() => {
+                const days = [
+                  { name: "Maandag", hours: null },
+                  { name: "Dinsdag", hours: "12:00 – 17:30" },
+                  { name: "Woensdag", hours: "11:30 – 17:00" },
+                  { name: "Donderdag", hours: "09:30 – 17:30" },
+                  { name: "Vrijdag", hours: "09:30 – 17:30" },
+                  { name: "Zaterdag", hours: "09:00 – 17:00" },
+                  { name: "Zondag", hours: null },
+                ];
+                const jsDay = new Date().getDay();
+                const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
+
+                return (
+                  <div className="divide-y divide-border/60">
+                    {days.map((day, i) => {
+                      const isToday = i === todayIndex;
+                      const isClosed = day.hours === null;
+                      return (
+                        <div
+                          key={day.name}
+                          className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-colors duration-300 ${
+                            isToday
+                              ? "bg-blush-light/60"
+                              : "hover:bg-muted/40"
+                          }`}>
+                          <div className="flex items-center gap-2.5 text-left">
+                            <span className={`text-foreground ${isToday ? "font-semibold" : "font-medium"}`}>
+                              {day.name}
+                            </span>
+                            {isToday && (
+                              <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold ${
+                                isClosed
+                                  ? "bg-muted text-muted-foreground"
+                                  : "bg-primary text-primary-foreground"
+                              }`}>
+                                {isClosed ? "Vandaag gesloten" : "Vandaag open"}
+                              </span>
+                            )}
+                          </div>
+                          <span className={`tabular-nums ${
+                            isClosed
+                              ? "text-muted-foreground italic"
+                              : isToday
+                              ? "text-primary font-semibold"
+                              : "text-primary font-medium"
+                          }`}>
+                            {day.hours ?? "Gesloten"}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })()}
+              <div className="mt-6 pt-4 border-t border-border/60 text-center">
                 <p className="text-muted-foreground text-sm">
                   💡 Openingstijden kunnen soms afwijken, bijvoorbeeld rond feestdagen. 
                   Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
