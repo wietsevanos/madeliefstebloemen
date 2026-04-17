@@ -577,20 +577,18 @@ export default function Index() {
                           key={day.name}
                           className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-colors duration-300 ${
                             isToday
-                              ? "bg-blush/40 border-l-4 border-primary"
+                              ? "bg-blush/40"
                               : "hover:bg-muted/40"
                           }`}>
                           <div className="flex items-center gap-2.5 text-left">
-                            <span className={`text-foreground ${isToday ? "font-semibold" : "font-medium"}`}>
+                            <span className="text-foreground font-medium">
                               {day.name}
                             </span>
                           </div>
-                          <span className={`tabular-nums ${
+                          <span className={`tabular-nums font-medium ${
                             isClosed
                               ? "text-muted-foreground italic"
-                              : isToday
-                              ? "text-primary font-semibold"
-                              : "text-primary font-medium"
+                              : "text-primary"
                           }`}>
                             {day.hours ?? "Gesloten"}
                           </span>
