@@ -283,31 +283,55 @@ export default function Index() {
             if (i < galerijMapped.length) allImages.push(galerijMapped[i]);
           }
 
+          // Varied aspect ratios for a dynamic grid (7 photos + 1 CTA tile)
+          const tileShapes = [
+            "row-span-2", // tall
+            "",
+            "",
+            "",
+            "",
+            "row-span-2", // tall
+            "",
+          ];
+
           return (
             <>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
-                  {allImages.slice(0, 8).map((img, index) =>
+                <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] md:auto-rows-[180px] gap-3 max-w-5xl mx-auto">
+                  {allImages.slice(0, 7).map((img, index) =>
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
-                  className="overflow-hidden aspect-square cursor-pointer group">
+                  className={`overflow-hidden cursor-pointer group relative shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
 
                       <img
                     src={img.src}
                     alt={img.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     loading="lazy" />
-
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </button>
                 )}
-                </div>
-                <div className="text-center mt-6">
-                  <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() => setLightboxIndex(0)}>
-                    Bekijk alle {allImages.length} foto's →
-                  </Button>
+
+                  {/* CTA tile als 8e tegel */}
+                  <button
+                    onClick={() => setLightboxIndex(7)}
+                    className="overflow-hidden cursor-pointer group relative shadow-medium hover:shadow-hover transition-all duration-500">
+                    <img
+                      src={allImages[7].src}
+                      alt={allImages[7].alt}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/75 to-accent/80 group-hover:from-primary/90 group-hover:to-accent/90 transition-all duration-500" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground p-3 text-center">
+                      <Camera className="w-7 h-7 md:w-8 md:h-8 mb-2 group-hover:scale-110 transition-transform duration-500" />
+                      <span className="font-heading text-base md:text-lg font-semibold leading-tight">
+                        Bekijk al ons werk
+                      </span>
+                      <span className="text-xs md:text-sm opacity-90 mt-1">
+                        {allImages.length} foto's →
+                      </span>
+                    </div>
+                  </button>
                 </div>
 
                 {/* Lightbox */}
