@@ -549,61 +549,121 @@ export default function Index() {
         <div className="container-custom">
           <div className="max-w-xl mx-auto text-center">
             <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-[-4rem] relative z-10" />
-            <div className="bg-card shadow-soft p-6 md:p-8 pt-12 md:pt-16">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Clock className="w-7 h-7 text-primary" />
-                <h2 className="heading-lg">Openingstijden</h2>
-              </div>
-              {(() => {
-                const days = [
-                  { name: "Maandag", hours: null },
-                  { name: "Dinsdag", hours: "12:00 – 17:30" },
-                  { name: "Woensdag", hours: "11:30 – 17:00" },
-                  { name: "Donderdag", hours: "09:30 – 17:30" },
-                  { name: "Vrijdag", hours: "09:30 – 17:30" },
-                  { name: "Zaterdag", hours: "09:00 – 17:00" },
-                  { name: "Zondag", hours: null },
-                ];
-                const jsDay = new Date().getDay();
-                const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
+            <div className="relative bg-card shadow-medium p-6 md:p-10 pt-12 md:pt-16 overflow-hidden">
+              {/* Subtiele decoratieve gradient accenten */}
+              <div className="absolute -top-20 -right-20 w-48 h-48 bg-blush/30 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-sage/20 rounded-full blur-3xl pointer-events-none" />
 
-                return (
-                  <div className="divide-y divide-border/60">
-                    {days.map((day, i) => {
-                      const isToday = i === todayIndex;
-                      const isClosed = day.hours === null;
-                      return (
-                        <div
-                          key={day.name}
-                          className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-colors duration-300 ${
-                            isToday
-                              ? "bg-blush/40 border-l-4 border-primary"
-                              : "hover:bg-muted/40"
-                          }`}>
-                          <div className="flex items-center gap-2.5 text-left">
-                            <span className={`text-foreground ${isToday ? "font-semibold" : "font-medium"}`}>
-                              {day.name}
-                            </span>
-                          </div>
-                          <span className={`tabular-nums ${
-                            isClosed
-                              ? "text-muted-foreground italic"
-                              : isToday
-                              ? "text-primary font-semibold"
-                              : "text-primary font-medium"
-                          }`}>
-                            {day.hours ?? "Gesloten"}
+              <div className="relative">
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <Clock className="w-7 h-7 text-primary" />
+                  <h2 className="heading-lg">Openingstijden</h2>
+                </div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-6">
+                  Welkom in de winkel
+                </p>
+
+                {(() => {
+                  const days = [
+                    { name: "Maandag", short: "Ma", hours: null, open: null, close: null },
+                    { name: "Dinsdag", short: "Di", hours: "12:00 – 17:30", open: "12:00", close: "17:30" },
+                    { name: "Woensdag", short: "Wo", hours: "11:30 – 17:00", open: "11:30", close: "17:00" },
+                    { name: "Donderdag", short: "Do", hours: "09:30 – 17:30", open: "09:30", close: "17:30" },
+                    { name: "Vrijdag", short: "Vr", hours: "09:30 – 17:30", open: "09:30", close: "17:30" },
+                    { name: "Zaterdag", short: "Za", hours: "09:00 – 17:00", open: "09:00", close: "17:00" },
+                    { name: "Zondag", short: "Zo", hours: null, open: null, close: null },
+                  ];
+                  const now = new Date();
+                  const jsDay = now.getDay();
+                  const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
+                  const today = days[todayIndex];
+
+                  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+                  const toMin = (t: string) => parseInt(t.split(":")[0]) * 60 + parseInt(t.split(":")[1]);
+                  const isOpenNow =
+                    today.open !== null &&
+                    today.close !== null &&
+                    currentMinutes >= toMin(today.open) &&
+                    currentMinutes < toMin(today.close);
+
+                  return (
+                    <>
+                      {/* Live status badge */}
+                      <div className="flex justify-center mb-6">
+                        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium shadow-soft ${
+                          isOpenNow
+                            ? "bg-sage/20 text-sage-dark"
+                            : "bg-muted text-muted-foreground"
+                        }`}>
+                          <span className="relative flex h-2.5 w-2.5">
+                            {isOpenNow && (
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage-dark opacity-75" />
+                            )}
+                            <span className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
+                              isOpenNow ? "bg-sage-dark" : "bg-muted-foreground"
+                            }`} />
                           </span>
+                          {isOpenNow
+                            ? `Nu open · tot ${today.close}`
+                            : today.open
+                            ? `Gesloten · vandaag open vanaf ${today.open}`
+                            : "Vandaag gesloten"}
                         </div>
-                      );
-                    })}
-                  </div>
-                );
-              })()}
-              <div className="mt-6 pt-4 border-t border-border/60 text-center">
-                <p className="text-muted-foreground text-sm">
-                  💡 Openingstijden kunnen soms afwijken, bijvoorbeeld rond feestdagen. 
-                  Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
+                      </div>
+
+                      <div className="divide-y divide-border/50">
+                        {days.map((day, i) => {
+                          const isToday = i === todayIndex;
+                          const isClosed = day.hours === null;
+                          return (
+                            <div
+                              key={day.name}
+                              className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-all duration-300 ${
+                                isToday
+                                  ? "bg-blush/40 border-l-4 border-primary shadow-soft"
+                                  : "border-l-4 border-transparent hover:bg-muted/40"
+                              }`}>
+                              <div className="flex items-center gap-3 text-left">
+                                <span className={`flex items-center justify-center w-8 h-8 rounded-full text-xs font-semibold tracking-wide ${
+                                  isToday
+                                    ? "bg-primary text-primary-foreground"
+                                    : isClosed
+                                    ? "bg-muted text-muted-foreground"
+                                    : "bg-blush-light text-foreground"
+                                }`}>
+                                  {day.short}
+                                </span>
+                                <span className={`text-foreground ${isToday ? "font-semibold" : "font-medium"}`}>
+                                  {day.name}
+                                </span>
+                              </div>
+                              <span className={`tabular-nums tracking-wide ${
+                                isClosed
+                                  ? "text-muted-foreground italic text-sm"
+                                  : isToday
+                                  ? "text-primary font-semibold"
+                                  : "text-primary font-medium"
+                              }`}>
+                                {day.hours ?? "Gesloten"}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </>
+                  );
+                })()}
+
+                {/* Decoratief separator met ornament */}
+                <div className="flex items-center justify-center gap-3 mt-8 mb-5">
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <span className="text-primary text-lg">✿</span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent" />
+                </div>
+
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Openingstijden kunnen rond feestdagen afwijken.<br className="hidden sm:block" />
+                  Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-semibold">Bel ons</a> en Nancy helpt je verder.
                 </p>
               </div>
             </div>
