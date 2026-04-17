@@ -577,22 +577,13 @@ export default function Index() {
                           key={day.name}
                           className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-colors duration-300 ${
                             isToday
-                              ? "bg-blush-light/60"
+                              ? "bg-blush/40 border-l-4 border-primary"
                               : "hover:bg-muted/40"
                           }`}>
                           <div className="flex items-center gap-2.5 text-left">
                             <span className={`text-foreground ${isToday ? "font-semibold" : "font-medium"}`}>
                               {day.name}
                             </span>
-                            {isToday && (
-                              <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold ${
-                                isClosed
-                                  ? "bg-muted text-muted-foreground"
-                                  : "bg-primary text-primary-foreground"
-                              }`}>
-                                {isClosed ? "Vandaag gesloten" : "Vandaag open"}
-                              </span>
-                            )}
                           </div>
                           <span className={`tabular-nums ${
                             isClosed
