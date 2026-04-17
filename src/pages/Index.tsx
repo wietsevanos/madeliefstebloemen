@@ -283,21 +283,24 @@ export default function Index() {
             if (i < galerijMapped.length) allImages.push(galerijMapped[i]);
           }
 
-          // Varied aspect ratios for a dynamic grid (7 photos + 1 CTA tile)
+          // Dynamic grid: 9 photos + 1 CTA tile = 10 tiles, with 2 tall tiles
+          // 4 cols × 3 rows = 12 cells; 8 normal (1 cell) + 2 tall (2 cells) + CTA (1 cell) = 12 ✓
           const tileShapes = [
-            "row-span-2", // tall
-            "",
-            "",
-            "",
-            "",
-            "row-span-2", // tall
-            "",
+            "row-span-2", // 0 - tall (col 1, rows 1-2)
+            "",           // 1
+            "",           // 2
+            "",           // 3
+            "",           // 4
+            "row-span-2", // 5 - tall
+            "",           // 6
+            "",           // 7
+            "",           // 8
           ];
 
           return (
             <>
                 <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] md:auto-rows-[180px] gap-3 max-w-5xl mx-auto">
-                  {allImages.slice(0, 7).map((img, index) =>
+                  {allImages.slice(0, 9).map((img, index) =>
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
@@ -312,13 +315,13 @@ export default function Index() {
                     </button>
                 )}
 
-                  {/* CTA tile als 8e tegel */}
+                  {/* CTA tile als laatste tegel */}
                   <button
-                    onClick={() => setLightboxIndex(7)}
+                    onClick={() => setLightboxIndex(9)}
                     className="overflow-hidden cursor-pointer group relative shadow-medium hover:shadow-hover transition-all duration-500">
                     <img
-                      src={allImages[7].src}
-                      alt={allImages[7].alt}
+                      src={allImages[9].src}
+                      alt={allImages[9].alt}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/75 to-accent/80 group-hover:from-primary/90 group-hover:to-accent/90 transition-all duration-500" />
