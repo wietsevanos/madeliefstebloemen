@@ -189,7 +189,6 @@ export default function Index() {
       {/* Moederdag Banner - onder de header */}
       <div className="pt-16 md:pt-20">
         <MoederdagBanner />
-        <BoeketVanDeDagBanner />
       </div>
 
       {/* Hero Section - Full Screen */}
@@ -231,6 +230,8 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      <BoeketVanDeDagBanner />
 
       {/* Over Nancy Section */}
       <section className="section-padding section-gradient-warm">
