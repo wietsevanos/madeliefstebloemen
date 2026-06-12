@@ -1,4 +1,4 @@
-import boeketAsset from "@/assets/boeket-van-de-dag.jpg.asset.json";
+import boeketImg from "@/assets/local/boeket-van-de-dag.jpg";
 
 const BoeketVanDeDagBanner = () => {
   // Toon alleen op 13 juni (Europe/Amsterdam), automatisch onzichtbaar vanaf 14 juni
@@ -22,7 +22,7 @@ const BoeketVanDeDagBanner = () => {
         <div className="max-w-4xl mx-auto bg-card shadow-soft overflow-hidden grid grid-cols-1 md:grid-cols-2">
           <div className="aspect-square md:aspect-auto md:h-full overflow-hidden">
             <img
-              src={boeketAsset.url}
+              src={boeketImg}
               alt="Boeket van de dag - kleurrijk boeket met clematis en asters"
               className="w-full h-full object-cover"
             />
