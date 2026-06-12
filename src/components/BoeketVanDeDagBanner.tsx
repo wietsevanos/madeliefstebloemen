@@ -1,4 +1,4 @@
-import boeketAsset from "@/assets/boeket-van-de-dag.jpg.asset.json";
+import boeketImg from "@/assets/local/boeket-van-de-dag.jpg";
 
 const BoeketVanDeDagBanner = () => {
   // Toon alleen op 13 juni (Europe/Amsterdam), automatisch onzichtbaar vanaf 14 juni
