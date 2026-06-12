@@ -12,7 +12,9 @@ const BoeketVanDeDagBanner = () => {
   const month = parts.find((p) => p.type === "month")?.value;
   const day = parts.find((p) => p.type === "day")?.value;
 
-  if (!(month === "06" && day === "13")) return null;
+  const isVisible = month === "06" && (day === "12" || day === "13");
+
+  if (!isVisible) return null;
 
   return (
     <section className="section-gradient-blush py-10 md:py-14">
