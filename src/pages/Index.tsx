@@ -187,8 +187,9 @@ export default function Index() {
       }
       </header>
 
-      {/* Moederdag Banner - onder de header */}
+      {/* Banners - onder de header */}
       <div className="pt-16 md:pt-20">
+        <VakantieBanner />
         <MoederdagBanner />
       </div>
 
