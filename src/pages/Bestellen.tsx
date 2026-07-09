@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import OrderForm from "@/components/OrderForm";
 import MoederdagBanner from "@/components/MoederdagBanner";
+import VakantieBanner from "@/components/VakantieBanner";
 import Footer from "@/components/Footer";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
@@ -32,6 +33,7 @@ export default function Bestellen() {
         </div>
       </header>
 
+      <VakantieBanner />
       <MoederdagBanner />
 
       <section className="section-padding">
