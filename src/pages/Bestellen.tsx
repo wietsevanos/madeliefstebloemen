@@ -33,6 +33,7 @@ export default function Bestellen() {
         </div>
       </header>
 
+      <VakantieBanner />
       <MoederdagBanner />
 
       <section className="section-padding">
