@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import MoederdagBanner from "@/components/MoederdagBanner";
 import BoeketVanDeDagBanner from "@/components/BoeketVanDeDagBanner";
+import VakantieBanner from "@/components/VakantieBanner";
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
