@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
