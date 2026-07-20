@@ -134,7 +134,7 @@ export default function Index() {
 
   return <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-gradient-to-r from-blush-dark to-blush" style={{ borderImage: 'linear-gradient(to right, hsl(350 45% 65%), hsl(350 45% 85%)) 1' }}>
+      <header className="fixed top-0 left-0 right-0 z-50 glass-header">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <span className="font-heading text-xl font-semibold">
