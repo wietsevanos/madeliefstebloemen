@@ -38,6 +38,25 @@ import galerij9 from "@/assets/galerij-9.jpg";
 import galerij10 from "@/assets/galerij-10.jpg";
 import googleLogo from "@/assets/google-logo.png";
 import googleReviewsImage from "@/assets/google-reviews.png";
+import trouwerij1 from "@/assets/trouwerij-1.jpg";
+import trouwerij2 from "@/assets/trouwerij-2.jpg";
+import trouwerij3 from "@/assets/trouwerij-3.jpg";
+import trouwerij4 from "@/assets/trouwerij-4.jpg";
+import trouwerij5 from "@/assets/trouwerij-5.jpg";
+import trouwerij6 from "@/assets/trouwerij-6.jpg";
+import trouwerij7 from "@/assets/trouwerij-7.jpg";
+import trouwerij8 from "@/assets/trouwerij-8.jpg";
+
+const trouwerijImages = [
+  { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
+  { src: trouwerij2, alt: "Bloemstuk met witte rozen en gipskruid op kerkstoel" },
+  { src: trouwerij3, alt: "Elegant bruidsboeket met rozen en gipskruid" },
+  { src: trouwerij4, alt: "Twee bruidsboeketten bij kerktrap" },
+  { src: trouwerij5, alt: "Kerkinterieur met altaar en witte bloemen" },
+  { src: trouwerij6, alt: "Vaas met witte bloemen bij altaar" },
+  { src: trouwerij7, alt: "Kerkelijke bloemdecoratie bij altaar" },
+  { src: trouwerij8, alt: "Complete kerkaankleding met bruidsboeketten" },
+];
 
 const galerijImages = [
 { src: galerij1, alt: "Bloemstuk met clematis en rozen", tall: false },
