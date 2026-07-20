@@ -248,7 +248,11 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Meldingen - net onder de hero */}
+      <VakantieBanner />
+      <MoederdagBanner />
       <BoeketVanDeDagBanner />
+
 
       {/* Over Nancy Section */}
       <section className="section-padding section-gradient-warm">
