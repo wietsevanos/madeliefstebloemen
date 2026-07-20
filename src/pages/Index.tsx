@@ -328,7 +328,7 @@ export default function Index() {
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
-                  className={`overflow-hidden cursor-pointer group relative shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
+                  className={`overflow-hidden cursor-pointer group relative rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
 
                       <img
                     src={img.src}
