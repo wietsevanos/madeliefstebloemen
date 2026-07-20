@@ -400,6 +400,69 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Trouwerij Section */}
+      <section id="trouwerij" className="section-padding section-gradient-blush">
+        <div className="container-custom">
+          <h2 className="heading-lg text-center mb-3">Trouwerij</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto body-base">
+            Met liefde verzorgen wij sfeervolle bloemdecoraties voor bruiloften. Van bruidsboeketten tot complete kerk- en locatieaankleding, ieder arrangement wordt met zorg samengesteld om van jullie bijzondere dag iets onvergetelijks te maken.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
+            {trouwerijImages.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setTrouwLightbox(index)}
+                className="overflow-hidden cursor-pointer group relative aspect-square shadow-soft hover:shadow-medium transition-shadow duration-500"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
+            ))}
+          </div>
+
+          {/* Lightbox trouwerij */}
+          {trouwLightbox !== null && (
+            <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setTrouwLightbox(null)}>
+              <button
+                className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={() => setTrouwLightbox(null)}
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={(e) => { e.stopPropagation(); setTrouwLightbox((trouwLightbox - 1 + trouwerijImages.length) % trouwerijImages.length); }}
+              >
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={(e) => { e.stopPropagation(); setTrouwLightbox((trouwLightbox + 1) % trouwerijImages.length); }}
+              >
+                <ChevronRight className="w-10 h-10" />
+              </button>
+              <img
+                src={trouwerijImages[trouwLightbox].src}
+                alt={trouwerijImages[trouwLightbox].alt}
+                className="max-h-[85vh] max-w-[90vw] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
+                {trouwLightbox + 1} / {trouwerijImages.length}
+              </span>
+            </div>
+          )}
+        </div>
+      </section>
+
+
+
       {/* Bezorgservice & Bestellen Section */}
       <section id="bestellen" className="section-padding section-gradient-cream">
         <div className="container-custom">
