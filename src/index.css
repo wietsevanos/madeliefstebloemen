@@ -120,6 +120,22 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+
+  /* Premium soft rounding on all card surfaces (excluding the fixed header) */
+  main [class*="bg-card"],
+  section [class*="bg-card"],
+  footer [class*="bg-card"] {
+    border-radius: 1.25rem;
+  }
+}
+
+@layer components {
+  .glass-header {
+    background: hsl(var(--card) / 0.55);
+    backdrop-filter: saturate(160%) blur(18px);
+    -webkit-backdrop-filter: saturate(160%) blur(18px);
+    border-bottom: 1px solid hsl(var(--border) / 0.4);
+  }
 }
 
 @layer components {
