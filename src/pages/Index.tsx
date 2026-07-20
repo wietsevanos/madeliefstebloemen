@@ -540,10 +540,10 @@ export default function Index() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {/* Rouwstukken */}
-            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🌿</span>
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 ring-1 ring-primary/15">
+                  <Leaf className="w-7 h-7 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
@@ -554,10 +554,10 @@ export default function Index() {
             </div>
 
             {/* Boeketten op Maat */}
-            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-blush/30 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💐</span>
+                <div className="w-16 h-16 rounded-full bg-blush/40 flex items-center justify-center mx-auto mb-4 ring-1 ring-blush-dark/25">
+                  <Flower2 className="w-7 h-7 text-blush-dark" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
@@ -568,10 +568,10 @@ export default function Index() {
             </div>
 
             {/* Trouwboeketten */}
-            <div className="bg-card overflow-hidden shadow-soft flex flex-col h-full">
+            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
               <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-14 h-14 bg-blush/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">💒</span>
+                <div className="w-16 h-16 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-4 ring-1 ring-accent/50">
+                  <Heart className="w-7 h-7 text-accent-foreground" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-heading text-lg font-semibold mb-3">Trouwboeketten</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm flex-1">
