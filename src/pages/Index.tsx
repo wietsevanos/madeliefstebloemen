@@ -328,7 +328,7 @@ export default function Index() {
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
-                  className={`overflow-hidden cursor-pointer group relative shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
+                  className={`overflow-hidden cursor-pointer group relative rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
 
                       <img
                     src={img.src}
@@ -342,7 +342,7 @@ export default function Index() {
                   {/* CTA tile als laatste tegel */}
                   <button
                     onClick={() => setLightboxIndex(9)}
-                    className="overflow-hidden cursor-pointer group relative shadow-medium hover:shadow-hover transition-all duration-500">
+                    className="overflow-hidden cursor-pointer group relative rounded-2xl shadow-medium hover:shadow-hover transition-all duration-500">
                     <img
                       src={allImages[9].src}
                       alt={allImages[9].alt}
@@ -412,7 +412,7 @@ export default function Index() {
               <button
                 key={index}
                 onClick={() => setTrouwLightbox(index)}
-                className="overflow-hidden cursor-pointer group relative aspect-square shadow-soft hover:shadow-medium transition-shadow duration-500"
+                className="overflow-hidden cursor-pointer group relative aspect-square rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500"
               >
                 <img
                   src={img.src}
@@ -592,7 +592,7 @@ export default function Index() {
             <div className="grid md:grid-cols-5 gap-8 items-stretch">
               {/* Portrait */}
               <div className="md:col-span-2 relative">
-                <div className="h-full overflow-hidden shadow-lg">
+                <div className="h-full overflow-hidden rounded-2xl shadow-medium">
                   <img
                   src={hannySchaftPortrait}
                   alt="Hannie Schaft"
@@ -600,7 +600,7 @@ export default function Index() {
 
                 </div>
                 {/* Logo badge */}
-                <div className="absolute -top-4 -right-4 shadow-lg p-3" style={{ backgroundColor: '#FDF2F4' }}>
+                <div className="absolute -top-4 -right-4 rounded-2xl shadow-medium p-3" style={{ backgroundColor: '#FDF2F4' }}>
                   <img
                   src={hannySchaftLogoFull}
                   alt="Nationale Hannie Schaft Stichting"
@@ -621,7 +621,7 @@ export default function Index() {
                     Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
                     van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
                   </p>
-                  <p className="text-sm italic text-primary-foreground bg-gradient-to-r from-primary to-primary/75 px-4 py-3 mt-2">
+                  <p className="text-sm italic text-primary-foreground bg-gradient-to-r from-primary to-primary/75 px-5 py-3 mt-2 rounded-2xl shadow-soft">
                     Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
                   </p>
                 </div>
