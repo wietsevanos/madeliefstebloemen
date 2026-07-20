@@ -207,14 +207,9 @@ export default function Index() {
       }
       </header>
 
-      {/* Banners - onder de header */}
-      <div className="pt-16 md:pt-20">
-        <VakantieBanner />
-        <MoederdagBanner />
-      </div>
-
-      {/* Hero Section - Full Screen */}
+      {/* Hero Section - Full Screen, header floats on top */}
       <section className="relative h-screen flex items-end">
+
         <div className="absolute inset-0 z-0">
           <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
