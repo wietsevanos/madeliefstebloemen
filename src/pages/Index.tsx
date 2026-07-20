@@ -412,7 +412,7 @@ export default function Index() {
               <button
                 key={index}
                 onClick={() => setTrouwLightbox(index)}
-                className="overflow-hidden cursor-pointer group relative aspect-square shadow-soft hover:shadow-medium transition-shadow duration-500"
+                className="overflow-hidden cursor-pointer group relative aspect-square rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500"
               >
                 <img
                   src={img.src}
