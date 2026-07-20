@@ -342,7 +342,7 @@ export default function Index() {
                   {/* CTA tile als laatste tegel */}
                   <button
                     onClick={() => setLightboxIndex(9)}
-                    className="overflow-hidden cursor-pointer group relative shadow-medium hover:shadow-hover transition-all duration-500">
+                    className="overflow-hidden cursor-pointer group relative rounded-2xl shadow-medium hover:shadow-hover transition-all duration-500">
                     <img
                       src={allImages[9].src}
                       alt={allImages[9].alt}
