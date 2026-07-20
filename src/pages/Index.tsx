@@ -634,13 +634,19 @@ export default function Index() {
       {/* Openingstijden Section */}
       <section id="openingstijden" className="section-padding section-gradient-warm">
         <div className="container-custom">
-          <div className="max-w-xl mx-auto text-center">
-            <img src={bloemenOpeningstijden} alt="Bloemen decoratie" className="w-full mb-[-4rem] relative z-10" />
-            <div className="bg-card shadow-soft p-6 md:p-8 pt-12 md:pt-16">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Clock className="w-7 h-7 text-primary" />
-                <h2 className="heading-lg">Openingstijden</h2>
-              </div>
+          <div className="max-w-2xl mx-auto text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wide uppercase mb-4">
+              <Clock className="w-3.5 h-3.5" />
+              Wanneer je langs kunt komen
+            </div>
+            <h2 className="heading-lg mb-3">Openingstijden</h2>
+            <p className="text-muted-foreground">
+              We staan zes dagen per week met liefde voor je klaar in de winkel.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-card shadow-medium p-6 md:p-10">
               {(() => {
                 const days = [
                   { name: "Maandag", hours: null },
@@ -655,28 +661,29 @@ export default function Index() {
                 const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
 
                 return (
-                  <div className="divide-y divide-border/60">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {days.map((day, i) => {
                       const isToday = i === todayIndex;
                       const isClosed = day.hours === null;
                       return (
                         <div
                           key={day.name}
-                          className={`flex justify-between items-center px-4 py-3.5 -mx-4 rounded-md transition-colors duration-300 ${
+                          className={`flex items-center justify-between gap-4 px-5 py-4 rounded-2xl transition-all duration-300 ${
                             isToday
-                              ? "bg-blush/40"
-                              : "hover:bg-muted/40"
-                          }`}>
-                          <div className="flex items-center gap-2.5 text-left">
-                            <span className="text-foreground font-medium">
-                              {day.name}
-                            </span>
-                          </div>
-                          <span className={`tabular-nums font-medium ${
-                            isClosed
-                              ? "text-muted-foreground italic"
-                              : "text-primary"
-                          }`}>
+                              ? "bg-gradient-to-br from-blush/60 to-blush/30 ring-1 ring-blush-dark/30 shadow-soft"
+                              : "bg-muted/30 hover:bg-muted/50"
+                          }`}
+                        >
+                          <span className="text-foreground text-left">
+                            {day.name}
+                          </span>
+                          <span
+                            className={`tabular-nums text-right ${
+                              isClosed
+                                ? "text-muted-foreground italic text-sm"
+                                : "text-primary font-medium"
+                            }`}
+                          >
                             {day.hours ?? "Gesloten"}
                           </span>
                         </div>
@@ -685,11 +692,18 @@ export default function Index() {
                   </div>
                 );
               })()}
-              <div className="mt-6 pt-4 border-t border-border/60 text-center">
-                <p className="text-muted-foreground text-sm">
-                  💡 Openingstijden kunnen soms afwijken, bijvoorbeeld rond feestdagen. 
-                  Twijfel je? <a href="tel:0235315809" className="text-primary hover:underline font-medium">Bel even</a> en Nancy helpt je verder!
+
+              <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-muted-foreground text-sm text-center sm:text-left max-w-md">
+                  Openingstijden kunnen soms afwijken, bijvoorbeeld rond feestdagen. Twijfel je? Bel gerust even.
                 </p>
+                <a
+                  href="tel:0235315809"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-soft whitespace-nowrap"
+                >
+                  <Phone className="w-4 h-4" />
+                  023 531 5809
+                </a>
               </div>
             </div>
           </div>
