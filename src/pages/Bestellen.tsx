@@ -14,8 +14,8 @@ export default function Bestellen() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary via-blush/20 to-secondary">
-      {/* Header */}
-      <header className="bg-card/95 shadow-soft border-b-4 border-blush">
+      {/* Header - glassmorphic, floats over content */}
+      <header className="fixed top-0 left-0 right-0 z-50 glass-header">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <Link to="/" className="font-heading text-xl md:text-2xl font-semibold flex items-center gap-2">
@@ -33,8 +33,11 @@ export default function Bestellen() {
         </div>
       </header>
 
-      <VakantieBanner />
-      <MoederdagBanner />
+      <div className="pt-16 md:pt-20">
+        <VakantieBanner />
+        <MoederdagBanner />
+      </div>
+
 
       <section className="section-padding">
         <div className="container-custom">

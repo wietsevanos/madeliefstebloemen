@@ -134,7 +134,7 @@ export default function Index() {
 
   return <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm shadow-soft border-b-4 border-gradient-to-r from-blush-dark to-blush" style={{ borderImage: 'linear-gradient(to right, hsl(350 45% 65%), hsl(350 45% 85%)) 1' }}>
+      <header className="fixed top-0 left-0 right-0 z-50 glass-header">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <span className="font-heading text-xl font-semibold">
@@ -207,14 +207,9 @@ export default function Index() {
       }
       </header>
 
-      {/* Banners - onder de header */}
-      <div className="pt-16 md:pt-20">
-        <VakantieBanner />
-        <MoederdagBanner />
-      </div>
-
-      {/* Hero Section - Full Screen */}
+      {/* Hero Section - Full Screen, header floats on top */}
       <section className="relative h-screen flex items-end">
+
         <div className="absolute inset-0 z-0">
           <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
@@ -253,7 +248,11 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Meldingen - net onder de hero */}
+      <VakantieBanner />
+      <MoederdagBanner />
       <BoeketVanDeDagBanner />
+
 
       {/* Over Nancy Section */}
       <section className="section-padding section-gradient-warm">
