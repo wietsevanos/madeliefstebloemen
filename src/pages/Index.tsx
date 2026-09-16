@@ -553,6 +553,15 @@ export default function Index() {
                   Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
                   prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
                 </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-4 rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary self-center"
+                  onClick={() => setRouwLightboxOpen(true)}
+                >
+                  <Camera className="w-4 h-4 mr-2" strokeWidth={1.5} />
+                  Bekijk voorbeeld
+                </Button>
               </div>
             </div>
 
