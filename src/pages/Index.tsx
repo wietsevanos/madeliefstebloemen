@@ -597,6 +597,28 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Lightbox rouwstuk voorbeeld */}
+      {rouwLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center animate-fade-in"
+          onClick={() => setRouwLightboxOpen(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+            onClick={() => setRouwLightboxOpen(false)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={rouwstukVoorbeeld}
+            alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-2xl shadow-hover"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
+
       {/* Hanny Schaft Section */}
       <section id="hanny-schaft" className="section-padding section-gradient-sage">
         <div className="container-custom">
