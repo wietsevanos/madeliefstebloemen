@@ -126,7 +126,7 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [trouwLightbox, setTrouwLightbox] = useState<number | null>(null);
-  const [rouwLightboxOpen, setRouwLightboxOpen] = useState(false);
+  
 
   const navLinks = [
   { href: "#aanbod", label: "Aanbod" },
