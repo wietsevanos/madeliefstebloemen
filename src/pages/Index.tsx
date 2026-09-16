@@ -46,6 +46,8 @@ import trouwerij5 from "@/assets/trouwerij-5.jpg";
 import trouwerij6 from "@/assets/trouwerij-6.jpg";
 import trouwerij7 from "@/assets/trouwerij-7.jpg";
 import trouwerij8 from "@/assets/trouwerij-8.jpg";
+import rouwstukVoorbeeldAsset from "@/assets/rouwstuk-voorbeeld.jpg.asset.json";
+const rouwstukVoorbeeld = rouwstukVoorbeeldAsset.url;
 
 const trouwerijImages = [
   { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
@@ -122,6 +124,7 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [trouwLightbox, setTrouwLightbox] = useState<number | null>(null);
+  const [rouwLightboxOpen, setRouwLightboxOpen] = useState(false);
 
   const navLinks = [
   { href: "#aanbod", label: "Aanbod" },
@@ -550,6 +553,15 @@ export default function Index() {
                   Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
                   prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
                 </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-4 rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary self-center"
+                  onClick={() => setRouwLightboxOpen(true)}
+                >
+                  <Camera className="w-4 h-4 mr-2" strokeWidth={1.5} />
+                  Bekijk voorbeeld
+                </Button>
               </div>
             </div>
 
@@ -584,6 +596,28 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox rouwstuk voorbeeld */}
+      {rouwLightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center animate-fade-in"
+          onClick={() => setRouwLightboxOpen(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+            onClick={() => setRouwLightboxOpen(false)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={rouwstukVoorbeeld}
+            alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
+            className="max-h-[85vh] max-w-[90vw] object-contain rounded-2xl shadow-hover"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
 
       {/* Hanny Schaft Section */}
       <section id="hanny-schaft" className="section-padding section-gradient-sage">
