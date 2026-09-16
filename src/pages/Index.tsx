@@ -1,11 +1,13 @@
 import { useState, useCallback } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import MoederdagBanner from "@/components/MoederdagBanner";
 import BoeketVanDeDagBanner from "@/components/BoeketVanDeDagBanner";
 import VakantieBanner from "@/components/VakantieBanner";
+import FlipCard from "@/components/FlipCard";
+
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
 import boeketGemengdImage from "@/assets/boeket-gemengd.jpg";
@@ -124,7 +126,7 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [trouwLightbox, setTrouwLightbox] = useState<number | null>(null);
-  const [rouwLightboxOpen, setRouwLightboxOpen] = useState(false);
+  
 
   const navLinks = [
   { href: "#aanbod", label: "Aanbod" },
@@ -542,28 +544,57 @@ export default function Index() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {/* Rouwstukken */}
-            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 ring-1 ring-primary/15">
-                  <Leaf className="w-7 h-7 text-primary" strokeWidth={1.5} />
+            {/* Rouwstukken - flipcard */}
+            <FlipCard
+              front={(flip) => (
+                <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
+                  <div className="p-6 text-center flex flex-col flex-1">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 ring-1 ring-primary/15">
+                      <Leaf className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                      Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
+                      prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={flip}
+                      className="group mt-5 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                    >
+                      <Camera className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                      Bekijk voorbeeld
+                    </button>
+                  </div>
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm flex-1">
-                  Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
-                  prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-4 rounded-full border-primary/30 text-primary hover:bg-primary/10 hover:text-primary self-center"
-                  onClick={() => setRouwLightboxOpen(true)}
-                >
-                  <Camera className="w-4 h-4 mr-2" strokeWidth={1.5} />
-                  Bekijk voorbeeld
-                </Button>
-              </div>
-            </div>
+              )}
+              back={(flip) => (
+                <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="rounded-xl overflow-hidden flex-1 min-h-[180px]">
+                      <img
+                        src={rouwstukVoorbeeld}
+                        alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <p className="text-muted-foreground text-xs leading-relaxed text-center mt-3">
+                      Een persoonlijk rouwstuk, met zorg samengesteld uit verse seizoensbloemen.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={flip}
+                      className="group mt-4 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                    >
+                      <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" strokeWidth={1.5} />
+                      Terug
+                    </button>
+                  </div>
+                </div>
+              )}
+            />
+
 
             {/* Boeketten op Maat */}
             <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
@@ -597,26 +628,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Lightbox rouwstuk voorbeeld */}
-      {rouwLightboxOpen && (
-        <div
-          className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center animate-fade-in"
-          onClick={() => setRouwLightboxOpen(false)}
-        >
-          <button
-            className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
-            onClick={() => setRouwLightboxOpen(false)}
-          >
-            <X className="w-8 h-8" />
-          </button>
-          <img
-            src={rouwstukVoorbeeld}
-            alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
-            className="max-h-[85vh] max-w-[90vw] object-contain rounded-2xl shadow-hover"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
 
 
       {/* Hanny Schaft Section */}
