@@ -46,6 +46,8 @@ import trouwerij5 from "@/assets/trouwerij-5.jpg";
 import trouwerij6 from "@/assets/trouwerij-6.jpg";
 import trouwerij7 from "@/assets/trouwerij-7.jpg";
 import trouwerij8 from "@/assets/trouwerij-8.jpg";
+import rouwstukVoorbeeldAsset from "@/assets/rouwstuk-voorbeeld.jpg.asset.json";
+const rouwstukVoorbeeld = rouwstukVoorbeeldAsset.url;
 
 const trouwerijImages = [
   { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
