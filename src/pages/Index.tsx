@@ -542,24 +542,24 @@ export default function Index() {
             Waar we écht in uitblinken, met hart en ziel
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch">
             {/* Rouwstukken - flipcard */}
             <FlipCard
               front={(flip) => (
                 <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
-                  <div className="p-6 text-center flex flex-col flex-1">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 ring-1 ring-primary/15">
-                      <Leaf className="w-7 h-7 text-primary" strokeWidth={1.5} />
+                  <div className="p-5 text-center flex flex-col flex-1">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 ring-1 ring-primary/15">
+                      <Leaf className="w-6 h-6 text-primary" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-heading text-lg font-semibold mb-3">Rouwstukken</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                    <h3 className="font-heading text-lg font-semibold mb-2">Rouwstukken</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
                       Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
                       prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
                     </p>
                     <button
                       type="button"
                       onClick={flip}
-                      className="group mt-5 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                      className="group mt-4 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
                     >
                       <Camera className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                       Bekijk voorbeeld
@@ -569,8 +569,8 @@ export default function Index() {
               )}
               back={(flip) => (
                 <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className="rounded-xl overflow-hidden flex-1 min-h-[180px]">
+                  <div className="p-4 flex flex-col h-full">
+                    <div className="rounded-xl overflow-hidden flex-1 min-h-0">
                       <img
                         src={rouwstukVoorbeeld}
                         alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
@@ -578,13 +578,10 @@ export default function Index() {
                         loading="lazy"
                       />
                     </div>
-                    <p className="text-muted-foreground text-xs leading-relaxed text-center mt-3">
-                      Een persoonlijk rouwstuk, met zorg samengesteld uit verse seizoensbloemen.
-                    </p>
                     <button
                       type="button"
                       onClick={flip}
-                      className="group mt-4 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-5 py-2.5 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                      className="group mt-3 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
                     >
                       <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" strokeWidth={1.5} />
                       Terug
@@ -594,15 +591,14 @@ export default function Index() {
               )}
             />
 
-
             {/* Boeketten op Maat */}
-            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-16 h-16 rounded-full bg-blush/40 flex items-center justify-center mx-auto mb-4 ring-1 ring-blush-dark/25">
-                  <Flower2 className="w-7 h-7 text-blush-dark" strokeWidth={1.5} />
+            <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
+              <div className="p-5 text-center flex flex-col flex-1">
+                <div className="w-12 h-12 rounded-full bg-blush/40 flex items-center justify-center mx-auto mb-3 ring-1 ring-blush-dark/25">
+                  <Flower2 className="w-6 h-6 text-blush-dark" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-3">Boeketten op Maat</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                <h3 className="font-heading text-lg font-semibold mb-2">Boeketten op Maat</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   Elk boeket is maatwerk met karakter. Nancy haalt bloemen vers bij de boer 
                   en stelt bijzondere combinaties samen met topkwaliteit én een eerlijke prijs.
                 </p>
@@ -610,18 +606,19 @@ export default function Index() {
             </div>
 
             {/* Trouwboeketten */}
-            <div className="bg-card overflow-hidden shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-6 text-center flex flex-col flex-1">
-                <div className="w-16 h-16 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-4 ring-1 ring-accent/50">
-                  <Heart className="w-7 h-7 text-accent-foreground" strokeWidth={1.5} />
+            <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
+              <div className="p-5 text-center flex flex-col flex-1">
+                <div className="w-12 h-12 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-3 ring-1 ring-accent/50">
+                  <Heart className="w-6 h-6 text-accent-foreground" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-3">Trouwboeketten</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm flex-1">
+                <h3 className="font-heading text-lg font-semibold mb-2">Trouwboeketten</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   Jouw mooiste dag verdient de mooiste bloemen. Nancy stelt met liefde 
                   bruidsboeketten samen die perfect passen bij jouw droombruiloft.
                 </p>
               </div>
             </div>
+
 
           </div>
         </div>
