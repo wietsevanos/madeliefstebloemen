@@ -570,11 +570,11 @@ export default function Index() {
               back={(flip) => (
                 <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
                   <div className="p-4 flex flex-col h-full">
-                    <div className="rounded-xl overflow-hidden flex-1 min-h-0">
+                    <div className="relative rounded-xl overflow-hidden flex-1 min-h-[120px]">
                       <img
                         src={rouwstukVoorbeeld}
                         alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
-                        className="w-full h-full object-cover"
+                        className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
                       />
                     </div>
