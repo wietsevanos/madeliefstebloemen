@@ -593,7 +593,7 @@ export default function Index() {
 
             {/* Boeketten op Maat */}
             <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-5 text-center flex flex-col flex-1">
+              <div className="p-5 text-center flex flex-col flex-1 justify-center">
                 <div className="w-12 h-12 rounded-full bg-blush/40 flex items-center justify-center mx-auto mb-3 ring-1 ring-blush-dark/25">
                   <Flower2 className="w-6 h-6 text-blush-dark" strokeWidth={1.5} />
                 </div>
@@ -607,7 +607,7 @@ export default function Index() {
 
             {/* Trouwboeketten */}
             <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-5 text-center flex flex-col flex-1">
+              <div className="p-5 text-center flex flex-col flex-1 justify-center">
                 <div className="w-12 h-12 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-3 ring-1 ring-accent/50">
                   <Heart className="w-6 h-6 text-accent-foreground" strokeWidth={1.5} />
                 </div>
