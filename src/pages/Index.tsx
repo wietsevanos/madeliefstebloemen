@@ -277,7 +277,7 @@ export default function Index() {
               </div>
 
               <div className="text-center md:text-left">
-                <span className="inline-block text-xs uppercase tracking-[0.25em] text-blush-dark font-semibold mb-3">
+                <span className="inline-block text-xs uppercase tracking-[0.25em] text-blush-deep font-semibold mb-3">
                   Met zorg voor mens en natuur
                 </span>
                 <h2 className="font-heading text-3xl md:text-5xl leading-tight">
