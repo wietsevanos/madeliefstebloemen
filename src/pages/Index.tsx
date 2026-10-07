@@ -27,6 +27,7 @@ import hannySchaftPortrait from "@/assets/hanny-schaft-portrait.png";
 import madeliefsteLogo from "@/assets/madeliefste-logo.png";
 import bloemenOrnament from "@/assets/bloemen-ornament.png";
 import bloemenOpeningstijden from "@/assets/bloemen-openingstijden.png";
+import milieuvriendelijkLogo from "@/assets/milieuvriendelijk-logo.png";
 import rozenhartImage from "@/assets/rozenhart.jpg";
 import galerij1 from "@/assets/galerij-1.jpg";
 import galerij2 from "@/assets/galerij-2.jpg";
@@ -258,19 +259,37 @@ export default function Index() {
       <BoeketVanDeDagBanner />
 
       {/* Milieuvriendelijke bloemen - opvallend op de startpagina */}
-      <section className="section-gradient-sage py-10 md:py-14">
+      <section className="section-gradient-sage py-12 md:py-16">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto bg-card rounded-3xl p-6 md:p-10 shadow-[var(--shadow-medium)] text-center">
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">
-              <Leaf className="w-4 h-4" strokeWidth={1.5} />
-              Met zorg voor mens en natuur
-            </span>
-            <p className="font-heading text-2xl md:text-4xl leading-snug text-primary">
-              Wij verkopen uitsluitend milieuvriendelijke bloemen
-            </p>
-            <p className="text-muted-foreground mt-4 text-sm md:text-base max-w-xl mx-auto">
-              Bij Madeliefste kiest u voor fraaie, verse bloemen én een beter milieu.
-            </p>
+          <div className="relative max-w-5xl mx-auto bg-card rounded-[2rem] p-6 md:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
+            <div className="pointer-events-none absolute -top-24 -right-16 w-72 h-72 rounded-full bg-blush/25 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-sage/30 blur-3xl" />
+
+            <div className="relative grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+              <div className="justify-self-center md:justify-self-start">
+                <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cream to-sage/25 ring-1 ring-primary/15 shadow-[var(--shadow-soft)] flex items-center justify-center p-5 md:p-6">
+                  <img
+                    src={milieuvriendelijkLogo}
+                    alt="Drie groene blaadjes in een kring: milieuvriendelijk geteelde bloemen"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
+
+              <div className="text-center md:text-left">
+                <span className="inline-block text-xs uppercase tracking-[0.25em] text-blush-deep font-semibold mb-3">
+                  Met zorg voor mens en natuur
+                </span>
+                <h2 className="font-heading text-3xl md:text-5xl leading-tight">
+                  <span className="text-foreground">Wij verkopen uitsluitend </span>
+                  <span className="text-primary">milieuvriendelijke</span>{" "}
+                  <span className="text-blush-deep">bloemen</span>
+                </h2>
+                <p className="mt-4 text-muted-foreground text-base md:text-lg max-w-xl mx-auto md:mx-0">
+                  Bij Madeliefste kiest u voor fraaie, verse bloemen én een beter milieu.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

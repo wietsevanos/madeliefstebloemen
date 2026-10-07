@@ -56,6 +56,7 @@ export default {
         "sage-dark": "hsl(var(--sage-dark))",
         blush: "hsl(var(--blush))",
         "blush-dark": "hsl(var(--blush-dark))",
+        "blush-deep": "hsl(var(--blush-deep))",
         "warm-white": "hsl(var(--warm-white))",
         "blush-light": "hsl(var(--blush-light))",
         sidebar: {
