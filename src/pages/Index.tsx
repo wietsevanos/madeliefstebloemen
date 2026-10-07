@@ -732,7 +732,7 @@ export default function Index() {
                             isToday
                               ? "bg-gradient-to-br from-blush/60 to-blush/30 ring-1 ring-blush-dark/30 shadow-soft"
                               : "bg-muted/30 hover:bg-muted/50"
-                          }`}
+                          } ${i === days.length - 1 && days.length % 2 === 1 ? "sm:col-span-2" : ""}`}
                         >
                           <span className="text-foreground text-left">
                             {day.name}
