@@ -262,12 +262,10 @@ export default function Index() {
       <section className="section-gradient-sage py-12 md:py-16">
         <div className="container-custom">
           <div className="relative max-w-5xl mx-auto bg-card rounded-[2rem] p-6 md:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
-            <div className="pointer-events-none absolute -top-24 -right-16 w-72 h-72 rounded-full bg-blush/25 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-sage/30 blur-3xl" />
 
             <div className="relative grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
               <div className="justify-self-center md:justify-self-start">
-                <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cream to-sage/25 ring-1 ring-primary/15 shadow-[var(--shadow-soft)] flex items-center justify-center p-5 md:p-6">
+                <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cream to-sage/15 ring-1 ring-primary/10 shadow-[var(--shadow-soft)] flex items-center justify-center p-5 md:p-6">
                   <img
                     src={milieuvriendelijkLogo}
                     alt="Drie groene blaadjes in een kring: milieuvriendelijk geteelde bloemen"
@@ -277,13 +275,13 @@ export default function Index() {
               </div>
 
               <div className="text-center md:text-left">
-                <span className="inline-block text-xs uppercase tracking-[0.25em] text-blush-deep font-semibold mb-3">
+                <span className="inline-block text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
                   Met zorg voor mens en natuur
                 </span>
                 <h2 className="font-heading text-3xl md:text-5xl leading-tight">
                   <span className="text-foreground">Wij verkopen uitsluitend </span>
                   <span className="text-primary">milieuvriendelijke</span>{" "}
-                  <span className="text-blush-deep">bloemen</span>
+                  <span className="text-foreground">bloemen</span>
                 </h2>
                 <p className="mt-4 text-muted-foreground text-base md:text-lg max-w-xl mx-auto md:mx-0">
                   Bij Madeliefste kiest u voor fraaie, verse bloemen én een beter milieu.
