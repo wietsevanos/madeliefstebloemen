@@ -274,11 +274,11 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="text-center md:text-left md:w-fit max-w-xl md:max-w-2xl">
+              <div className="min-w-0 text-center md:text-left md:w-fit max-w-xl md:max-w-2xl">
                 <span className="inline-block text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
                   Met zorg voor mens en natuur
                 </span>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] leading-tight">
+                <h2 className="font-heading text-[1.4rem] md:text-4xl lg:text-[2.75rem] leading-tight break-words">
                   <span className="text-foreground">Wij verkopen uitsluitend</span>
                   <br className="hidden md:block" />
                   <span className="text-primary">milieuvriendelijke</span>{" "}
