@@ -261,7 +261,7 @@ export default function Index() {
       {/* Milieuvriendelijke bloemen - opvallend op de startpagina */}
       <section className="section-gradient-sage py-12 md:py-16">
         <div className="container-custom">
-          <div className="relative w-fit max-w-full mx-auto bg-card rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
+          <div className="relative w-full md:w-fit max-w-full mx-auto bg-card rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
 
             <div className="relative grid md:grid-cols-[auto_auto] md:justify-center gap-6 md:gap-10 lg:gap-12 items-center">
               <div className="justify-self-center md:justify-self-start">
@@ -274,11 +274,11 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="text-center md:text-left w-fit max-w-xl">
+              <div className="text-center md:text-left md:w-fit max-w-xl md:max-w-2xl">
                 <span className="inline-block text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
                   Met zorg voor mens en natuur
                 </span>
-                <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-tight">
+                <h2 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] leading-tight">
                   <span className="text-foreground">Wij verkopen uitsluitend</span>
                   <br className="hidden md:block" />
                   <span className="text-primary">milieuvriendelijke</span>{" "}
