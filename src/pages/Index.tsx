@@ -257,6 +257,24 @@ export default function Index() {
       <MoederdagBanner />
       <BoeketVanDeDagBanner />
 
+      {/* Milieuvriendelijke bloemen - opvallend op de startpagina */}
+      <section className="section-gradient-sage py-10 md:py-14">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto bg-card rounded-3xl p-6 md:p-10 shadow-[var(--shadow-medium)] text-center">
+            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+              <Leaf className="w-4 h-4" strokeWidth={1.5} />
+              Met zorg voor mens en natuur
+            </span>
+            <p className="font-heading text-2xl md:text-4xl leading-snug text-primary">
+              Wij verkopen uitsluitend milieuvriendelijke bloemen
+            </p>
+            <p className="text-muted-foreground mt-4 text-sm md:text-base max-w-xl mx-auto">
+              Bij Madeliefste kiest u voor fraaie, verse blo én een beter milieu.
+            </p>
+          </div>
+        </div>
+      </section>
+
 
       {/* Over Nancy Section */}
       <section className="section-padding section-gradient-warm">
@@ -517,6 +535,7 @@ export default function Index() {
               <h3 className="font-heading font-semibold text-lg">Bezorgmomenten</h3>
             </div>
             <div className="text-center text-sm text-muted-foreground space-y-1.5 max-w-xl mx-auto">
+              <p>Bestellen kan elke dag: telefonisch of via de site.</p>
               <p>Wij bezorgen overdag, 's avonds en op zaterdag.</p>
               <p>Op zondag is bezorging mogelijk in overleg, met een toeslag van €15.</p>
             </div>
@@ -682,7 +701,7 @@ export default function Index() {
             </div>
             <h2 className="heading-lg mb-3">Openingstijden</h2>
             <p className="text-muted-foreground">
-              We staan zes dagen per week met liefde voor je klaar in de winkel.
+              De winkel is geopend op donderdag, vrijdag en zaterdag. Buiten deze dagen kunt u elke dag telefonisch of via de site bestellen.
             </p>
           </div>
 
@@ -691,8 +710,8 @@ export default function Index() {
               {(() => {
                 const days = [
                   { name: "Maandag", hours: null },
-                  { name: "Dinsdag", hours: "12:00 – 17:30" },
-                  { name: "Woensdag", hours: "11:30 – 17:00" },
+                  { name: "Dinsdag", hours: null },
+                  { name: "Woensdag", hours: null },
                   { name: "Donderdag", hours: "09:30 – 17:30" },
                   { name: "Vrijdag", hours: "09:30 – 17:30" },
                   { name: "Zaterdag", hours: "09:00 – 17:00" },
@@ -733,6 +752,14 @@ export default function Index() {
                   </div>
                 );
               })()}
+
+              <div className="mt-6 rounded-2xl bg-sage/25 px-5 py-4 flex items-start gap-3">
+                <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} />
+                <p className="text-sm md:text-base leading-relaxed">
+                  <span className="font-medium text-foreground">Elke dag bestellen.</span>{" "}
+                  Telefonisch of via de site kunt u elke dag verse boeketten, rouw- en trouwboeketten bestellen. Wij stemmen alles persoonlijk met u af.
+                </p>
+              </div>
 
               <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p className="text-muted-foreground text-sm text-center sm:text-left max-w-md">
