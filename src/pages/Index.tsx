@@ -269,7 +269,7 @@ export default function Index() {
               Wij verkopen uitsluitend milieuvriendelijke bloemen
             </p>
             <p className="text-muted-foreground mt-4 text-sm md:text-base max-w-xl mx-auto">
-              Bij Madeliefste kiest u voor fraaie, verse blo én een beter milieu.
+              Bij Madeliefste kiest u voor fraaie, verse bloemen én een beter milieu.
             </p>
           </div>
         </div>
