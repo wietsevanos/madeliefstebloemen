@@ -279,10 +279,11 @@ export default function Index() {
                   Met zorg voor mens en natuur
                 </span>
                 <h2 className="font-heading text-[1.4rem] md:text-4xl lg:text-[2.75rem] leading-tight break-words">
-                  <span className="text-foreground">Wij verkopen uitsluitend</span>
-                  <br className="hidden md:block" />
-                  <span className="text-primary">milieuvriendelijke</span>{" "}
-                  <span className="text-foreground">bloemen</span>
+                  <span className="text-foreground">Wij verkopen uitsluitend</span>{" "}
+                  <span className="md:block">
+                    <span className="text-primary">milieuvriendelijke</span>{" "}
+                    <span className="text-foreground">bloemen</span>
+                  </span>
                 </h2>
                 <p className="mt-4 text-muted-foreground text-base md:text-lg max-w-xl mx-auto md:mx-0">
                   Bij Madeliefste kiest u voor fraaie, verse bloemen én een beter milieu.
