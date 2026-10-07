@@ -261,9 +261,9 @@ export default function Index() {
       {/* Milieuvriendelijke bloemen - opvallend op de startpagina */}
       <section className="section-gradient-sage py-12 md:py-16">
         <div className="container-custom">
-          <div className="relative max-w-5xl mx-auto bg-card rounded-[2rem] p-6 md:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
+          <div className="relative max-w-4xl mx-auto bg-card rounded-[2rem] p-6 md:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
 
-            <div className="relative grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+            <div className="relative grid md:grid-cols-[auto_auto] md:justify-center gap-8 md:gap-12 items-center">
               <div className="justify-self-center md:justify-self-start">
                 <div className="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-cream to-sage/15 ring-1 ring-primary/10 shadow-[var(--shadow-soft)] flex items-center justify-center p-5 md:p-6">
                   <img
@@ -274,7 +274,7 @@ export default function Index() {
                 </div>
               </div>
 
-              <div className="text-center md:text-left">
+              <div className="text-center md:text-left max-w-xl">
                 <span className="inline-block text-xs uppercase tracking-[0.25em] text-muted-foreground font-semibold mb-3">
                   Met zorg voor mens en natuur
                 </span>
