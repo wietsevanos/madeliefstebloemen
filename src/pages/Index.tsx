@@ -50,6 +50,7 @@ import trouwerij6 from "@/assets/trouwerij-6.jpg";
 import trouwerij7 from "@/assets/trouwerij-7.jpg";
 import trouwerij8 from "@/assets/trouwerij-8.jpg";
 import rouwstukVoorbeeld from "@/assets/local/rouwstuk-voorbeeld.jpg";
+import winterstukImage from "@/assets/local/winterstuk.jpg";
 
 const trouwerijImages = [
   { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
@@ -347,6 +348,11 @@ export default function Index() {
             if (i < aanbodMapped.length) allImages.push(aanbodMapped[i]);
             if (i < galerijMapped.length) allImages.push(galerijMapped[i]);
           }
+
+          allImages.unshift({
+            src: winterstukImage,
+            alt: "Winterstuk met dennentakken, rode bloem en rood theelicht op een houten schijf",
+          });
 
           // Dynamic grid: 9 photos + 1 CTA tile = 10 tiles, with 2 tall tiles
           // 4 cols × 3 rows = 12 cells; 8 normal (1 cell) + 2 tall (2 cells) + CTA (1 cell) = 12 ✓
