@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart, ArrowLeft } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart, ArrowLeft, Snowflake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -340,7 +340,7 @@ export default function Index() {
         </p>
           {(() => {
           // Mix aanbod and galerij images alternately
-          const allImages: {src: string;alt: string;}[] = [];
+          const allImages: {src: string;alt: string;label?: string;}[] = [];
           const aanbodMapped = aanbodImages.map((src, i) => ({ src, alt: `Ons aanbod ${i + 1}` }));
           const galerijMapped = galerijImages.map((img) => ({ src: img.src, alt: img.alt }));
           const maxLen = Math.max(aanbodMapped.length, galerijMapped.length);
@@ -351,7 +351,8 @@ export default function Index() {
 
           allImages.unshift({
             src: winterstukImage,
-            alt: "Winterstuk met dennentakken, rode bloem en rood theelicht op een houten schijf",
+            alt: "Kerststuk met dennentakken, rode bloem en rood theelicht op een houten schijf",
+            label: "Kerststuk",
           });
 
           // Dynamic grid: 9 photos + 1 CTA tile = 10 tiles, with 2 tall tiles
@@ -383,6 +384,12 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {img.label && (
+                        <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-xs font-semibold tracking-wide text-primary shadow-soft backdrop-blur-sm">
+                          <Snowflake className="w-3.5 h-3.5" />
+                          {img.label}
+                        </span>
+                      )}
                     </button>
                 )}
 
@@ -438,6 +445,12 @@ export default function Index() {
                     <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
                       {lightboxIndex + 1} / {allImages.length}
                     </span>
+                    {allImages[lightboxIndex].label && (
+                      <span className="absolute bottom-12 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3.5 py-1.5 text-sm font-semibold tracking-wide text-primary shadow-soft backdrop-blur-sm">
+                        <Snowflake className="w-4 h-4" />
+                        {allImages[lightboxIndex].label}
+                      </span>
+                    )}
                   </div>
               }
               </>);
