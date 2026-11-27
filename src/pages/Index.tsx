@@ -7,6 +7,8 @@ import MoederdagBanner from "@/components/MoederdagBanner";
 import BoeketVanDeDagBanner from "@/components/BoeketVanDeDagBanner";
 import VakantieBanner from "@/components/VakantieBanner";
 import FlipCard from "@/components/FlipCard";
+import { Daisy, DaisyStem, Sprig, DaisyDivider } from "@/components/Botanical";
+import { useReveal } from "@/hooks/use-reveal";
 
 import winkelImage from "@/assets/winkel.jpg";
 import nancyImage from "@/assets/nancy.jpg";
@@ -154,31 +156,36 @@ export default function Index() {
   { href: "#contact", label: "Contact" }];
 
 
+  useReveal();
+
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 glass-header">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <span className="font-heading text-xl font-semibold">
-              <span className="text-primary">Madeliefste</span>{' '}
-              <span className="text-accent">Bloemen</span>
-            </span>
+            <a href="#" className="flex items-center gap-2.5 shrink-0">
+              <Daisy className="w-8 h-8 md:w-9 md:h-9 botanical-blush" />
+              <span className="font-heading text-xl md:text-2xl leading-none">
+                <span className="text-primary font-semibold">Madeliefste</span>{' '}
+                <span className="text-blush-deep italic">Bloemen</span>
+              </span>
+            </a>
             
             {/* Nav links - desktop */}
-            <nav className="hidden md:flex items-center gap-6 mx-auto">
+            <nav className="hidden lg:flex items-center gap-7 mx-auto">
               {navLinks.map((link) =>
-            <a key={link.href} href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">{link.label}</a>
+            <a key={link.href} href={link.href} className="relative text-[0.95rem] font-medium text-foreground/80 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-blush-deep after:transition-all hover:after:w-full">{link.label}</a>
             )}
             </nav>
 
             <div className="flex items-center gap-2 shrink-0">
-              <Button variant="warm" size="sm" asChild className="hidden md:inline-flex">
+              <Button size="sm" asChild className="hidden md:inline-flex rounded-full px-5 bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft">
                 <Link to="/bestellen" className="flex items-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
                   <span>Bestel</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="sm" asChild className="hidden md:inline-flex">
+              <Button variant="outline" size="sm" asChild className="hidden md:inline-flex rounded-full px-5 border-primary/30 text-primary hover:bg-sage-light">
                 <a href="tel:0235315809" className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   <span>Bel ons</span>
@@ -186,7 +193,7 @@ export default function Index() {
               </Button>
               {/* Mobile menu toggle */}
               <button
-              className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+              className="lg:hidden p-3 text-primary hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu">
 
@@ -198,13 +205,13 @@ export default function Index() {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen &&
-      <div className="md:hidden bg-card border-t border-border">
+      <div className="lg:hidden bg-background border-t border-border">
             <nav className="container-custom py-4 flex flex-col gap-3">
               {navLinks.map((link) =>
           <a
             key={link.href}
             href={link.href}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-2"
+            className="text-base font-medium text-foreground/85 hover:text-primary transition-colors py-2.5"
             onClick={() => setMobileMenuOpen(false)}>
 
                   {link.label}
@@ -234,23 +241,24 @@ export default function Index() {
 
         <div className="absolute inset-0 z-0">
           <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent md:bg-gradient-to-tr md:from-primary/85 md:via-primary/25 md:to-transparent" />
         </div>
-        
-        <div className="container-custom relative z-10 text-center pb-12 md:pb-16">
-          <h1 className="heading-xl animate-fade-in-up mb-3 text-primary-foreground">
+        <DaisyStem className="hidden md:block absolute right-6 lg:right-16 bottom-0 w-24 lg:w-32 h-auto z-10 text-primary-foreground/50 sway" />
+
+        <div className="container-custom relative z-10 text-center md:text-left pb-14 md:pb-20 w-full">
+          <div className="flex justify-center md:justify-start mb-4 animate-fade-in-up"><Daisy className="w-10 h-10 text-primary-foreground/80" /></div>
+          <h1 className="heading-xl animate-fade-in-up mb-4 text-primary-foreground max-w-3xl">
             Madeliefste Bloemen
           </h1>
-          <p className="body-lg animate-fade-in-delay-1 mb-8 text-primary-foreground/90 max-w-xl mx-auto">
+          <p className="body-lg animate-fade-in-delay-1 mb-9 text-primary-foreground max-w-xl mx-auto md:mx-0">
             Jouw buurtbloemist in de Hoofmanstraat, Haarlem
           </p>
           
           {/* Main Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-delay-2 px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 animate-fade-in-delay-2 px-4 sm:px-0">
             <Button
-            variant="warm"
             size="lg"
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-blush text-primary hover:bg-blush-light shadow-medium"
             asChild>
 
               <Link to="/bestellen">
@@ -261,7 +269,7 @@ export default function Index() {
             <Button
             variant="outline"
             size="lg"
-            className="w-full sm:w-auto bg-primary-foreground/20 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/30"
+            className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-transparent border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground"
             onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}>
 
               Bekijk ons aanbod
@@ -313,34 +321,26 @@ export default function Index() {
 
 
       {/* Over Nancy Section */}
-      <section className="section-padding section-gradient-warm">
+      <section className="section-padding section-gradient-warm relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -left-10 top-10 w-64 opacity-70" />
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="heading-lg text-center mb-8">Maak kennis met Nancy</h2>
-            <div className="bg-card overflow-hidden shadow-soft">
-              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="w-full" />
-              <div className="p-6 md:p-8 space-y-4 text-muted-foreground">
-                <p>Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat. Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt,  en dat is niet voor niets. Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.
-
-
-
-              </p>
-                <p className="italic border-l-2 border-blush pl-4">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."
-
-
-
-              </p>
-                <p>
-                  Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze.
-                  Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, 
-                  maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, 
-                  precies afgestemd op de wensen van de klant.
-                </p>
-                <p>De winkel voelt als thuiskomen, en dat komt niet alleen door de bloemen. Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. Het maakt Madeliefste nóg persoonlijker.
-
-
-
-              </p>
+          <div className="grid lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
+            <div className="relative reveal">
+              <div className="absolute -inset-3 md:-inset-4 rounded-[1.5rem] border border-blush-dark/50 translate-x-3 translate-y-3 md:translate-x-5 md:translate-y-5" aria-hidden="true" />
+              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="relative w-full rounded-[1.25rem] shadow-medium object-cover" />
+              <DaisyStem className="absolute -right-6 -bottom-10 w-20 md:w-24 h-auto botanical-blush sway" />
+            </div>
+            <div className="min-w-0 reveal">
+              <DaisyDivider className="justify-start mb-4 [&>span:first-child]:hidden" />
+              <h2 className="heading-lg mb-6 break-words">Maak kennis met Nancy</h2>
+              <div className="space-y-5 body-base text-foreground/85">
+                <p>Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat. Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt, en dat is niet voor niets. Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.</p>
+                <blockquote className="relative py-2 pl-10 md:pl-12">
+                  <span className="absolute left-0 -top-4 font-heading text-7xl leading-none text-blush-dark" aria-hidden="true">&ldquo;</span>
+                  <p className="font-heading italic text-xl md:text-2xl leading-relaxed text-primary">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."</p>
+                </blockquote>
+                <p>Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze. Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, precies afgestemd op de wensen van de klant.</p>
+                <p>De winkel voelt als thuiskomen, en dat komt niet alleen door de bloemen. Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. Het maakt Madeliefste nóg persoonlijker.</p>
               </div>
             </div>
           </div>
@@ -348,9 +348,11 @@ export default function Index() {
       </section>
 
       {/* Ons Aanbod & Galerij Section */}
-      <section id="aanbod" className="section-padding section-gradient-sage">
+      <section id="aanbod" className="section-padding section-plain relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -left-8 bottom-10 w-56 opacity-60" />
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Ons Werk</h2>
+          <DaisyDivider className="mb-4" />
+          <h2 className="heading-lg text-center break-words mb-3">Ons Werk</h2>
           <p className="text-center text-muted-foreground mb-8 max-w-lg mx-auto">Van verse seizoensbloemen tot bijzondere creaties, altijd met liefde samengesteld
 
         </p>
@@ -478,17 +480,18 @@ export default function Index() {
       {/* Trouwerij Section */}
       <section id="trouwerij" className="section-padding section-gradient-blush">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Trouwerij</h2>
-          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto body-base">
+          <DaisyDivider className="mb-4" />
+          <h2 className="heading-lg text-center break-words mb-4">Trouwerij</h2>
+          <p className="text-center text-foreground/80 mb-12 max-w-2xl mx-auto body-base">
             Met liefde verzorgen wij sfeervolle bloemdecoraties voor bruiloften. Van bruidsboeketten tot complete kerk- en locatieaankleding, ieder arrangement wordt met zorg samengesteld om van jullie bijzondere dag iets onvergetelijks te maken.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 md:auto-rows-[220px] lg:auto-rows-[260px] gap-3 md:gap-5 reveal">
             {trouwerijImages.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setTrouwLightbox(index)}
-                className="overflow-hidden cursor-pointer group relative aspect-square rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500"
+                className={`overflow-hidden cursor-pointer group relative rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500 ${index === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square md:aspect-auto"}`}
               >
                 <img
                   src={img.src}
@@ -544,7 +547,7 @@ export default function Index() {
           <p className="text-center text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3">
             Seizoensfavoriet
           </p>
-          <h2 className="heading-lg text-center mb-3">Wax-amaryllisbollen</h2>
+          <h2 className="heading-lg text-center break-words mb-3">Wax-amaryllisbollen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto body-base">
             Breng sfeer in huis met onze decoratieve wax-amaryllisbollen. Deze bijzondere amaryllissen hebben geen water of potgrond nodig en groeien zelfstandig uit tot prachtige bloemen. Ook erg leuk om cadeau te geven tijdens de feestdagen!
           </p>
@@ -672,9 +675,10 @@ export default function Index() {
       </section>
 
       {/* Onze Specialiteiten Section */}
-      <section id="specialiteiten" className="section-padding section-gradient-blush">
+      <section id="specialiteiten" className="section-padding section-gradient-cream">
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-3">Onze Specialiteiten</h2>
+          <DaisyDivider className="mb-4" />
+          <h2 className="heading-lg text-center break-words mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
             Waar we écht in uitblinken, met hart en ziel
           </p>
@@ -897,9 +901,11 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="section-padding section-gradient-blush">
+      <section id="contact" className="section-padding section-gradient-blush relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -right-8 top-8 w-56 botanical-blush opacity-70 -scale-x-100" />
         <div className="container-custom">
-          <h2 className="heading-lg text-center mb-2">Contact</h2>
+          <DaisyDivider className="mb-4" />
+          <h2 className="heading-lg text-center break-words mb-2">Contact</h2>
           <p className="text-center text-muted-foreground mb-4 max-w-lg mx-auto">
             We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
           </p>
