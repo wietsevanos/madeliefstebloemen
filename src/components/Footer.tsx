@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container-custom relative">
         <div className="grid md:grid-cols-3 gap-10 text-center md:text-left">
           <div>
-            <h3 className="font-heading text-3xl mb-3 flex items-center justify-center md:justify-start gap-2"><Daisy className="w-8 h-8 text-blush" /><span>Madeliefste <span className="italic text-blush">Bloemen</span></span></h3>
+            <h3 className="font-heading text-3xl mb-3 flex items-center justify-center md:justify-start gap-2"><Daisy className="w-7 h-7 text-blush" /><span>Madeliefste <span className="text-blush">Bloemen</span></span></h3>
             <p className="text-primary-foreground/70 text-sm">Jouw buurtbloemist in Haarlem</p>
           </div>
           <div>

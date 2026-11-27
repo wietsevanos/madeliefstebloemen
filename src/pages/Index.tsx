@@ -164,17 +164,17 @@ export default function Index() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             <a href="#" className="flex items-center gap-2.5 shrink-0">
-              <Daisy className="w-8 h-8 md:w-9 md:h-9 botanical-blush" />
-              <span className="font-heading text-xl md:text-2xl leading-none">
-                <span className="text-primary font-semibold">Madeliefste</span>{' '}
-                <span className="text-blush-deep italic">Bloemen</span>
+              <Daisy className="w-7 h-7 botanical-blush" />
+              <span className="font-heading text-xl md:text-[1.4rem] leading-none tracking-[0.01em]">
+                <span className="text-primary font-medium">Madeliefste</span>{' '}
+                <span className="text-blush-deep font-normal">Bloemen</span>
               </span>
             </a>
             
             {/* Nav links - desktop */}
-            <nav className="hidden xl:flex items-center gap-8 mx-auto px-8">
+            <nav className="hidden xl:flex items-center gap-9 mx-auto px-10">
               {navLinks.map((link) =>
-            <a key={link.href} href={link.href} className="relative text-[0.95rem] font-medium text-foreground/80 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-blush-deep after:transition-all hover:after:w-full">{link.label}</a>
+            <a key={link.href} href={link.href} className="relative text-[0.95rem] font-normal text-foreground/75 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-blush-deep after:transition-all hover:after:w-full">{link.label}</a>
             )}
             </nav>
 
@@ -323,21 +323,19 @@ export default function Index() {
       {/* Over Nancy Section */}
       <section className="py-14 md:py-20 section-gradient-warm relative overflow-hidden">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-[48fr_52fr] gap-12 lg:gap-14 items-center">
+          <div className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-16 items-start">
             <div className="relative reveal">
-              <div className="absolute inset-0 rounded-card bg-blush/50 translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6" aria-hidden="true" />
-              <Sprig className="absolute -left-12 -top-10 w-40 opacity-80 -rotate-12" />
-              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="relative w-full h-auto rounded-img shadow-medium" />
-              <DaisyStem className="absolute -right-6 -bottom-10 w-20 md:w-24 h-auto botanical-blush sway" />
+              <div className="absolute inset-0 rounded-card bg-blush/40 translate-x-4 translate-y-4" aria-hidden="true" />
+              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="relative w-full aspect-[4/5] object-cover object-center rounded-img shadow-medium" />
             </div>
             <div className="min-w-0 reveal">
               <DaisyDivider className="justify-start mb-4 [&>span:first-child]:hidden" />
               <h2 className="heading-lg mb-6 break-words">Maak kennis met Nancy</h2>
               <div className="space-y-5 body-base text-foreground/85">
                 <p>Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat. Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt, en dat is niet voor niets. Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.</p>
-                <blockquote className="relative py-2 pl-10 md:pl-12">
-                  <span className="absolute left-0 -top-4 font-heading text-7xl leading-none text-blush-dark" aria-hidden="true">&ldquo;</span>
-                  <p className="font-heading italic text-lg md:text-xl leading-relaxed text-primary">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."</p>
+                <blockquote className="relative rounded-card bg-blush-light px-7 py-7 md:px-10 md:py-8 my-2">
+                  <span className="absolute left-5 top-1 font-heading text-6xl leading-none text-blush-dark/70" aria-hidden="true">&ldquo;</span>
+                  <p className="relative font-heading italic text-lg md:text-xl leading-relaxed text-primary pl-4">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."</p>
                 </blockquote>
                 <p>Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze. Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, precies afgestemd op de wensen van de klant.</p>
                 <p>De winkel voelt als thuiskomen, en dat komt niet alleen door de bloemen. Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. Het maakt Madeliefste nóg persoonlijker.</p>
@@ -898,11 +896,10 @@ export default function Index() {
 
       {/* Contact Section */}
       <section id="contact" className="section-padding section-gradient-blush relative overflow-hidden">
-        <Sprig className="hidden md:block absolute -right-8 top-8 w-56 botanical-blush opacity-70 -scale-x-100" />
         <div className="container-custom">
           <DaisyDivider className="mb-4" />
           <h2 className="heading-lg text-center break-words mb-2">Contact</h2>
-          <p className="text-center text-foreground/80 max-w-lg mx-auto">
+          <p className="text-center text-foreground/80 max-w-lg mx-auto mt-3">
             We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
           </p>
           
@@ -925,7 +922,7 @@ export default function Index() {
 
 
 
-          <div className="grid md:grid-cols-[3fr_2fr] gap-6 mt-8 items-stretch reveal">
+          <div className="grid md:grid-cols-[7fr_5fr] gap-6 lg:gap-8 mt-10 items-stretch reveal">
             {/* Kaart */}
             <div className="glass rounded-card overflow-hidden flex flex-col">
               <div className="relative flex-1 min-h-[320px] md:min-h-[420px]">
@@ -940,9 +937,9 @@ export default function Index() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Locatie Madeliefste Bloemen" />
               </div>
-              <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-6 md:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-card flex items-center justify-center shadow-soft">
+                  <div className="w-11 h-11 rounded-full bg-card flex items-center justify-center">
                     <GoogleMapsLogo className="w-5 h-5" />
                   </div>
                   <div>
@@ -960,17 +957,17 @@ export default function Index() {
             </div>
 
             {/* Instagram */}
-            <div className="glass rounded-card p-6 md:p-8 flex flex-col">
-              <div className="grid grid-cols-3 gap-2 mb-6">
+            <div className="glass rounded-card p-6 md:p-7 flex flex-col">
+              <div className="grid grid-cols-3 gap-3 mb-7">
                 {galerijImages.slice(0, 3).map((img, i) => (
-                  <img key={i} src={img.src} alt={img.alt} loading="lazy" className={`w-full aspect-square object-cover rounded-md ${i === 1 ? "translate-y-3" : ""}`} />
+                  <img key={i} src={img.src} alt={img.alt} loading="lazy" className="block w-full aspect-[3/4] object-cover rounded-md" />
                 ))}
               </div>
-              <div className="flex items-center gap-3 mb-3 mt-2">
+              <div className="flex items-center gap-3 mb-3">
                 <div className="w-11 h-11 rounded-full bg-blush/60 flex items-center justify-center">
                   <Instagram className="w-5 h-5 text-blush-deep" strokeWidth={1.6} />
                 </div>
-                <h3 className="font-heading text-xl md:text-2xl font-medium text-primary">Een kijkje achter de schermen</h3>
+                <h3 className="font-heading text-xl font-medium text-primary leading-snug">Een kijkje achter de schermen</h3>
               </div>
               <p className="text-foreground/80 leading-relaxed mb-6">
                 Benieuwd wat er dagelijks in de winkel gebeurt? Ontdek de mooiste creaties, seizoensinspiratie en leuke momenten bij Madeliefste.
