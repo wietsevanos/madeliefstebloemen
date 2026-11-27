@@ -54,6 +54,8 @@ export default {
         cream: "hsl(var(--cream))",
         sage: "hsl(var(--sage))",
         "sage-light": "hsl(var(--sage-light))",
+        star: "hsl(var(--star))",
+        mint: "hsl(var(--mint))",
         "sage-dark": "hsl(var(--sage-dark))",
         blush: "hsl(var(--blush))",
         "blush-dark": "hsl(var(--blush-dark))",

@@ -7,3 +7,4 @@
 - Keep a two-line heading as an inline block span (`md:block`) rather than a `hidden md:block` `<br>`. Why: a display:none `<br>` swallows the whitespace between the words on small screens and the words run into each other.
 - Botanical decorations come from `src/components/Botanical.tsx` (Daisy, DaisyStem, Sprig, DaisyDivider) as inline SVG in token colours. Why: one consistent line-art style, bundled locally for DirectAdmin.
 - Scroll-in animation: add class `reveal` and call `useReveal()` on the page; reduced-motion is handled in `index.css`. Why: no animation dependency.
+- Radii and glass come from tokens/utilities in `index.css` (`rounded-img`, `rounded-card`, `.glass`, `.glass-dark`); primary CTAs use Button `warm`, secondary over photos `glass-light`. Why: one consistent design system site-wide.

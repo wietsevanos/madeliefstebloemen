@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart, ArrowLeft, Snowflake } from "lucide-react";
+import { MapPin, Clock, Phone, Star, MessageCircle, Instagram, Truck, CreditCard, Camera, ShoppingBag, Menu, X, ChevronLeft, ChevronRight, Leaf, Flower2, Heart, ArrowLeft, Snowflake, ZoomIn, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
@@ -172,28 +172,27 @@ export default function Index() {
             </a>
             
             {/* Nav links - desktop */}
-            <nav className="hidden lg:flex items-center gap-7 mx-auto">
+            <nav className="hidden xl:flex items-center gap-8 mx-auto px-8">
               {navLinks.map((link) =>
             <a key={link.href} href={link.href} className="relative text-[0.95rem] font-medium text-foreground/80 hover:text-primary transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-blush-deep after:transition-all hover:after:w-full">{link.label}</a>
             )}
             </nav>
 
-            <div className="flex items-center gap-2 shrink-0">
-              <Button size="sm" asChild className="hidden md:inline-flex rounded-full px-5 bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft">
+            <div className="flex items-center gap-3 shrink-0">
+              <Button variant="warm" size="sm" asChild className="hidden md:inline-flex px-4">
                 <Link to="/bestellen" className="flex items-center gap-2">
                   <ShoppingBag className="w-4 h-4" />
                   <span>Bestel</span>
                 </Link>
               </Button>
-              <Button variant="outline" size="sm" asChild className="hidden md:inline-flex rounded-full px-5 border-primary/30 text-primary hover:bg-sage-light">
-                <a href="tel:0235315809" className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
-                  <span>Bel ons</span>
-                </a>
-              </Button>
+              <a href="tel:0235315809" aria-label="Bel ons: 023 531 58 09" title="Bel ons"
+                className="group relative hidden md:inline-flex w-11 h-11 items-center justify-center rounded-full border border-primary/25 text-primary hover:bg-sage-light transition-colors">
+                <Phone className="w-[18px] h-[18px]" strokeWidth={1.6} />
+                <span role="tooltip" className="pointer-events-none absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md glass px-2.5 py-1 text-xs text-primary opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">Bel ons</span>
+              </a>
               {/* Mobile menu toggle */}
               <button
-              className="lg:hidden p-3 text-primary hover:text-primary transition-colors"
+              className="xl:hidden p-3 text-primary hover:text-primary transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu">
 
@@ -205,7 +204,7 @@ export default function Index() {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen &&
-      <div className="lg:hidden bg-background border-t border-border">
+      <div className="xl:hidden bg-background border-t border-border">
             <nav className="container-custom py-4 flex flex-col gap-3">
               {navLinks.map((link) =>
           <a
@@ -240,7 +239,7 @@ export default function Index() {
       <section className="relative h-screen flex items-end">
 
         <div className="absolute inset-0 z-0">
-          <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover" />
+          <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-auto rounded-md grayscale-[20%]" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent md:bg-gradient-to-tr md:from-primary/85 md:via-primary/25 md:to-transparent" />
         </div>
         <DaisyStem className="hidden md:block absolute right-6 lg:right-16 bottom-0 w-24 lg:w-32 h-auto z-10 text-primary-foreground/50 sway" />
@@ -258,7 +257,8 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 animate-fade-in-delay-2 px-4 sm:px-0">
             <Button
             size="lg"
-            className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-blush text-primary hover:bg-blush-light shadow-medium"
+            variant="warm"
+            className="w-full sm:w-auto h-14 px-8 text-base"
             asChild>
 
               <Link to="/bestellen">
@@ -267,9 +267,9 @@ export default function Index() {
               </Link>
             </Button>
             <Button
-            variant="outline"
+            variant="glass-light"
             size="lg"
-            className="w-full sm:w-auto rounded-full h-14 px-8 text-base bg-transparent border-primary-foreground/70 text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground"
+            className="w-full sm:w-auto h-14 px-8 text-base"
             onClick={() => document.getElementById('aanbod')?.scrollIntoView({ behavior: 'smooth' })}>
 
               Bekijk ons aanbod
@@ -286,7 +286,7 @@ export default function Index() {
       {/* Milieuvriendelijke bloemen - opvallend op de startpagina */}
       <section className="section-gradient-sage py-12 md:py-16">
         <div className="container-custom">
-          <div className="relative w-full md:w-fit max-w-full mx-auto bg-card rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
+          <div className="relative w-full md:w-fit max-w-full mx-auto bg-card rounded-card p-6 md:p-8 lg:p-12 shadow-[var(--shadow-medium)] ring-1 ring-primary/10 overflow-hidden">
 
             <div className="relative grid md:grid-cols-[auto_auto] md:justify-center gap-6 md:gap-10 lg:gap-12 items-center">
               <div className="justify-self-center md:justify-self-start">
@@ -321,13 +321,13 @@ export default function Index() {
 
 
       {/* Over Nancy Section */}
-      <section className="section-padding section-gradient-warm relative overflow-hidden">
-        <Sprig className="hidden md:block absolute -left-10 top-10 w-64 opacity-70" />
+      <section className="py-14 md:py-20 section-gradient-warm relative overflow-hidden">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[48fr_52fr] gap-12 lg:gap-14 items-center">
             <div className="relative reveal">
-              <div className="absolute -inset-3 md:-inset-4 rounded-[1.5rem] border border-blush-dark/50 translate-x-3 translate-y-3 md:translate-x-5 md:translate-y-5" aria-hidden="true" />
-              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="relative w-full rounded-[1.25rem] shadow-medium object-cover" />
+              <div className="absolute inset-0 rounded-card bg-blush/50 translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6" aria-hidden="true" />
+              <Sprig className="absolute -left-12 -top-10 w-40 opacity-80 -rotate-12" />
+              <img src={nancyImage} alt="Nancy, eigenares van Madeliefste" className="relative w-full h-auto rounded-img shadow-medium" />
               <DaisyStem className="absolute -right-6 -bottom-10 w-20 md:w-24 h-auto botanical-blush sway" />
             </div>
             <div className="min-w-0 reveal">
@@ -337,7 +337,7 @@ export default function Index() {
                 <p>Sinds 1 mei 2008 is Nancy de trotse eigenaar van Madeliefste Bloemen in de Hoofmanstraat. Inmiddels al ruim 18 jaar een vertrouwd gezicht in de buurt, en dat is niet voor niets. Haar passie voor bloemen en oog voor detail maken elke creatie bijzonder.</p>
                 <blockquote className="relative py-2 pl-10 md:pl-12">
                   <span className="absolute left-0 -top-4 font-heading text-7xl leading-none text-blush-dark" aria-hidden="true">&ldquo;</span>
-                  <p className="font-heading italic text-xl md:text-2xl leading-relaxed text-primary">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."</p>
+                  <p className="font-heading italic text-lg md:text-xl leading-relaxed text-primary">"Ik wil mensen blij maken met verse bloemen voor een eerlijke prijs. Elke creatie maak ik met liefde en aandacht voor detail. Of het nu gaat om een klein boeketje voor op tafel of een groot bloemstuk voor een bijzondere gelegenheid, ik leg overal mijn hart in."</p>
                 </blockquote>
                 <p>Nancy kiest bewust voor sterke combinaties en doordachte bloemkeuze. Denk aan prachtige seizoensbloemen als amaryllis en tulpen in de winter, zonnebloemen en pioenrozen in de zomer, maar ook bruidsboeketten, rouwstukken en feestelijke kerststukken. Alles wordt met vakmanschap en zorg samengesteld, precies afgestemd op de wensen van de klant.</p>
                 <p>De winkel voelt als thuiskomen, en dat komt niet alleen door de bloemen. Hond Kerel, de trouwe viervoeter van Nancy, verwelkomt iedere klant met een kwispel. Het maakt Madeliefste nóg persoonlijker.</p>
@@ -348,7 +348,7 @@ export default function Index() {
       </section>
 
       {/* Ons Aanbod & Galerij Section */}
-      <section id="aanbod" className="section-padding section-plain relative overflow-hidden">
+      <section id="aanbod" className="section-padding section-gradient-sage relative overflow-hidden">
         <Sprig className="hidden md:block absolute -left-8 bottom-10 w-56 opacity-60" />
         <div className="container-custom">
           <DaisyDivider className="mb-4" />
@@ -389,12 +389,12 @@ export default function Index() {
 
           return (
             <>
-                <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[140px] md:auto-rows-[180px] gap-3 max-w-5xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[230px] gap-3 md:gap-4 reveal">
                   {allImages.slice(0, 9).map((img, index) =>
                 <button
                   key={index}
                   onClick={() => setLightboxIndex(index)}
-                  className={`overflow-hidden cursor-pointer group relative rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
+                  className={`overflow-hidden cursor-pointer group relative rounded-img shadow-soft hover:shadow-medium transition-shadow duration-500 ${tileShapes[index]}`}>
 
                       <img
                     src={img.src}
@@ -402,8 +402,9 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                     loading="lazy" />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <span className="absolute top-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"><ZoomIn className="w-4 h-4" strokeWidth={1.6} /></span>
                       {img.label && (
-                        <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-xs font-semibold tracking-wide text-primary shadow-soft backdrop-blur-sm">
+                        <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-md glass px-3 py-1.5 text-xs font-semibold tracking-wide text-primary">
                           <Snowflake className="w-3.5 h-3.5" />
                           {img.label}
                         </span>
@@ -414,13 +415,13 @@ export default function Index() {
                   {/* CTA tile als laatste tegel */}
                   <button
                     onClick={() => setLightboxIndex(9)}
-                    className="overflow-hidden cursor-pointer group relative rounded-2xl shadow-medium hover:shadow-hover transition-all duration-500">
+                    className="overflow-hidden cursor-pointer group relative rounded-img shadow-medium hover:shadow-hover transition-all duration-500">
                     <img
                       src={allImages[9].src}
                       alt={allImages[9].alt}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/75 to-accent/80 group-hover:from-primary/90 group-hover:to-accent/90 transition-all duration-500" />
+                    <div className="absolute inset-0 bg-primary/70 group-hover:bg-primary/80 transition-colors duration-500" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-primary-foreground p-3 text-center">
                       <Camera className="w-7 h-7 md:w-8 md:h-8 mb-2 group-hover:scale-110 transition-transform duration-500" />
                       <span className="font-heading text-base md:text-lg font-semibold leading-tight">
@@ -437,34 +438,34 @@ export default function Index() {
                 {lightboxIndex !== null &&
               <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setLightboxIndex(null)}>
                     <button
-                  className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  className="absolute top-4 right-4 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Sluiten"
                   onClick={() => setLightboxIndex(null)}>
 
-                      <X className="w-8 h-8" />
+                      <X className="w-6 h-6" />
                     </button>
                     <button
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Vorige foto"
                   onClick={(e) => {e.stopPropagation();setLightboxIndex((lightboxIndex - 1 + allImages.length) % allImages.length);}}>
 
-                      <ChevronLeft className="w-10 h-10" />
+                      <ChevronLeft className="w-7 h-7" />
                     </button>
                     <button
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                  className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Volgende foto"
                   onClick={(e) => {e.stopPropagation();setLightboxIndex((lightboxIndex + 1) % allImages.length);}}>
 
-                      <ChevronRight className="w-10 h-10" />
+                      <ChevronRight className="w-7 h-7" />
                     </button>
                     <img
                   src={allImages[lightboxIndex].src}
                   alt={allImages[lightboxIndex].alt}
-                  className="max-h-[85vh] max-w-[90vw] object-contain"
+                  className="max-h-[85vh] max-w-[90vw] object-contain rounded-img animate-fade-in"
                   onClick={(e) => e.stopPropagation()} />
 
                     <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
                       {lightboxIndex + 1} / {allImages.length}
                     </span>
                     {allImages[lightboxIndex].label && (
-                      <span className="absolute bottom-12 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3.5 py-1.5 text-sm font-semibold tracking-wide text-primary shadow-soft backdrop-blur-sm">
+                      <span className="absolute bottom-12 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-md glass px-3.5 py-1.5 text-sm font-semibold tracking-wide text-primary shadow-soft backdrop-blur-sm">
                         <Snowflake className="w-4 h-4" />
                         {allImages[lightboxIndex].label}
                       </span>
@@ -478,7 +479,8 @@ export default function Index() {
       </section>
 
       {/* Trouwerij Section */}
-      <section id="trouwerij" className="section-padding section-gradient-blush">
+      <section id="trouwerij" className="section-padding section-gradient-blush relative overflow-hidden">
+        <DaisyStem className="hidden md:block absolute left-4 lg:left-10 top-16 w-20 lg:w-24 h-auto botanical-blush sway" />
         <div className="container-custom">
           <DaisyDivider className="mb-4" />
           <h2 className="heading-lg text-center break-words mb-4">Trouwerij</h2>
@@ -491,7 +493,7 @@ export default function Index() {
               <button
                 key={index}
                 onClick={() => setTrouwLightbox(index)}
-                className={`overflow-hidden cursor-pointer group relative rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500 ${index === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square md:aspect-auto"}`}
+                className={`overflow-hidden cursor-pointer group relative rounded-img shadow-soft hover:shadow-medium transition-shadow duration-500 ${index === 0 ? "col-span-2 row-span-2 aspect-square md:aspect-auto" : "aspect-square md:aspect-auto"}`}
               >
                 <img
                   src={img.src}
@@ -508,27 +510,27 @@ export default function Index() {
           {trouwLightbox !== null && (
             <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setTrouwLightbox(null)}>
               <button
-                className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute top-4 right-4 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Sluiten"
                 onClick={() => setTrouwLightbox(null)}
               >
-                <X className="w-8 h-8" />
+                <X className="w-6 h-6" />
               </button>
               <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Vorige foto"
                 onClick={(e) => { e.stopPropagation(); setTrouwLightbox((trouwLightbox - 1 + trouwerijImages.length) % trouwerijImages.length); }}
               >
-                <ChevronLeft className="w-10 h-10" />
+                <ChevronLeft className="w-7 h-7" />
               </button>
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Volgende foto"
                 onClick={(e) => { e.stopPropagation(); setTrouwLightbox((trouwLightbox + 1) % trouwerijImages.length); }}
               >
-                <ChevronRight className="w-10 h-10" />
+                <ChevronRight className="w-7 h-7" />
               </button>
               <img
                 src={trouwerijImages[trouwLightbox].src}
                 alt={trouwerijImages[trouwLightbox].alt}
-                className="max-h-[85vh] max-w-[90vw] object-contain"
+                className="max-h-[85vh] max-w-[90vw] object-contain rounded-img animate-fade-in"
                 onClick={(e) => e.stopPropagation()}
               />
               <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
@@ -542,30 +544,35 @@ export default function Index() {
 
 
       {/* Wax-amaryllisbollen Section */}
-      <section id="wax-amaryllisbollen" className="section-padding section-gradient-ice">
+      <section id="wax-amaryllisbollen" className="section-padding section-mint relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -right-10 top-12 w-60 opacity-70 -scale-x-100" />
         <div className="container-custom">
-          <p className="text-center text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3">
-            Seizoensfavoriet
-          </p>
+          <div className="flex justify-center mb-4">
+            <span className="inline-flex items-center gap-2 rounded-md glass px-3 py-1.5 text-xs md:text-sm uppercase tracking-[0.2em] font-semibold text-blush-deep">
+              <Daisy className="w-4 h-4 botanical-blush" />Seizoensfavoriet
+            </span>
+          </div>
           <h2 className="heading-lg text-center break-words mb-3">Wax-amaryllisbollen</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto body-base">
             Breng sfeer in huis met onze decoratieve wax-amaryllisbollen. Deze bijzondere amaryllissen hebben geen water of potgrond nodig en groeien zelfstandig uit tot prachtige bloemen. Ook erg leuk om cadeau te geven tijdens de feestdagen!
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto reveal">
             {waxImages.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setWaxLightbox(index)}
-                className="overflow-hidden cursor-pointer group relative aspect-[3/4] rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500"
+                className="glass rounded-card p-2 md:p-3 cursor-pointer group text-left hover:-translate-y-1 transition-transform duration-500"
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative overflow-hidden rounded-img aspect-[3/4]">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <span className="absolute top-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"><ZoomIn className="w-4 h-4" strokeWidth={1.6} /></span>
+                </div>
               </button>
             ))}
           </div>
@@ -574,27 +581,27 @@ export default function Index() {
           {waxLightbox !== null && (
             <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setWaxLightbox(null)}>
               <button
-                className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute top-4 right-4 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Sluiten"
                 onClick={() => setWaxLightbox(null)}
               >
-                <X className="w-8 h-8" />
+                <X className="w-6 h-6" />
               </button>
               <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Vorige foto"
                 onClick={(e) => { e.stopPropagation(); setWaxLightbox((waxLightbox - 1 + waxImages.length) % waxImages.length); }}
               >
-                <ChevronLeft className="w-10 h-10" />
+                <ChevronLeft className="w-7 h-7" />
               </button>
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Volgende foto"
                 onClick={(e) => { e.stopPropagation(); setWaxLightbox((waxLightbox + 1) % waxImages.length); }}
               >
-                <ChevronRight className="w-10 h-10" />
+                <ChevronRight className="w-7 h-7" />
               </button>
               <img
                 src={waxImages[waxLightbox].src}
                 alt={waxImages[waxLightbox].alt}
-                className="max-h-[85vh] max-w-[90vw] object-contain"
+                className="max-h-[85vh] max-w-[90vw] object-contain rounded-img animate-fade-in"
                 onClick={(e) => e.stopPropagation()}
               />
               <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
@@ -606,101 +613,89 @@ export default function Index() {
       </section>
 
       {/* Bezorgservice & Bestellen Section */}
-      <section id="bestellen" className="section-padding section-gradient-cream">
+      <section id="bestellen" className="section-padding section-plain relative overflow-hidden">
         <div className="container-custom">
-          {/* Header */}
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-full max-w-sm mx-auto mb-6" />
-            <h2 className="heading-lg mb-4">Bezorgservice <span className="font-body">&</span> Bestellen</h2>
-            <p className="text-muted-foreground body-base">
-              Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-center">
+            <div className="text-center lg:text-left reveal min-w-0">
+              <img src={bloemenOrnament} alt="Bloemen decoratie" className="w-full max-w-xs mx-auto lg:mx-0 mb-6" />
+              <h2 className="heading-lg mb-4 break-words">Bezorgservice <span className="font-body">&</span> Bestellen</h2>
+              <p className="text-foreground/80 body-base mb-8">
+                Al 18 jaar maken wij met liefde bloemcreaties voor onze klanten. Nu bezorgen wij ook binnen een straal van 15 km rondom de winkel.
+              </p>
+              <Button variant="warm" size="xl" asChild className="w-full sm:w-auto">
+                <Link to="/bestellen" className="flex items-center gap-3">
+                  <ShoppingBag className="w-5 h-5" />
+                  Bestel bloemen
+                </Link>
+              </Button>
+            </div>
 
-          {/* 3 kolommen bezorginfo - equal height */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
-            {[
-              {
-                Icon: Truck,
-                title: "Bezorgen binnen 15 km",
-                text: "Wij bezorgen binnen een straal van 15 kilometer rondom de winkel.",
-              },
-              {
-                Icon: CreditCard,
-                title: "Betalen via Tikkie",
-                text: "U bestelt via de website en ontvangt een Tikkie betaalverzoek. U betaalt dus achteraf.",
-              },
-              {
-                Icon: Camera,
-                title: "Bevestiging met foto",
-                text: "Na bezorging ontvangt u een bevestiging van aflevering met een foto.",
-              },
-            ].map(({ Icon, title, text }) => (
-              <div
-                key={title}
-                className="bg-card p-8 shadow-soft text-center flex flex-col items-center h-full"
-              >
-                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-primary" />
+            <div className="reveal min-w-0">
+              <ol className="space-y-4">
+                {[
+                  { Icon: Truck, title: "Bezorgen binnen 15 km", text: "Wij bezorgen binnen een straal van 15 kilometer rondom de winkel." },
+                  { Icon: CreditCard, title: "Betalen via Tikkie", text: "U bestelt via de website en ontvangt een Tikkie betaalverzoek. U betaalt dus achteraf." },
+                  { Icon: Camera, title: "Bevestiging met foto", text: "Na bezorging ontvangt u een bevestiging van aflevering met een foto." },
+                ].map(({ Icon, title, text }, i) => (
+                  <li key={title} className="flex gap-5 items-start rounded-card border border-border bg-card/70 p-5 md:p-6">
+                    <div className="relative shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-sage-light flex items-center justify-center">
+                        <Icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                      </div>
+                      <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-blush text-primary text-xs font-semibold flex items-center justify-center">{i + 1}</span>
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-heading font-semibold text-xl mb-1 text-primary">{title}</h3>
+                      <p className="text-foreground/75 leading-relaxed">{text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mt-4 rounded-card section-gradient-sage p-5 md:p-6 flex gap-4 items-start">
+                <Clock className="w-6 h-6 text-primary shrink-0 mt-1" strokeWidth={1.5} />
+                <div>
+                  <h3 className="font-heading font-semibold text-xl mb-2 text-primary">Bezorgmomenten</h3>
+                  <div className="text-foreground/80 space-y-1">
+                    <p>Bestellen kan elke dag: telefonisch of via de site.</p>
+                    <p>Wij bezorgen overdag, 's avonds en op zaterdag.</p>
+                    <p>Op zondag is bezorging mogelijk in overleg, met een toeslag van €15.</p>
+                  </div>
                 </div>
-                <h3 className="font-heading font-semibold text-lg mb-3">{title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
               </div>
-            ))}
-          </div>
-
-          {/* Bezorgmomenten - aligned with cards */}
-          <div className="max-w-5xl mx-auto bg-card p-8 shadow-soft mb-10">
-            <div className="flex items-center gap-2 justify-center mb-4">
-              <Clock className="w-5 h-5 text-primary" />
-              <h3 className="font-heading font-semibold text-lg">Bezorgmomenten</h3>
             </div>
-            <div className="text-center text-sm text-muted-foreground space-y-1.5 max-w-xl mx-auto">
-              <p>Bestellen kan elke dag: telefonisch of via de site.</p>
-              <p>Wij bezorgen overdag, 's avonds en op zaterdag.</p>
-              <p>Op zondag is bezorging mogelijk in overleg, met een toeslag van €15.</p>
-            </div>
-          </div>
-
-          {/* CTA knop */}
-          <div className="text-center">
-            <Button variant="warm" size="xl" asChild>
-              <Link to="/bestellen" className="flex items-center gap-3">
-                <ShoppingBag className="w-5 h-5" />
-                Bestel bloemen
-              </Link>
-            </Button>
           </div>
         </div>
       </section>
 
       {/* Onze Specialiteiten Section */}
-      <section id="specialiteiten" className="section-padding section-gradient-cream">
+      <section id="specialiteiten" className="section-padding section-pink relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -left-8 bottom-8 w-56 botanical-blush opacity-60" />
         <div className="container-custom">
-          <DaisyDivider className="mb-4" />
+          <div className="flex justify-center mb-3"><Daisy className="w-9 h-9 botanical-blush" /></div>
           <h2 className="heading-lg text-center break-words mb-3">Onze Specialiteiten</h2>
           <p className="text-center text-muted-foreground mb-10 max-w-lg mx-auto">
             Waar we écht in uitblinken, met hart en ziel
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
             {/* Rouwstukken - flipcard */}
             <FlipCard
               front={(flip) => (
-                <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
-                  <div className="p-5 text-center flex flex-col flex-1">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 ring-1 ring-primary/15">
-                      <Leaf className="w-6 h-6 text-primary" strokeWidth={1.5} />
+                <div className="glass rounded-card overflow-hidden flex flex-col h-full border-t-4 border-t-sage">
+                  <div className="p-7 text-center flex flex-col flex-1">
+                    <div className="w-16 h-16 rounded-full bg-sage-light flex items-center justify-center mx-auto mb-4">
+                      <Leaf className="w-7 h-7 text-primary" strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-heading text-lg font-semibold mb-2">Rouwstukken</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <h3 className="font-heading text-2xl font-medium mb-3 text-primary">Rouwstukken</h3>
+                    <p className="text-foreground/80 leading-relaxed">
                       Een laatste groet verdient alle aandacht. Nancy maakt met warmte en respect 
                       prachtige rouwstukken die recht doen aan een persoonlijk en waardig afscheid.
                     </p>
                     <button
                       type="button"
                       onClick={flip}
-                      className="group mt-4 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                      className="group mt-4 self-center inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-card/70 px-5 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-card hover:border-primary/40 active:translate-y-px"
                     >
                       <Camera className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
                       Bekijk voorbeeld
@@ -709,9 +704,9 @@ export default function Index() {
                 </div>
               )}
               back={(flip) => (
-                <div className="bg-card overflow-hidden shadow-soft rounded-2xl flex flex-col h-full">
+                <div className="glass rounded-card overflow-hidden flex flex-col h-full border-t-4 border-t-sage">
                   <div className="p-4 flex flex-col h-full">
-                    <div className="relative rounded-xl overflow-hidden flex-1 min-h-[120px]">
+                    <div className="relative rounded-img overflow-hidden flex-1 min-h-[160px]">
                       <img
                         src={rouwstukVoorbeeld}
                         alt="Voorbeeld van een rouwstuk met rozen, anjers en clematis in een houten stam"
@@ -722,7 +717,7 @@ export default function Index() {
                     <button
                       type="button"
                       onClick={flip}
-                      className="group mt-3 self-center inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium text-primary shadow-soft transition-all duration-300 hover:bg-primary/10 hover:border-primary/50 hover:shadow-hover hover:-translate-y-0.5"
+                      className="group mt-3 self-center inline-flex items-center gap-2 rounded-lg border border-primary/25 bg-card/70 px-5 py-2.5 text-sm font-medium text-primary transition-all duration-300 hover:bg-card hover:border-primary/40 active:translate-y-px"
                     >
                       <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-0.5" strokeWidth={1.5} />
                       Terug
@@ -733,13 +728,13 @@ export default function Index() {
             />
 
             {/* Boeketten op Maat */}
-            <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-5 text-center flex flex-col flex-1 justify-center">
-                <div className="w-12 h-12 rounded-full bg-blush/40 flex items-center justify-center mx-auto mb-3 ring-1 ring-blush-dark/25">
-                  <Flower2 className="w-6 h-6 text-blush-dark" strokeWidth={1.5} />
+            <div className="glass rounded-card overflow-hidden flex flex-col h-full border-t-4 border-t-blush-dark hover-lift">
+              <div className="p-7 text-center flex flex-col flex-1">
+                <div className="w-16 h-16 rounded-full bg-blush/50 flex items-center justify-center mx-auto mb-4">
+                  <Flower2 className="w-7 h-7 text-blush-deep" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-2">Boeketten op Maat</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
+                <h3 className="font-heading text-2xl font-medium mb-3 text-primary">Boeketten op Maat</h3>
+                <p className="text-foreground/80 leading-relaxed">
                   Elk boeket is maatwerk met karakter. Nancy haalt bloemen vers bij de boer 
                   en stelt bijzondere combinaties samen met topkwaliteit én een eerlijke prijs.
                 </p>
@@ -747,13 +742,13 @@ export default function Index() {
             </div>
 
             {/* Trouwboeketten */}
-            <div className="bg-card overflow-hidden rounded-2xl shadow-soft hover-lift flex flex-col h-full">
-              <div className="p-5 text-center flex flex-col flex-1 justify-center">
-                <div className="w-12 h-12 rounded-full bg-accent/30 flex items-center justify-center mx-auto mb-3 ring-1 ring-accent/50">
-                  <Heart className="w-6 h-6 text-accent-foreground" strokeWidth={1.5} />
+            <div className="glass rounded-card overflow-hidden flex flex-col h-full border-t-4 border-t-blush-deep hover-lift">
+              <div className="p-7 text-center flex flex-col flex-1">
+                <div className="w-16 h-16 rounded-full bg-blush-light flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-7 h-7 text-blush-deep" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-semibold mb-2">Trouwboeketten</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
+                <h3 className="font-heading text-2xl font-medium mb-3 text-primary">Trouwboeketten</h3>
+                <p className="text-foreground/80 leading-relaxed">
                   Jouw mooiste dag verdient de mooiste bloemen. Nancy stelt met liefde 
                   bruidsboeketten samen die perfect passen bij jouw droombruiloft.
                 </p>
@@ -768,13 +763,14 @@ export default function Index() {
 
 
       {/* Hanny Schaft Section */}
-      <section id="hanny-schaft" className="section-padding section-gradient-sage">
+      <section id="hanny-schaft" className="section-padding section-sage-muted">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-5 gap-8 items-stretch">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-5 gap-10 md:gap-14 items-center">
               {/* Portrait */}
-              <div className="md:col-span-2 relative">
-                <div className="h-full overflow-hidden rounded-2xl shadow-medium">
+              <div className="md:col-span-2 relative max-w-sm mx-auto w-full">
+                <div className="absolute inset-0 rounded-card border border-primary/30 -translate-x-3 translate-y-3 md:-translate-x-4 md:translate-y-4" aria-hidden="true" />
+                <div className="relative overflow-hidden rounded-img shadow-medium bg-card p-2">
                   <img
                   src={hannySchaftPortrait}
                   alt="Hannie Schaft"
@@ -782,7 +778,7 @@ export default function Index() {
 
                 </div>
                 {/* Logo badge */}
-                <div className="absolute -top-4 -right-4 rounded-2xl shadow-medium p-3" style={{ backgroundColor: '#FDF2F4' }}>
+                <div className="absolute -bottom-6 -right-4 rounded-card glass p-3">
                   <img
                   src={hannySchaftLogoFull}
                   alt="Nationale Hannie Schaft Stichting"
@@ -794,8 +790,8 @@ export default function Index() {
               {/* Content */}
               <div className="md:col-span-3 flex flex-col justify-center text-center md:text-left py-4">
                 <h2 className="heading-lg mb-4">Trotse Partner van de Hanny Schaftstichting</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
+                <div className="space-y-5 text-foreground/80 body-base">
+                  <p className="font-heading italic text-xl md:text-2xl leading-relaxed text-primary border-l-2 border-blush-dark pl-5">
                     "Ik vind het heel speciaal dat ik voor de Hanny Schaftstichting de krans mag maken. 
                     Ik ben een echte Hannie Schaft-fan en haar foto staat ook op de toonbank."
                   </p>
@@ -803,8 +799,8 @@ export default function Index() {
                     Nancy is bijzonder trots op deze samenwerking. "Ik kreeg er ook eens een bedankmail 
                     van Job Cohen van. Dan ben ik best trots op mezelf met wat ik bereikt heb."
                   </p>
-                  <p className="text-sm italic text-primary-foreground bg-gradient-to-r from-primary to-primary/75 px-5 py-3 mt-2 rounded-2xl shadow-soft">
-                    Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
+                  <p className="text-base glass rounded-card text-primary px-5 py-4 mt-2 flex items-center gap-3">
+                    <Daisy className="w-5 h-5 shrink-0" />Een eervol samenwerkingsverband waar we bijzonder dankbaar voor zijn.
                   </p>
                 </div>
               </div>
@@ -814,10 +810,11 @@ export default function Index() {
       </section>
 
       {/* Openingstijden Section */}
-      <section id="openingstijden" className="section-padding section-gradient-warm">
+      <section id="openingstijden" className="section-padding section-gradient-warm relative overflow-hidden">
+        <DaisyStem className="hidden lg:block absolute right-10 bottom-0 w-24 h-auto sway" />
         <div className="container-custom">
           <div className="max-w-2xl mx-auto text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium tracking-wide uppercase mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-sage-light text-primary text-xs font-semibold tracking-[0.15em] uppercase mb-4">
               <Clock className="w-3.5 h-3.5" />
               Wanneer je langs kunt komen
             </div>
@@ -828,7 +825,7 @@ export default function Index() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-card shadow-medium p-6 md:p-10">
+            <div className="bg-card border border-border shadow-soft p-6 md:p-10">
               {(() => {
                 const days = [
                   { name: "Maandag", hours: null },
@@ -843,26 +840,25 @@ export default function Index() {
                 const todayIndex = jsDay === 0 ? 6 : jsDay - 1;
 
                 return (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <div className="divide-y divide-border">
                     {days.map((day, i) => {
                       const isToday = i === todayIndex;
                       const isClosed = day.hours === null;
                       return (
                         <div
                           key={day.name}
-                          className={`flex items-center justify-between gap-4 px-5 py-4 rounded-2xl transition-all duration-300 ${
-                            isToday
-                              ? "bg-gradient-to-br from-blush/60 to-blush/30 ring-1 ring-blush-dark/30 shadow-soft"
-                              : "bg-muted/30 hover:bg-muted/50"
-                          } ${i === days.length - 1 && days.length % 2 === 1 ? "sm:col-span-2" : ""}`}
+                          className={`flex items-center justify-between gap-4 px-4 py-4 text-lg ${
+                            isToday ? "bg-blush-light rounded-md" : ""
+                          }`}
                         >
-                          <span className="text-foreground text-left">
+                          <span className="text-foreground text-left flex items-center gap-3">
+                            <span className={`w-2.5 h-2.5 rounded-full ${isClosed ? "bg-border" : "bg-primary"}`} aria-hidden="true" />
                             {day.name}
                           </span>
                           <span
                             className={`tabular-nums text-right ${
                               isClosed
-                                ? "text-muted-foreground italic text-sm"
+                                ? "text-muted-foreground"
                                 : "text-primary font-medium"
                             }`}
                           >
@@ -875,7 +871,7 @@ export default function Index() {
                 );
               })()}
 
-              <div className="mt-6 rounded-2xl bg-sage/25 px-5 py-4 flex items-start gap-3">
+              <div className="mt-6 rounded-card bg-sage-light px-5 py-4 flex items-start gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5" strokeWidth={1.5} />
                 <p className="text-sm md:text-base leading-relaxed">
                   <span className="font-medium text-foreground">Elke dag bestellen.</span>{" "}
@@ -889,7 +885,7 @@ export default function Index() {
                 </p>
                 <a
                   href="tel:0235315809"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-soft whitespace-nowrap"
+                  className="inline-flex items-center gap-2 h-12 px-5 rounded-lg bg-gradient-to-b from-blush to-blush-dark border border-blush-dark/60 text-primary font-semibold hover:from-blush-light hover:to-blush transition-colors shadow-soft whitespace-nowrap"
                 >
                   <Phone className="w-4 h-4" />
                   023 531 5809
@@ -906,7 +902,7 @@ export default function Index() {
         <div className="container-custom">
           <DaisyDivider className="mb-4" />
           <h2 className="heading-lg text-center break-words mb-2">Contact</h2>
-          <p className="text-center text-muted-foreground mb-4 max-w-lg mx-auto">
+          <p className="text-center text-foreground/80 max-w-lg mx-auto">
             We helpen je graag! Kom langs in de winkel, bel ons of stuur een mailtje.
           </p>
           
@@ -929,58 +925,58 @@ export default function Index() {
 
 
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
-            {/* Location Card */}
-            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col">
-              <div className="p-4 border-b border-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 bg-card flex items-center justify-center shadow-sm">
-                    <GoogleMapsLogo className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading font-semibold text-sm">Vind ons</h3>
-                    <p className="text-xs text-muted-foreground">Hoofmanstraat 1, Haarlem</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex-1 min-h-[220px]">
+          <div className="grid md:grid-cols-[3fr_2fr] gap-6 mt-8 items-stretch reveal">
+            {/* Kaart */}
+            <div className="glass rounded-card overflow-hidden flex flex-col">
+              <div className="relative flex-1 min-h-[320px] md:min-h-[420px]">
                 <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5!2d4.6347!3d52.3884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef0eb7f8c0d7%3A0x5c3e9d8e8e8e8e8e!2sHoofmanstraat%201%2C%202014%20DP%20Haarlem!5e1!3m2!1snl!2snl!4v1699000000000!5m2!1snl!2snl&maptype=satellite"
                 width="100%"
                 height="100%"
+                className="absolute inset-0"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Locatie Madeliefste Bloemen" />
               </div>
-              <div className="p-3 text-center">
-                <a
-                href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:underline">
-                  Route plannen
-                  <MapPin className="w-4 h-4" />
-                </a>
+              <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-card flex items-center justify-center shadow-soft">
+                    <GoogleMapsLogo className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-xl text-primary">Vind ons</h3>
+                    <p className="text-foreground/80">Hoofmanstraat 1, Haarlem</p>
+                  </div>
+                </div>
+                <Button variant="warm" asChild>
+                  <a href="https://maps.google.com/?q=Hoofmanstraat+1+Haarlem" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    Route plannen
+                  </a>
+                </Button>
               </div>
             </div>
 
-            {/* Instagram CTA Card */}
-            <div className="bg-card overflow-hidden shadow-soft hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center text-center p-6 md:p-8">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center mb-5">
-                <Instagram className="w-7 h-7 text-white" />
+            {/* Instagram */}
+            <div className="glass rounded-card p-6 md:p-8 flex flex-col">
+              <div className="grid grid-cols-3 gap-2 mb-6">
+                {galerijImages.slice(0, 3).map((img, i) => (
+                  <img key={i} src={img.src} alt={img.alt} loading="lazy" className={`w-full aspect-square object-cover rounded-md ${i === 1 ? "translate-y-3" : ""}`} />
+                ))}
               </div>
-              <h3 className="font-heading text-lg md:text-xl font-semibold mb-2">Een kijkje achter de schermen</h3>
-              <p className="text-muted-foreground leading-relaxed mb-5 max-w-xs text-sm">
+              <div className="flex items-center gap-3 mb-3 mt-2">
+                <div className="w-11 h-11 rounded-full bg-blush/60 flex items-center justify-center">
+                  <Instagram className="w-5 h-5 text-blush-deep" strokeWidth={1.6} />
+                </div>
+                <h3 className="font-heading text-xl md:text-2xl font-medium text-primary">Een kijkje achter de schermen</h3>
+              </div>
+              <p className="text-foreground/80 leading-relaxed mb-6">
                 Benieuwd wat er dagelijks in de winkel gebeurt? Ontdek de mooiste creaties, seizoensinspiratie en leuke momenten bij Madeliefste.
               </p>
-              <Button variant="outline" asChild>
-                <a
-                href="https://www.instagram.com/madeliefstebloemen/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2">
+              <Button variant="warm" asChild className="mt-auto w-full">
+                <a href="https://www.instagram.com/madeliefstebloemen/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
                   <Instagram className="w-4 h-4" />
                   @madeliefstebloemen
                 </a>
@@ -991,13 +987,14 @@ export default function Index() {
       </section>
 
       {/* Reviews Section */}
-      <section className="section-padding section-gradient-cream">
+      <section className="section-padding section-plain relative overflow-hidden">
+        <Sprig className="hidden md:block absolute -right-10 bottom-6 w-56 opacity-60 -scale-x-100" />
         <div className="container-custom">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <img src={googleLogo} alt="Google" className="h-10 md:h-12 mx-auto mb-3" />
             <div className="flex items-center justify-center gap-1.5 mb-4">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                <Star key={i} className="w-5 h-5 text-star fill-star" />
               ))}
               <span className="text-base font-medium text-muted-foreground ml-1.5">4,8 gemiddeld</span>
             </div>
@@ -1005,14 +1002,15 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
-              <div key={index} className="bg-card p-6 shadow-soft flex flex-col h-full">
+              <div key={index} className="relative rounded-card border border-border bg-card/70 p-7 flex flex-col h-full">
+                <Quote className="absolute top-5 right-5 w-8 h-8 text-blush" strokeWidth={1.2} aria-hidden="true" />
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                    <Star key={i} className="w-4 h-4 text-star fill-star" />
                   ))}
                 </div>
-                <p className="text-muted-foreground mb-4 italic flex-1">"{review.text}"</p>
-                <p className="font-medium text-foreground mt-auto pt-2 border-t border-border">{review.name}</p>
+                <p className="text-foreground/80 mb-5 leading-relaxed flex-1">"{review.text}"</p>
+                <p className="font-heading text-lg text-primary mt-auto pt-4 border-t border-border">{review.name}</p>
               </div>
             ))}
           </div>
@@ -1020,5 +1018,16 @@ export default function Index() {
       </section>
 
       <Footer />
+
+      {/* Mobiele vaste bestel- en belknoppen */}
+      <div className="md:hidden fixed bottom-3 inset-x-3 z-40 glass rounded-card p-2 flex gap-2">
+        <Button variant="warm" asChild className="flex-1 h-12">
+          <Link to="/bestellen" className="flex items-center justify-center gap-2"><ShoppingBag className="w-4 h-4" />Bestel bloemen</Link>
+        </Button>
+        <a href="tel:0235315809" aria-label="Bel ons: 023 531 58 09" className="w-12 h-12 shrink-0 rounded-full border border-primary/25 bg-card/80 flex items-center justify-center text-primary">
+          <Phone className="w-5 h-5" strokeWidth={1.6} />
+        </a>
+      </div>
+      <div className="h-20 md:hidden bg-primary" aria-hidden="true" />
     </div>;
 }

@@ -31,7 +31,7 @@ const VakantieBanner = () => {
   return (
     <section className="section-gradient-blush py-10 md:py-14">
       <div className="container-custom">
-        <div className="max-w-2xl mx-auto bg-card rounded-3xl p-6 md:p-10 shadow-[var(--shadow-medium)]">
+        <div className="max-w-2xl mx-auto bg-card rounded-card p-6 md:p-10 shadow-[var(--shadow-medium)]">
           <div className="text-center space-y-3 mb-6">
             <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary font-semibold">
               <CalendarDays className="w-4 h-4" />
@@ -44,7 +44,7 @@ const VakantieBanner = () => {
             {regels.map((r) => (
               <li
                 key={r.dag}
-                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 rounded-2xl px-5 py-4 ${
+                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 rounded-img px-5 py-4 ${
                   r.open ? "bg-sage/20" : "bg-blush/40"
                 }`}
               >
@@ -59,7 +59,7 @@ const VakantieBanner = () => {
           <div className="mt-6 text-center">
             <a
               href="tel:0651343023"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 section-gradient-sage text-primary font-semibold text-lg shadow-[var(--shadow-soft)] hover-lift"
+              className="inline-flex items-center gap-2 rounded-lg px-6 py-3 bg-gradient-to-b from-blush to-blush-dark border border-blush-dark/60 text-primary font-semibold text-lg shadow-[var(--shadow-soft)] hover-lift"
             >
               <Phone className="w-5 h-5" />
               06 51 34 30 23

@@ -34,7 +34,14 @@
     --input: 150 15% 85%;
     --ring: 155 32% 21%;
 
-    --radius: 0.875rem;
+    --radius: 0.5rem;
+    --radius-img: 10px;
+    --radius-card: 12px;
+    --star: 40 85% 48%;
+    --mint: 140 30% 92%;
+    --sage-muted: 130 14% 84%;
+    --pink-pastel: 350 55% 91%;
+    --glass-bg: 43 43% 98%;
 
     /* Custom design tokens */
     --cream: 42 44% 91%;
@@ -129,15 +136,15 @@
   main [class*="bg-card"],
   section [class*="bg-card"],
   footer [class*="bg-card"] {
-    border-radius: 1rem;
+    border-radius: var(--radius-card);
   }
 }
 
 @layer components {
   .glass-header {
-    background: hsl(var(--warm-white) / 0.94);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: hsl(var(--warm-white) / 0.78);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
     border-bottom: 1px solid hsl(var(--blush-dark) / 0.35);
     box-shadow: 0 6px 20px -16px hsl(var(--foreground) / 0.25);
   }
@@ -186,6 +193,26 @@
     background-image: radial-gradient(ellipse at 90% 100%, hsl(var(--warm-white) / 0.55), transparent 55%), var(--paper-grain);
   }
   .section-plain { background-color: hsl(var(--background)); }
+  .section-mint { background-color: hsl(var(--mint)); background-image: var(--paper-grain); }
+  .section-sage-muted { background-color: hsl(var(--sage-muted)); background-image: radial-gradient(ellipse at 15% 0%, hsl(var(--warm-white) / 0.45), transparent 55%), var(--paper-grain); }
+  .section-pink { background-color: hsl(var(--pink-pastel)); background-image: radial-gradient(ellipse at 85% 100%, hsl(var(--warm-white) / 0.5), transparent 55%), var(--paper-grain); }
+
+  /* Verfijnde glassmorphism */
+  .glass {
+    background: hsl(var(--glass-bg) / 0.62);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid hsl(var(--warm-white) / 0.7);
+    box-shadow: 0 1px 0 hsl(var(--warm-white) / 0.6) inset, 0 10px 30px -18px hsl(var(--foreground) / 0.25);
+  }
+  .glass-dark {
+    background: hsl(var(--foreground) / 0.28);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--warm-white) / 0.3);
+  }
+  .rounded-img { border-radius: var(--radius-img); }
+  .rounded-card { border-radius: var(--radius-card); }
 
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.22em] font-semibold text-blush-deep;
