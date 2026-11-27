@@ -236,15 +236,17 @@ export default function Index() {
       </header>
 
       {/* Hero Section - Full Screen, header floats on top */}
-      <section className="relative h-screen flex items-end">
+      <section className="relative min-h-[100svh] md:h-screen flex items-end overflow-hidden">
 
         <div className="absolute inset-0 z-0">
-          <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-auto rounded-md grayscale-[20%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/20 to-transparent md:bg-gradient-to-tr md:from-primary/85 md:via-primary/25 md:to-transparent" />
+          <img src={winkelImage} alt="Bloemenzaak Madeliefste van buiten" className="w-full h-full object-cover object-[58%_35%] md:object-center" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/35 via-45% to-transparent md:bg-gradient-to-tr md:from-primary/80 md:via-primary/20 md:to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-foreground/25 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-sage-light" />
         </div>
         <DaisyStem className="hidden md:block absolute right-6 lg:right-16 bottom-0 w-24 lg:w-32 h-auto z-10 text-primary-foreground/50 sway" />
 
-        <div className="container-custom relative z-10 text-center md:text-left pb-14 md:pb-20 w-full">
+        <div className="container-custom relative z-10 text-center md:text-left pb-28 md:pb-36 w-full">
           <div className="flex justify-center md:justify-start mb-4 animate-fade-in-up"><Daisy className="w-10 h-10 text-primary-foreground/80" /></div>
           <h1 className="heading-xl animate-fade-in-up mb-4 text-primary-foreground max-w-3xl">
             Madeliefste Bloemen
@@ -772,7 +774,7 @@ export default function Index() {
                   <img
                   src={hannySchaftPortrait}
                   alt="Hannie Schaft"
-                  className="w-full h-full object-cover" />
+                  className="w-full h-auto rounded-md grayscale-[20%]" />
 
                 </div>
                 {/* Logo badge */}
