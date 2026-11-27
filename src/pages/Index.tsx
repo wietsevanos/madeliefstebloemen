@@ -59,6 +59,8 @@ import wax3 from "@/assets/local/wax-amaryllis-3.jpg";
 import wax4 from "@/assets/local/wax-amaryllis-4.jpg";
 import wax5 from "@/assets/local/wax-amaryllis-5.jpg";
 import wax6 from "@/assets/local/wax-amaryllis-6.jpg";
+import hannyHart from "@/assets/local/hanny-hart.jpg";
+import hannyKrans from "@/assets/local/hanny-krans.jpg";
 
 const trouwerijImages = [
   { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
@@ -78,6 +80,11 @@ const waxImages = [
   { src: wax4, alt: "Wax-amaryllisbol met sneeuwpoppen in winterse kleding in zwart geschenkdoosje" },
   { src: wax5, alt: "Wax-amaryllisbol met Delfts blauw schipmotief in witte displayverpakking" },
   { src: wax6, alt: "Wax-amaryllisbol met Delfts blauw boerentafereel in witte displayverpakking" },
+];
+
+const hannyImages = [
+  { src: hannyHart, alt: "Hartvormig bloemstuk met rode en oranje rozen, blauwe distels en rode bessen", ratio: "aspect-[3/4]" },
+  { src: hannyKrans, alt: "Krans met rode en oranje rozen, blauwe distels en bessen, opgemaakt voor de Hannie Schaftstichting", ratio: "aspect-[4/3]" },
 ];
 
 const galerijImages = [
@@ -145,6 +152,7 @@ export default function Index() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [trouwLightbox, setTrouwLightbox] = useState<number | null>(null);
   const [waxLightbox, setWaxLightbox] = useState<number | null>(null);
+  const [hannyLightbox, setHannyLightbox] = useState<number | null>(null);
   
 
   const navLinks = [
@@ -804,6 +812,61 @@ export default function Index() {
                 </div>
               </div>
             </div>
+
+            {/* Bloemstukken van de Hanny Schaftstichting */}
+            <div className="mt-12 md:mt-16 reveal">
+              <div className="grid grid-cols-1 sm:grid-cols-[9fr_16fr] gap-4 sm:gap-3 md:gap-8 max-w-5xl mx-auto">
+                {hannyImages.map((img, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setHannyLightbox(index)}
+                    aria-label={img.alt}
+                    className="relative overflow-hidden rounded-img border border-border shadow-soft cursor-pointer group block w-full hover:-translate-y-1 hover:shadow-medium transition-all duration-500"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className={`w-full object-cover ${img.ratio} group-hover:scale-[1.03] transition-transform duration-700 ease-out`}
+                    />
+                    <span className="absolute top-2 right-2 w-8 h-8 rounded-full glass flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"><ZoomIn className="w-4 h-4" strokeWidth={1.6} /></span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Lightbox Hanny Schaft bloemstukken */}
+            {hannyLightbox !== null && (
+              <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setHannyLightbox(null)}>
+                <button
+                  className="absolute top-4 right-4 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Sluiten"
+                  onClick={() => setHannyLightbox(null)}
+                >
+                  <X className="w-6 h-6" />
+                </button>
+                <button
+                  className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Vorige foto"
+                  onClick={(e) => { e.stopPropagation(); setHannyLightbox((hannyLightbox - 1 + hannyImages.length) % hannyImages.length); }}
+                >
+                  <ChevronLeft className="w-7 h-7" />
+                </button>
+                <button
+                  className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark flex items-center justify-center text-primary-foreground hover:bg-primary-foreground/20 z-10" aria-label="Volgende foto"
+                  onClick={(e) => { e.stopPropagation(); setHannyLightbox((hannyLightbox + 1) % hannyImages.length); }}
+                >
+                  <ChevronRight className="w-7 h-7" />
+                </button>
+                <img
+                  src={hannyImages[hannyLightbox].src}
+                  alt={hannyImages[hannyLightbox].alt}
+                  className="max-h-[85vh] max-w-[90vw] object-contain rounded-img animate-fade-in"
+                  onClick={(e) => e.stopPropagation()}
+                />
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
+                  {hannyLightbox + 1} / {hannyImages.length}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
