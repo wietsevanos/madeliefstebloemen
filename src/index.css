@@ -183,6 +183,10 @@
   .section-gradient-cream {
     background: linear-gradient(180deg, hsl(45 33% 98%) 0%, hsl(45 40% 88%) 100%);
   }
+
+  .section-gradient-ice {
+    background: linear-gradient(180deg, hsl(165 30% 98%) 0%, hsl(165 26% 91%) 100%);
+  }
 }
 
 @layer utilities {

@@ -539,7 +539,7 @@ export default function Index() {
 
 
       {/* Wax-amaryllisbollen Section */}
-      <section id="wax-amaryllisbollen" className="section-padding bg-background">
+      <section id="wax-amaryllisbollen" className="section-padding section-gradient-ice">
         <div className="container-custom">
           <p className="text-center text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3">
             Seizoensfavoriet
