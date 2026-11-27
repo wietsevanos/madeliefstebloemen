@@ -51,6 +51,12 @@ import trouwerij7 from "@/assets/trouwerij-7.jpg";
 import trouwerij8 from "@/assets/trouwerij-8.jpg";
 import rouwstukVoorbeeld from "@/assets/local/rouwstuk-voorbeeld.jpg";
 import winterstukImage from "@/assets/local/winterstuk.jpg";
+import wax1 from "@/assets/local/wax-amaryllis-1.jpg";
+import wax2 from "@/assets/local/wax-amaryllis-2.jpg";
+import wax3 from "@/assets/local/wax-amaryllis-3.jpg";
+import wax4 from "@/assets/local/wax-amaryllis-4.jpg";
+import wax5 from "@/assets/local/wax-amaryllis-5.jpg";
+import wax6 from "@/assets/local/wax-amaryllis-6.jpg";
 
 const trouwerijImages = [
   { src: trouwerij1, alt: "Bruidsboeket met witte rozen op autokap" },
@@ -61,6 +67,15 @@ const trouwerijImages = [
   { src: trouwerij6, alt: "Vaas met witte bloemen bij altaar" },
   { src: trouwerij7, alt: "Kerkelijke bloemdecoratie bij altaar" },
   { src: trouwerij8, alt: "Complete kerkaankleding met bruidsboeketten" },
+];
+
+const waxImages = [
+  { src: wax1, alt: "Drie wax-amaryllisbollen met sneeuwpopillustraties in geschenkverpakking, tussen kerstdecoratie" },
+  { src: wax2, alt: "Wax-amaryllisbol met sneeuwpop en kerstboom in zwart geschenkdoosje, met groene scheut" },
+  { src: wax3, alt: "Wax-amaryllisbol met twee sneeuwpoppen met mokken in zwart geschenkdoosje" },
+  { src: wax4, alt: "Wax-amaryllisbol met sneeuwpoppen in winterse kleding in zwart geschenkdoosje" },
+  { src: wax5, alt: "Wax-amaryllisbol met Delfts blauw schipmotief in witte displayverpakking" },
+  { src: wax6, alt: "Wax-amaryllisbol met Delfts blauw boerentafereel in witte displayverpakking" },
 ];
 
 const galerijImages = [
@@ -127,6 +142,7 @@ export default function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [trouwLightbox, setTrouwLightbox] = useState<number | null>(null);
+  const [waxLightbox, setWaxLightbox] = useState<number | null>(null);
   
 
   const navLinks = [
@@ -521,6 +537,70 @@ export default function Index() {
       </section>
 
 
+
+      {/* Wax-amaryllisbollen Section */}
+      <section id="wax-amaryllisbollen" className="section-padding bg-background">
+        <div className="container-custom">
+          <p className="text-center text-xs md:text-sm uppercase tracking-[0.2em] text-muted-foreground mb-3">
+            Seizoensfavoriet
+          </p>
+          <h2 className="heading-lg text-center mb-3">Wax-amaryllisbollen</h2>
+          <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto body-base">
+            Breng sfeer in huis met onze decoratieve wax-amaryllisbollen. Deze bijzondere amaryllissen hebben geen water of potgrond nodig en groeien zelfstandig uit tot prachtige bloemen. Ook erg leuk om cadeau te geven tijdens de feestdagen!
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+            {waxImages.map((img, index) => (
+              <button
+                key={index}
+                onClick={() => setWaxLightbox(index)}
+                className="overflow-hidden cursor-pointer group relative aspect-[3/4] rounded-2xl shadow-soft hover:shadow-medium transition-shadow duration-500"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
+            ))}
+          </div>
+
+          {/* Lightbox wax-amaryllisbollen */}
+          {waxLightbox !== null && (
+            <div className="fixed inset-0 z-[100] bg-foreground/90 flex items-center justify-center" onClick={() => setWaxLightbox(null)}>
+              <button
+                className="absolute top-4 right-4 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={() => setWaxLightbox(null)}
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <button
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={(e) => { e.stopPropagation(); setWaxLightbox((waxLightbox - 1 + waxImages.length) % waxImages.length); }}
+              >
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-primary-foreground/80 hover:text-primary-foreground z-10"
+                onClick={(e) => { e.stopPropagation(); setWaxLightbox((waxLightbox + 1) % waxImages.length); }}
+              >
+                <ChevronRight className="w-10 h-10" />
+              </button>
+              <img
+                src={waxImages[waxLightbox].src}
+                alt={waxImages[waxLightbox].alt}
+                className="max-h-[85vh] max-w-[90vw] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
+                {waxLightbox + 1} / {waxImages.length}
+              </span>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Bezorgservice & Bestellen Section */}
       <section id="bestellen" className="section-padding section-gradient-cream">
