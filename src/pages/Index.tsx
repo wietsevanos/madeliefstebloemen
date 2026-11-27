@@ -247,7 +247,6 @@ export default function Index() {
         <DaisyStem className="hidden md:block absolute right-6 lg:right-16 bottom-0 w-24 lg:w-32 h-auto z-10 text-primary-foreground/50 sway" />
 
         <div className="container-custom relative z-10 text-center md:text-left pb-28 md:pb-36 w-full">
-          <div className="flex justify-center md:justify-start mb-4 animate-fade-in-up"><Daisy className="w-10 h-10 text-primary-foreground/80" /></div>
           <h1 className="heading-xl animate-fade-in-up mb-4 text-primary-foreground max-w-3xl">
             Madeliefste Bloemen
           </h1>
@@ -987,7 +986,6 @@ export default function Index() {
 
       {/* Reviews Section */}
       <section className="section-padding section-plain relative overflow-hidden">
-        <Sprig className="hidden md:block absolute -right-10 bottom-6 w-56 opacity-60 -scale-x-100" />
         <div className="container-custom">
           <div className="text-center mb-12">
             <img src={googleLogo} alt="Google" className="h-10 md:h-12 mx-auto mb-3" />
